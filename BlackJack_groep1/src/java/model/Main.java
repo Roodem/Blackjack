@@ -55,26 +55,26 @@ public class Main {
         for (Card card : cards) {
             System.out.println(card);
         }
-        int i = 1;
-        while (hand1.getStatus().equals(HandStatus.OTHER)) {
-
-            Card c = deck.drawCardFromDeck();
-            System.out.println(c);
-            hand1.addCard(c);
-            hand1.calculateValueHand();
-            hand1.evaluateHandStatus();
-           
-            System.out.println(hand1.calculateValueHand());;
-            System.out.println(hand1.getStatus());
-            if (hand1.getStatus().equals(HandStatus.BLACKJACK)) {
-                break;
-            }
-             if (hand1.getStatus().equals(HandStatus.BURNED)) {
-                break;
-            }
-
-            i++;
-
+//        int i = 1;
+//        while (hand1.getStatus().equals(HandStatus.OTHER)) {
+//
+//            Card c = deck.drawCardFromDeck();
+//            System.out.println(c);
+//            hand1.addCard(c);
+//            hand1.calculateValueHand();
+//            hand1.evaluateHandStatus();
+//           
+//            System.out.println(hand1.calculateValueHand());;
+//            System.out.println(hand1.getStatus());
+//            if (hand1.getStatus().equals(HandStatus.BLACKJACK)) {
+//                break;
+//            }
+//             if (hand1.getStatus().equals(HandStatus.BURNED)) {
+//                break;
+//            }
+//
+//            i++;
+//
 //        }
 //        //Alle kaarten en hun numerieke waarde
 //        for (Card next : deck.getCards()) {
