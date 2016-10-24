@@ -34,7 +34,7 @@ public class Main {
         Player p1 = new Player(new Icon("test","test"), "Stijn", 50);
         ArrayList<Player> players = new ArrayList<>();
         Game g = new Game(players);
-        //dealer testen
+        
         g.CardDistribution();
        
         System.out.println(g.getDealer().getHand().getStatus());
