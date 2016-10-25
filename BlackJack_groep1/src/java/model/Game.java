@@ -7,6 +7,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  *
@@ -129,4 +130,11 @@ public class Game {
         }
 
     }
+        public Date getDate()
+    {
+        cal = Calendar.getInstance();
+        Date datum = cal.getTime();
+        return datum;
+    }
+
 }
