@@ -23,6 +23,8 @@ public class Deck {
     public Deck() {
         cards = new ArrayList<>();
         fillDeck();
+        shuffle();
+        
 
     }
 

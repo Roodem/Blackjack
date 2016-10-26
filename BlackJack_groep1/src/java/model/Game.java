@@ -7,6 +7,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  *
@@ -36,17 +37,21 @@ public class Game {
         Card closedCard = deck.drawCardFromDeck();
         closedCard.setVisible(false);
         dealer.getHand().addCard(closedCard);
-                
+
         // elke speler een kaart
         for (Player player : players) {
             player.getHand().addCard(deck.drawCardFromDeck());
         }
-        
+
         //dealer open kaart
         dealer.getHand().addCard(deck.drawCardFromDeck());
 
     }
-   
+
+    public Dealer getDealer() {
+        return dealer;
+    }
+
     //playerhit en logica addcard van hand nog eens bekijken / herzien
     public void PlayerHit(Player player) {
         if (player.getHand().getStatus().equals(HandStatus.BURNED)) {
@@ -60,16 +65,76 @@ public class Game {
     public void PlayerStand(Player player) {
         player.getHand().setStatus(HandStatus.STAND);
     }
-    
-    
-    public void DealerStand(Dealer dealer){
+
+    public void DealerStand(Dealer dealer) {
         dealer.getHand().setStatus(HandStatus.STAND);
     }
-    
-    public void DealerHit(Dealer dealer){
-        //check min draw
-        //check min stand
-        
-        
+
+    public void DealerHit(Dealer dealer) {
+
+        if ((dealer.getHand().calculateValueHand() > 21)) {
+            dealer.getHand().setStatus(HandStatus.BURNED);
+
+        } else if (dealer.getHand().calculateValueHand() == 21 && dealer.getHand().getAmountOfcards() == 2) {
+            dealer.getHand().setStatus(HandStatus.BLACKJACK);
+        } else if (dealer.getHand().calculateValueHand() >= dealer.getMinStand()) {
+            dealer.getHand().setStatus(HandStatus.STAND);
+
+        } else {
+            dealer.getHand().addCard(deck.drawCardFromDeck());
+        }
+
     }
+
+    public void evaluateGame() {
+
+        for (Player player : players) {
+
+            if (player.getHand().getStatus().equals(HandStatus.BURNED)) {
+                player.setStatus(GameStatus.LOSS);
+            } else if (player.getHand().getStatus().equals(HandStatus.STAND)) {
+
+                //Blackjack uitzondering
+                if (player.getHand().calculateValueHand() > dealer.getHand().calculateValueHand()) {
+                    player.setStatus(GameStatus.WIN);
+
+                } else if(player.getHand().calculateValueHand() == dealer.getHand().calculateValueHand()) {
+                    player.setStatus(GameStatus.PUSH);
+                }
+                else{
+                    player.setStatus(GameStatus.LOSS);
+                }
+            }
+
+        }
+    }
+
+    public void distributePayments() {
+        for (Player player : players) {
+            
+            if(player.getHand().getStatus().equals(HandStatus.BLACKJACK)){
+                 player.setBalance((int) (player.getBalance() + (player.getHand().getBet() * 1.5)));
+            }
+            
+            else if(player.getStatus().equals(GameStatus.WIN)){
+                player.setBalance(player.getBalance() + player.getHand().getBet());
+            }
+            
+            else if (player.getStatus().equals(GameStatus.PUSH)){
+                player.setBalance(player.getBalance() + player.getHand().getBet());
+            }
+            
+            else{
+                player.setBalance(player.getBalance() - player.getHand().getBet() );
+            }
+        }
+
+    }
+        public Date getDate()
+    {
+        cal = Calendar.getInstance();
+        Date datum = cal.getTime();
+        return datum;
+    }
+
 }
