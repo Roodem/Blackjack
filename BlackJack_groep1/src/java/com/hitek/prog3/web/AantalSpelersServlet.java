@@ -15,18 +15,23 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author MSI
+ * @author Stone
  */
-public class spelerVerwijderenServlet extends HttpServlet {
+public class AantalSpelersServlet extends HttpServlet {
 
-    @Override
+    
+  @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        
-        RequestDispatcher view = request.getRequestDispatcher("spelerVerwijderen.jsp");
+                String aantal = request.getParameter("aantalspelers");
+                
+                request.setAttribute("aantal", aantal);
+                RequestDispatcher view = request.getRequestDispatcher("profielkiezen.jsp");
                 view.forward(request, response);
-        
+                
+                       
+       
     }
 
 }

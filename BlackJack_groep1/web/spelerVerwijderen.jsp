@@ -1,6 +1,6 @@
 <%-- 
-    Document   : beheerderAccount
-    Created on : 26-okt-2016, 11:05:33
+    Document   : spelerVerwijderen
+    Created on : 27-okt-2016, 10:16:45
     Author     : MSI
 --%>
 
@@ -10,9 +10,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <style>
+            input{
+                position: absolute;
+            }
+        </style>
     </head>
     <body>
-        
         <h3 style="font-size: 50px">Beheerder</h3>
         <form action="spelerAanmakenServlet" method="post">
             <input  type="submit" value="Speler Aanmaken">
@@ -29,6 +33,5 @@
         <form action="beheerAfsluitenServlet" method="post">
             <input type="submit" value="Beheer Afsluiten">
         </form> 
-        
     </body>
 </html>
