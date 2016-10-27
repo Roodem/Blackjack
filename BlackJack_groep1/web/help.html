@@ -6,16 +6,42 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Help</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style type="text/css">
-            
+            body
+            {
+                background-color: black; color: yellow
+            }
+            #container{
+                border: black 1px dotted; width: 60%; height:600px; margin-left: auto; margin-right: auto;overflow-y: scroll;
+            }
+            .button.black {
+                background-image: -webkit-gradient(linear, left top, left bottom, 
+                    from(#4286f5), 
+                    color-stop(0.5, #4286f5),
+                    color-stop(0.5, #194fdb),
+                    to(#194fdb));
+                
+                border: solid 1px rgba(79, 79, 79, 0.75);
+            }
+            .button.black:hover {
+                background-image: -webkit-gradient(linear, left top, left bottom, 
+                    from(#7d828c),
+                    color-stop(0.5, #303749), 
+                    color-stop(0.5, #121a2e), 
+                    to(#121a2e));
+            }
+
         </style>
     </head>
-    <body style="background-color: black; color: yellow">
-        <div><button type="button" value="hoofdpagina">Hoofdpagina</button></div>
-        <div style="border: black 1px dotted; width: 60%; height:600px; margin-left: auto; margin-right: auto;overflow-y: scroll;">
+    <body>
+        <form action="index.html">
+            <button class="button back black"><span></span>Back</button>
+        </form>
+        <div></div>
+        <div id="container">
             <h1>SPELREGELS</h1>
             <h2>DOEL</h2>
             <p>Het doel van het spel is om de bank (dealer) te verslaan. Hierbij moet men proberen dichter bij de 21 punten te komen dan de bank. Als de speler boven de 21 punten uitkomt heeft hij verloren, ongeacht wat de bank heeft.</p>
@@ -27,7 +53,7 @@ and open the template in the editor.
             <p>Nadat de spelers hun inzet hebben geplaatst, deelt de bank (dealer) met de klok mee aan iedere speler twee kaarten en zichzelf één kaart (2, waarvan 1 gesloten).</p>
             <b>BLACKJACK</b><p>Als een speler dan al 21 punten heeft met de eerste twee kaarten, dus een Aas met een 10, Boer, Vrouw of Heer wordt dat een blackjack genoemd en wint de speler 1,5 keer zijn of haar inzet, tenzij de bank ook blackjack heeft, dan is het gelijkspel (stand-off)). De blackjack wordt meteen uitgekeerd als de dealer geen kans meer heeft om zelf een blackjack te krijgen (De open kaart van de bank is geen honneur). Kan de dealer zelf wel nog een blackjack krijgen, dan blijft de inzet staan totdat de dealer de tweede kaart krijgt.</p>
             <b>HIT</b><p>Een bet tijdens de ronde noemen we een hit, hierbij vragen we een nieuwe kaart aan de dealer.
-            Als een speler hierbij meer dan 21 punten krijgt, heeft de speler verloren. 
+                Als een speler hierbij meer dan 21 punten krijgt, heeft de speler verloren. 
             </p>
             <b>STAND</b><p>
                 Als alle spelers hebben gepast, deelt de croupier kaarten voor zichzelf. De dealer stopt op het moment dat hij 17 of meer punten heeft behaald. Hierbij geldt de Aas als 11, tenzij daarmee de 21 wordt overschreden.
