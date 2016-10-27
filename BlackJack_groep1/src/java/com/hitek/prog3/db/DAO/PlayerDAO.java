@@ -35,8 +35,9 @@ public class PlayerDAO {
                 Player p = new Player();
                 p.setNickname(rs.getString("nickname"));
                 p.setBalance(rs.getInt("balance"));
+                p.setIcon(new Icon("icoonnaam", "icoonurl"));
                 
-                
+                players.add(p);
                 
                 
             }
