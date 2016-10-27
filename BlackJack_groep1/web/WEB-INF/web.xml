@@ -20,6 +20,10 @@
         <servlet-name>beheerAfsluitenServlet</servlet-name>
         <servlet-class>com.hitek.prog3.web.beheerAfsluitenServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AantalSpelersServlet</servlet-name>
+        <servlet-class>com.hitek.prog3.web.AantalSpelersServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>GameServlet</servlet-name>
         <url-pattern>/GameServlet</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>beheerAfsluitenServlet</servlet-name>
         <url-pattern>/beheerAfsluitenServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AantalSpelersServlet</servlet-name>
+        <url-pattern>/AantalSpelersServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

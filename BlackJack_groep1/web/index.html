@@ -9,8 +9,23 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            #container{
+                border: black 1px dotted; width: 950px; height:600px; margin-left: auto; margin-right: auto;
+            }
+        </style>
     </head>
     <body>
-        <div>TODO write blackjack</div>
+        <div id="container">TODO write blackjack
+        <form action="AantalSpelersServlet" method="POST">
+            <select name="aantalspelers">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            <input type="submit" value="kies">
+        </form>
+        </div>
     </body>
 </html>
