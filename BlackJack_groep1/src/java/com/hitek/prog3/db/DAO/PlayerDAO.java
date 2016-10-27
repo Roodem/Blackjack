@@ -21,6 +21,7 @@ public class PlayerDAO {
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
         ResultSet rs = null;
         
+       
         String qr = "SELECT * FROM player";
         
         
