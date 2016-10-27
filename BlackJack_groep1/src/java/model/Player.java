@@ -13,6 +13,21 @@ public class Player {
     private Icon icon;
     private String nickname;
     private int balance;
+
+    public void setIcon(Icon icon) {
+        this.icon = icon;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public void setHand(Hand hand) {
+        this.hand = hand;
+    }
+
+    public Player() {
+    }
     private Hand hand;
     private GameStatus status;
 
