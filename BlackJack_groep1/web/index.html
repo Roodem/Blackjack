@@ -6,17 +6,26 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Blackjack</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style type="text/css">
             #container{
+
                 border: black 1px dotted; width: 950px; height:600px; margin-left: auto; margin-right: auto;
+
+                border:black 1px dotted; width: 60%; height:600px; margin-left: auto; margin-right:auto;
+
             }
         </style>
     </head>
     <body>
-        <div id="container">TODO write blackjack
+
+        <div id="container">TODO write blackjack</div>
+
+        <div id="container">
+            <h2>aantal spelers kiezen</h2>   
+
         <form action="AantalSpelersServlet" method="POST">
             <select name="aantalspelers">
                 <option value="1">1</option>
@@ -24,8 +33,9 @@ and open the template in the editor.
                 <option value="3">3</option>
                 <option value="4">4</option>
             </select>
-            <input type="submit" value="kies">
+            <input type="submit" value="kies"/>
         </form>
         </div>
+           
     </body>
 </html>

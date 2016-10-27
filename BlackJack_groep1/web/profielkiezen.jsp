@@ -31,12 +31,15 @@
                 <c:forEach begin="1" end="${requestScope.aantal}">
                     <select name="spelers">
                         <c:forEach begin="1" end="5">
-                            <option value="test"></option>
-                            <option value="test"></option>
-                            <option value="test"></option>
-                            <option value="test"></option>
-                        </c:forEach>   
 
+                            <option value="test"></option>
+                            <option value="test"></option>
+                            <option value="test"></option>
+                            <option value="test"></option>
+
+                            <option value="test">test</option>
+ 
+                        </c:forEach>
                     </select>
 
 
