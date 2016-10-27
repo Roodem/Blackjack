@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <div style="border: black 1px dotted; width: 950px; height:600px; margin-left: auto; margin-right: auto;">
+        <div style="border: black 1px dotted; width: 60%; height:600px; margin-left: auto; margin-right:">
             
         </div>
     </body>
