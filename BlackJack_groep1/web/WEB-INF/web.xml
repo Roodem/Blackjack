@@ -4,9 +4,49 @@
         <servlet-name>GameServlet</servlet-name>
         <servlet-class>com.hitek.prog3.web.GameServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>spelerAanmakenServlet</servlet-name>
+        <servlet-class>com.hitek.prog3.web.spelerAanmakenServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>spelerVerwijderenServlet</servlet-name>
+        <servlet-class>com.hitek.prog3.web.spelerVerwijderenServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>creditsToevoegenServlet</servlet-name>
+        <servlet-class>com.hitek.prog3.web.creditsToevoegenServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>beheerAfsluitenServlet</servlet-name>
+        <servlet-class>com.hitek.prog3.web.beheerAfsluitenServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AantalSpelersServlet</servlet-name>
+        <servlet-class>com.hitek.prog3.web.AantalSpelersServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>GameServlet</servlet-name>
         <url-pattern>/GameServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>spelerAanmakenServlet</servlet-name>
+        <url-pattern>/spelerAanmakenServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>spelerVerwijderenServlet</servlet-name>
+        <url-pattern>/spelerVerwijderenServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>creditsToevoegenServlet</servlet-name>
+        <url-pattern>/creditsToevoegenServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>beheerAfsluitenServlet</servlet-name>
+        <url-pattern>/beheerAfsluitenServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AantalSpelersServlet</servlet-name>
+        <url-pattern>/AantalSpelersServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
