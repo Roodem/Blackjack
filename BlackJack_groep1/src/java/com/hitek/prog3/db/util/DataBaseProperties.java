@@ -13,9 +13,9 @@ package com.hitek.prog3.db.util;
  */
 public class DataBaseProperties {
     
-    public static final String HOSTNAME ="jdbc:mysql://localhost:3306/blackjack";
-    public static final String USERNAME ="root";
-    public static final String PASSWORD ="root";
+        public static final String HOSTNAME ="jdbc:mysql://localhost:3306/blackjack";
+        public static final String USERNAME ="root";
+        public static final String PASSWORD ="root";
     
     
 }

@@ -21,6 +21,10 @@ public class Dealer {
         this.minDraw = minDraw;
         hand = new Hand();
     }
+
+    public Icon getIcon() {
+        return icon;
+    }
     
 
     public int getMinStand() {

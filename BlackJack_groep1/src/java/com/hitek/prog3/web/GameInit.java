@@ -10,10 +10,12 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Game;
 import model.Player;
 
 /**
@@ -40,20 +42,12 @@ public class GameInit extends HttpServlet {
            
             
         }
-    response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet test</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1> gekozen spelers" + new ArrayList(Arrays.asList(selectedPlayers)).toString() + "</h1>");
-            out.println("<h1>" + new ArrayList((Collection) request.getSession().getAttribute("allplayers")).toString() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        Game game =  new Game(selectedPlayers);
+        
+        request.setAttribute("game", game);
+        
+         RequestDispatcher dispatcher = request.getRequestDispatcher("gamestart.jsp");
+        dispatcher.forward(request, response);
     
     
     
