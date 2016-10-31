@@ -50,8 +50,8 @@ public class PlayerDAO {
             
         }
         
-        
-        return null;
+        //nog afwerken
+        return players;
     }
     
 }

@@ -5,6 +5,7 @@
  */
 package com.hitek.prog3.web;
 
+import com.hitek.prog3.db.service.PlayerService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -24,7 +25,9 @@ public class AantalSpelersServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-                String aantal = request.getParameter("aantalspelers");
+                int aantal =  Integer.parseInt(request.getParameter("aantalspelers"));
+                
+                
                 
                 request.setAttribute("aantal", aantal);
                 RequestDispatcher view = request.getRequestDispatcher("profielkiezen.jsp");
