@@ -47,6 +47,7 @@ public class Player {
         this.icon = icon;
         this.nickname = nickname;
         this.balance = balance;
+        hand = new Hand();
         status = GameStatus.PLAYING;
     }
 

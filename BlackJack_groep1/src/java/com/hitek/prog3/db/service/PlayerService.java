@@ -7,6 +7,7 @@ package com.hitek.prog3.db.service;
 
 import com.hitek.prog3.db.DAO.PlayerDAO;
 import com.hitek.prog3.db.conversie.PlayerConversie;
+import java.util.ArrayList;
 import java.util.List;
 import model.Player;
 
@@ -16,7 +17,7 @@ import model.Player;
  */
 public class PlayerService {
     
-    public List<Player> getAllPlayers(){
+    public ArrayList<Player> getAllPlayers(){
         return PlayerConversie.rsToPlayerList(PlayerDAO.getAllPlayers());
         
     }

@@ -23,8 +23,8 @@ public class Game {
     public Game(ArrayList<Player> players) {
         this.players = players;
         deck = new Deck();
-        //default dealer icon?
-        dealer = new Dealer(new Icon(), 17, 16);
+        //default dealer icon, later nog veranderen
+        dealer = new Dealer(new Icon("SITHLORD", "images/icons/SITHLORD.png"), 17, 16);
     }
 
     public void CardDistribution() {
@@ -60,6 +60,10 @@ public class Game {
         } else {
             player.getHand().addCard(deck.drawCardFromDeck());
         }
+    }
+
+    public ArrayList<Player> getPlayers() {
+        return players;
     }
 
     public void PlayerStand(Player player) {

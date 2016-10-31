@@ -19,9 +19,9 @@ import model.Player;
  */
 public class PlayerConversie {
     
-    public static List<Player> rsToPlayerList(ResultSet rs){
+    public static ArrayList<Player> rsToPlayerList(ResultSet rs){
         IconService is = new IconService();
-        List playerlist = new ArrayList();
+        ArrayList playerlist = new ArrayList();
         try{
             while (rs.next()) {
                 //haal icoon op
@@ -31,6 +31,7 @@ public class PlayerConversie {
               p.setIcon(icon);
               p.setNickname(rs.getString("nickname"));
               p.setBalance(rs.getInt("balance"));
+              p.setHand(null);
               
               playerlist.add(p);
               

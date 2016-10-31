@@ -24,6 +24,9 @@ public class AantalSpelersServlet extends HttpServlet {
   @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+                
+                    // lijst met alle speler objecten ophalen
+                    PlayerService ps = new PlayerService();
         
                 int aantal =  Integer.parseInt(request.getParameter("aantalspelers"));
                 
