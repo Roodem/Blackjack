@@ -39,7 +39,7 @@ public class AantalSpelersServlet extends HttpServlet {
                         request.setAttribute("label", "er zijn maar " + aantal + " Spelers geregistreerd" );
                     }
                 
-                request.setAttribute("allplayers", allPlayers);
+                request.getSession().setAttribute("allplayers", allPlayers);
                 request.setAttribute("aantal", aantal);
                 RequestDispatcher view = request.getRequestDispatcher("profielkiezen.jsp");
                 view.forward(request, response);

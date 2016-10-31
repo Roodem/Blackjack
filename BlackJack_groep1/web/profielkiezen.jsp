@@ -23,7 +23,7 @@
             }
             .label{
                 color: red;
-                font: 9px;
+                
             }
         </style>
 
@@ -34,11 +34,11 @@
             <c:if test="${requestScope.label != null}">
                 <p class="label"><c:out value="${requestScope.label}"/></p>
             </c:if>
-            <form method="POST" action="">
+            <form method="POST" action="GameInit">
                 <c:forEach begin="1" end="${requestScope.aantal}" >
                     
                     <select name="spelers">
-                        <c:forEach items="${requestScope.allplayers}" var="player" varStatus="count">
+                        <c:forEach items="${sessionScope.allplayers}" var="player" varStatus="count">
                             <option value="${count.index.toString()}">${player.getNickname()}</option>
                         </c:forEach>
                     </select>
