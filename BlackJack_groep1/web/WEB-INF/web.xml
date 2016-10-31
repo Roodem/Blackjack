@@ -28,6 +28,10 @@
         <servlet-name>GameInit</servlet-name>
         <servlet-class>com.hitek.prog3.web.GameInit</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CardDAO</servlet-name>
+        <servlet-class>com.hitek.prog3.db.DAO.CardDAO</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>GameServlet</servlet-name>
         <url-pattern>/GameServlet</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>GameInit</servlet-name>
         <url-pattern>/GameInit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CardDAO</servlet-name>
+        <url-pattern>/CardDAO</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
