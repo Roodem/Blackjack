@@ -21,28 +21,29 @@
                 height: 200px;
                 width: 200px;
             }
+            .label{
+                color: red;
+                font: 9px;
+            }
         </style>
 
     </head>
     <body>
         <div id="container">
             <h1>BlackJack spelerprofiel kiezen</h1>
+            <c:if test="${requestScope.label != null}">
+                <p class="label"><c:out value="${requestScope.label}"/></p>
+            </c:if>
             <form method="POST" action="">
-                <c:forEach begin="1" end="${requestScope.aantal}">
+                <c:forEach begin="1" end="${requestScope.aantal}" >
+                    
                     <select name="spelers">
-                        <c:forEach begin="1" end="5">
-
-                            <option value="test"></option>
-                            <option value="test"></option>
-                            <option value="test"></option>
-                            <option value="test"></option>
-
-                            <option value="test">test</option>
- 
+                        <c:forEach items="${requestScope.allplayers}" var="player" varStatus="count">
+                            <option value="${count.index.toString()}">${player.getNickname()}</option>
                         </c:forEach>
                     </select>
-
-
+                        
+                    <input type="submit" value="kies" />    
                 </c:forEach>
                 <input type="submit" value="start spel"/>
 
