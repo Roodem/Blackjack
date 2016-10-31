@@ -5,11 +5,13 @@
  */
 package com.hitek.prog3.db.DAO;
 
+import com.hitek.prog3.db.service.IconService;
 import com.hitek.prog3.db.util.DatabaseSingleton;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 import model.Icon;
 import model.Player;
@@ -20,38 +22,30 @@ import model.Player;
  */
 public class PlayerDAO {
     
-    public static List<Player> getAllPlayers(){
+    public static void inserPlayer(Player p){
+        //verder afwerken
+    }
+    
+    public static ResultSet  getAllPlayers(){
+           String qr = "SELECT * FROM player";
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
         ResultSet rs = null;
-        List<Player> players = null;
-               
-        try{
-            String qr = "SELECT (nickname, balance, icoonid) * FROM player";
-            PreparedStatement stmt = con.prepareStatement(qr);
-            rs = stmt.executeQuery();
-            
-            while(rs.next()){
-                
-                Player p = new Player();
-                p.setNickname(rs.getString("nickname"));
-                p.setBalance(rs.getInt("balance"));
-                p.setIcon(new Icon("icoonnaam", "icoonurl"));
-                
-                players.add(p);
-                
-                
-            }
-        }catch(SQLException e){
-            
+        Statement stmt = null;
+       
+       
+
+        try {
+
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(qr);
+
+        } catch (SQLException e) {
+
             e.printStackTrace();
-            
-            
-            
-            
+
         }
-        
-        //nog afwerken
-        return players;
+
+        return rs;
     }
     
 }
