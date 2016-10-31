@@ -5,19 +5,17 @@
  */
 package com.hitek.prog3.db.service;
 
-import com.hitek.prog3.db.DAO.PlayerDAO;
-import com.hitek.prog3.db.conversie.PlayerConversie;
-import java.util.List;
-import model.Player;
+import com.hitek.prog3.db.DAO.IconDAO;
+import model.Icon;
 
 /**
  *
  * @author Stone
  */
-public class PlayerService {
+public class IconService {
     
-    public List<Player> getAllPlayers(){
-        return PlayerConversie.rsToPlayerList(PlayerDAO.getAllPlayers());
+    public Icon getIconByID(String icoonnaam){
+        return IconDAO.getIconByName(icoonnaam);
         
     }
     

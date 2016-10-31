@@ -21,6 +21,22 @@ public class Icon {
         this.naam = naam;
         this.url = url;
     }
+
+    public String getNaam() {
+        return naam;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setNaam(String naam) {
+        this.naam = naam;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
     
     
     

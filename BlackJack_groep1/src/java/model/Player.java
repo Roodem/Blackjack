@@ -11,8 +11,16 @@ package model;
  */
 public class Player {
     private Icon icon;
+
+    public Icon getIcon() {
+        return icon;
+    }
     private String nickname;
     private int balance;
+
+    public String getNickname() {
+        return nickname;
+    }
 
     public void setIcon(Icon icon) {
         this.icon = icon;
