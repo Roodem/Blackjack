@@ -14,7 +14,7 @@ import java.sql.Statement;
  *
  * @author MSI
  */
-public class CreditsToevoegenDAO {
+public class CreditsWijzigenDAO {
     
     public static void CreditsWijzigen(String tabel, int balance, String nickname){
         String query = "UPDATE " + tabel + " SET balance=('" + balance + "') WHERE nickname=('" + nickname + "') ";

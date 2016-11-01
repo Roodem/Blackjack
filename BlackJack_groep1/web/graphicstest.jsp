@@ -24,17 +24,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-    </head>
     <style type="text/css">
         img {
             width: auto;
             height: 150px;
         }
-
-
-
-
     </style>
+    </head>
+    
     <body>
 
         <h3>Alle spelers uit db halen / vervolgens hun naam en icoon weergeven</h3>

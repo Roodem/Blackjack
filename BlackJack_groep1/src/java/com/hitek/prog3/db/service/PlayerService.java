@@ -5,7 +5,7 @@
  */
 package com.hitek.prog3.db.service;
 
-import com.hitek.prog3.db.DAO.CreditsToevoegenDAO;
+import com.hitek.prog3.db.DAO.CreditsWijzigenDAO;
 import com.hitek.prog3.db.DAO.PlayerAanmakenDAO;
 import com.hitek.prog3.db.DAO.PlayerDAO;
 import com.hitek.prog3.db.DAO.PlayerVerwijderenDAO;
@@ -22,12 +22,10 @@ public class PlayerService {
     
     public ArrayList<Player> getAllPlayers(){
         return PlayerConversie.rsToPlayerList(PlayerDAO.getAllPlayers());
-        
     }
     
     public ArrayList<Player> getAllPlayersName(){
         return PlayerNaamConversie.rsToPlayerList(PlayerDAO.getAllPlayers());
-        
     }
     
     public void persoonToevoegen(String icoonid, String nickname){
@@ -38,8 +36,8 @@ public class PlayerService {
         PlayerVerwijderenDAO.persoonVerwijderen("player", nickname);
     }
     
-    public void CreditsWijzigen(int balance,String nickname){
-        CreditsToevoegenDAO.CreditsWijzigen("player", balance, nickname);
+    public void persoonCreditsWijzigen(int balance,String nickname){
+        CreditsWijzigenDAO.CreditsWijzigen("player", balance, nickname);
     }
     
     

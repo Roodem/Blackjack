@@ -13,8 +13,8 @@
         <servlet-class>com.hitek.prog3.web.spelerVerwijderenServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>creditsToevoegenServlet</servlet-name>
-        <servlet-class>com.hitek.prog3.web.creditsToevoegenServlet</servlet-class>
+        <servlet-name>creditsWijzigenServlet</servlet-name>
+        <servlet-class>com.hitek.prog3.web.creditsWijzigenServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>beheerAfsluitenServlet</servlet-name>
@@ -45,8 +45,8 @@
         <url-pattern>/spelerVerwijderenServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>creditsToevoegenServlet</servlet-name>
-        <url-pattern>/creditsToevoegenServlet</url-pattern>
+        <servlet-name>creditsWijzigenServlet</servlet-name>
+        <url-pattern>/creditsWijzigenServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>beheerAfsluitenServlet</servlet-name>

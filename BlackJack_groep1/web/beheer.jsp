@@ -11,20 +11,32 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <style>
-            
+            body{
+                background-size:cover; 
+                background-repeat: no-repeat;
+            }
             aside{
                position: absolute;
                top: 273px;
             }
+            h3{
+                font-size: 50px;
+                color:red
+            }
+            
+            p{
+                font-size: 30px;
+                color:white;
+            }
         </style>    
     </head>
-    <body>
+    <body background="images/background/background_beheerder2.jpg">
         
-        <h3 style="font-size: 50px">Beheerder</h3><br><br><br><br><br><br>
+        <h3>Opties</h3><br><br><br><br><br><br>
         <aside>
             <input type="button" value="Speler Aanmaken" onclick="location.href='spelerAanmaken.jsp';"><br><br>
             <input type="button" value="Speler Verwijderen" onclick="location.href='spelerVerwijderen.jsp';"><br><br>
-            <input type="button" value="Credits Toevoegen" onclick="location.href='creditsToevoegen.jsp';"><br><br>
+            <input type="button" value="Credits Wijzigen" onclick="location.href='creditsWijzigen.jsp';"><br><br>
             <input type="button" value="Beheer Afsluiten" onclick="location.href='index.html';">
         </aside>
         
