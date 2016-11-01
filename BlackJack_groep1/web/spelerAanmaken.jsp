@@ -4,6 +4,11 @@
     Author     : MSI
 --%>
 
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
+<%@page import="model.Icon"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.hitek.prog3.db.service.IconService"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -30,33 +35,40 @@
                top: 273px;
             }
         </style>
+        <script type="text/javascript">
+            function btnOnClick() {
+                alert('SPELER WERD TOEGVOEGD!');
+            }
+        </script>
     </head>
     <body>
         <h3 style="font-size: 50px">Beheerder</h3>
         <h2 align="center">Speler Aanmaken</h2>
        
-        <form>
+        <form action="spelerAanmakenServlet" method="post">
              <p align="center">Naam Speler:</p>
-             <input type="text" value="naam">
+             <input type="text" name="naam" required>
+             <p align="center">Kies Icoon:</p>
+             <select name="icoon">
+            <%
+                IconService icon = new IconService();
+                List<Icon> result = icon.getAllIcon();
+                Iterator<Icon> iterator= result.iterator();
+              while(iterator.hasNext()){
+            %>        
+                <option><%=iterator.next()%></option>
+           <%         
+                }
+            %>
+          </select>
              <br><br>
-               <input  type="submit" value="Toevoegen">
+               <input type="submit" value="Toevoegen" onclick="javascript:btnOnClick()">
         </form>
          <aside>
-        <form action="spelerAanmakenServlet" method="post">
-            <input  type="submit" value="Speler Aanmaken">
-            
-        </form><br><br>
-        <form action="spelerVerwijderenServlet" method="post">
-            <input type="submit" value="Speler Verwijderen">
-        </form><br><br>
-        
-        <form action="creditsToevoegenServlet" method="post">
-            <input type="submit" value="Credits Toevoegen">
-        </form><br><br>
-        
-        <form action="beheerAfsluitenServlet" method="post">
-            <input type="submit" value="Beheer Afsluiten">
-        </form> 
+            <input  type="button" value="Speler Aanmaken" onclick="location.href='spelerAanmaken.jsp';"><br><br>
+            <input type="button" value="Speler Verwijderen" onclick="location.href='spelerVerwijderen.jsp';"><br><br>
+            <input type="button" value="Credits Toevoegen" onclick="location.href='creditsToevoegen.jsp';"><br><br>
+            <input type="button" value="Beheer Afsluiten" onclick="location.href='index.html';">
         </aside>
     </body>
 </html>

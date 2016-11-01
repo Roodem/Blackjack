@@ -6,6 +6,8 @@
 package com.hitek.prog3.db.service;
 
 import com.hitek.prog3.db.DAO.IconDAO;
+import com.hitek.prog3.db.conversie.IconConversie;
+import java.util.List;
 import model.Icon;
 
 /**
@@ -16,6 +18,11 @@ public class IconService {
     
     public Icon getIconByID(String icoonnaam){
         return IconDAO.getIconByName(icoonnaam);
+        
+    }
+    
+    public List getAllIcon(){
+         return IconConversie.convertResultsetToList(IconDAO.getAllIcons());
         
     }
     

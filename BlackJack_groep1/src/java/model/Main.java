@@ -5,6 +5,7 @@
  */
 package model;
 
+import com.hitek.prog3.db.service.PlayerService;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -31,27 +32,27 @@ public class Main {
 //       
 //
 //        Hand hand1 = new Hand();
-       Player p1 = new Player(new Icon("test","test"), "Stijn", 50);
-        ArrayList<Player> players = new ArrayList<>();
-        players.add(p1);
-        Game g = new Game(players);
-        //dealer testen
-        g.CardDistribution();
-       
-        System.out.println(g.getDealer().getHand().getStatus());
-        System.out.println(g.getDealer().getHand().calculateValueHand()); 
-        g.DealerHit(g.getDealer());
-      
-        System.out.println(g.getDealer().getHand().getStatus());
-        System.out.println(g.getDealer().getHand().calculateValueHand()); 
-        
-         g.DealerHit(g.getDealer());
-      
-        System.out.println(g.getDealer().getHand().getStatus());
-        System.out.println(g.getDealer().getHand().calculateValueHand()); 
-        System.out.println(g.getDealer().getHand().getAmountOfcards());
-        ArrayList<Card> cards = g.getDealer().getHand().getCards();
-        
+//       Player p1 = new Player(new Icon("test","test"), "Stijn", 50);
+//        ArrayList<Player> players = new ArrayList<>();
+//        players.add(p1);
+//        Game g = new Game(players);
+//        //dealer testen
+//        g.CardDistribution();
+//       
+//        System.out.println(g.getDealer().getHand().getStatus());
+//        System.out.println(g.getDealer().getHand().calculateValueHand()); 
+//        g.DealerHit(g.getDealer());
+//      
+//        System.out.println(g.getDealer().getHand().getStatus());
+//        System.out.println(g.getDealer().getHand().calculateValueHand()); 
+//        
+//         g.DealerHit(g.getDealer());
+//      
+//        System.out.println(g.getDealer().getHand().getStatus());
+//        System.out.println(g.getDealer().getHand().calculateValueHand()); 
+//        System.out.println(g.getDealer().getHand().getAmountOfcards());
+//        ArrayList<Card> cards = g.getDealer().getHand().getCards();
+//        
         
 //        for (Card card : cards) {
 //            System.out.println(card);
@@ -93,6 +94,7 @@ public class Main {
 //        }
 //        System.out.println("aantal kaarten in deck: " + count2);
 
-       
+       PlayerService persoon = new PlayerService();
+       persoon.CreditsWijzigen(500, "tahsin");
     }
 }

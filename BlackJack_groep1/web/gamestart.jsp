@@ -11,7 +11,6 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-    </head>
     <style type="text/css">
         #container{
             border: black 1px dotted; width: 950px; height:600px; margin-left: auto; margin-right: auto;
@@ -34,6 +33,8 @@
         }
 
     </style>
+    </head>
+    
     <body>
         <c:set value="${requestScope.game}" var="game"/>
         <div id="container">

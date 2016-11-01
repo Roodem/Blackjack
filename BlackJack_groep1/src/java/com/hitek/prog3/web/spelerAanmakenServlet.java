@@ -5,6 +5,7 @@
  */
 package com.hitek.prog3.web;
 
+import com.hitek.prog3.db.service.PlayerService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -22,6 +23,34 @@ public class spelerAanmakenServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        String naam = request.getParameter("naam");
+        String credit = request.getParameter("icoon");
+        
+        PlayerService player = new PlayerService();
+        
+        
+        if(credit.equals("EMPIRE")){
+            player.persoonToevoegen(credit, naam);
+        }
+        if(credit.equals("FORCE")){
+            player.persoonToevoegen(credit, naam);
+        }
+        if(credit.equals("FORCE2")){
+            player.persoonToevoegen(credit, naam);
+        }
+        if(credit.equals("FORCE3")){
+            player.persoonToevoegen(credit, naam);
+        }
+        if(credit.equals("OLDREPUBLIC")){
+            player.persoonToevoegen(credit, naam);
+        }
+        if(credit.equals("SITHLORD")){
+            player.persoonToevoegen(credit, naam);
+        }
+        if(credit.equals("STORMTROOPER")){
+            player.persoonToevoegen(credit, naam);
+        }
         
         RequestDispatcher view = request.getRequestDispatcher("spelerAanmaken.jsp");
                 view.forward(request, response);

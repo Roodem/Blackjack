@@ -5,8 +5,8 @@
  */
 package com.hitek.prog3.web;
 
+import com.hitek.prog3.db.service.PlayerService;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,6 +22,25 @@ public class creditsToevoegenServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        String naam = request.getParameter("naam");
+        int credit = Integer.parseInt(request.getParameter("credit"));
+        
+        
+        
+        PlayerService persoon = new PlayerService();
+        if(credit == 10){
+        persoon.CreditsWijzigen(credit, naam);
+        }
+        if(credit == 50){
+        persoon.CreditsWijzigen(credit, naam);
+        }
+        if(credit == 100){
+        persoon.CreditsWijzigen(credit, naam);
+        }
+        if(credit == 500){
+        persoon.CreditsWijzigen(credit, naam);
+        }
         
         RequestDispatcher view = request.getRequestDispatcher("/creditsToevoegen.jsp");
                 view.forward(request, response);

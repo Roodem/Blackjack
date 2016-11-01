@@ -5,13 +5,17 @@
  */
 package com.hitek.prog3.web;
 
+import com.hitek.prog3.db.service.PlayerService;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Player;
 
 /**
  *
@@ -23,6 +27,12 @@ public class spelerVerwijderenServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        String naam = request.getParameter("naam");
+        
+        PlayerService persoon = new PlayerService();
+        persoon.persoonVerwijderen(naam);
+        
+       
         
         RequestDispatcher view = request.getRequestDispatcher("spelerVerwijderen.jsp");
                 view.forward(request, response);
