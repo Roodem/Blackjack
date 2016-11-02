@@ -94,7 +94,7 @@ public class Main {
 //        }
 //        System.out.println("aantal kaarten in deck: " + count2);
 
-       PlayerService persoon = new PlayerService();
-       persoon.CreditsWijzigen(500, "tahsin");
+    //   PlayerService persoon = new PlayerService();
+    //   persoon.CreditsWijzigen(500, "tahsin");
     }
 }
