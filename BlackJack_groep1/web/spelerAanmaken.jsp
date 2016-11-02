@@ -14,7 +14,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+            <title>JSP Page</title>
         <style>
             body{
                 background-size:cover; 
@@ -74,7 +74,7 @@
                 Iterator<Icon> iterator= result.iterator();
               while(iterator.hasNext()){
             %>        
-                <option><%=iterator.next()%></option>
+            <option><%=iterator.next()%></option>
            <%         
                 }
             %>
