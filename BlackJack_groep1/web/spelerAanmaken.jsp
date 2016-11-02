@@ -16,10 +16,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <style>
-     
+            body{
+                background-size:cover; 
+                background-repeat: no-repeat;
+            }
             select{
                 display: block;
                 margin: auto;
+                
             }
             form:nth-of-type(1){
                 width: 150px;
@@ -34,6 +38,20 @@
                position: absolute;
                top: 273px;
             }
+            h3{
+                font-size: 50px;
+                color:red;
+                
+            }
+            h2{
+                font-size: 40px;
+                color:white;
+                text-decoration: underline;
+            }
+            p{
+                font-size: 25px;
+                color:white;
+            }
         </style>
         <script type="text/javascript">
             function btnOnClick() {
@@ -41,8 +59,8 @@
             }
         </script>
     </head>
-    <body>
-        <h3 style="font-size: 50px">Beheerder</h3>
+    <body background="images/background/background_beheerder2.jpg">
+        <h3>Opties</h3>
         <h2 align="center">Speler Aanmaken</h2>
        
         <form action="spelerAanmakenServlet" method="post">
@@ -62,12 +80,12 @@
             %>
           </select>
              <br><br>
-               <input type="submit" value="Toevoegen" onclick="javascript:btnOnClick()">
+               <input type="submit" value="Aanmaken" onclick="javascript:btnOnClick()">
         </form>
          <aside>
             <input  type="button" value="Speler Aanmaken" onclick="location.href='spelerAanmaken.jsp';"><br><br>
             <input type="button" value="Speler Verwijderen" onclick="location.href='spelerVerwijderen.jsp';"><br><br>
-            <input type="button" value="Credits Toevoegen" onclick="location.href='creditsToevoegen.jsp';"><br><br>
+            <input type="button" value="Credits Wijzigen" onclick="location.href='creditsWijzigen.jsp';"><br><br>
             <input type="button" value="Beheer Afsluiten" onclick="location.href='index.html';">
         </aside>
     </body>

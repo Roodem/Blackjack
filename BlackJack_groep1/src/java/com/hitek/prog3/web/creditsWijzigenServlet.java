@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author MSI
  */
-public class creditsToevoegenServlet extends HttpServlet {
+public class creditsWijzigenServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -30,19 +30,19 @@ public class creditsToevoegenServlet extends HttpServlet {
         
         PlayerService persoon = new PlayerService();
         if(credit == 10){
-        persoon.CreditsWijzigen(credit, naam);
+        persoon.persoonCreditsWijzigen(credit, naam);
         }
         if(credit == 50){
-        persoon.CreditsWijzigen(credit, naam);
+        persoon.persoonCreditsWijzigen(credit, naam);
         }
         if(credit == 100){
-        persoon.CreditsWijzigen(credit, naam);
+        persoon.persoonCreditsWijzigen(credit, naam);
         }
         if(credit == 500){
-        persoon.CreditsWijzigen(credit, naam);
+        persoon.persoonCreditsWijzigen(credit, naam);
         }
         
-        RequestDispatcher view = request.getRequestDispatcher("/creditsToevoegen.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("/creditsWijzigen.jsp");
                 view.forward(request, response);
         
         
