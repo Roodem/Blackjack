@@ -23,34 +23,18 @@ public class spelerAanmakenServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        //serverside controleren naam niet al gebruikt in database
         String naam = request.getParameter("naam");
-        String credit = request.getParameter("icoon");
-        
-        PlayerService player = new PlayerService();
+        String icoon = request.getParameter("icoon");
         
         
-        if(credit.equals("EMPIRE")){
-            player.persoonToevoegen(credit, naam);
-        }
-        if(credit.equals("FORCE")){
-            player.persoonToevoegen(credit, naam);
-        }
-        if(credit.equals("FORCE2")){
-            player.persoonToevoegen(credit, naam);
-        }
-        if(credit.equals("FORCE3")){
-            player.persoonToevoegen(credit, naam);
-        }
-        if(credit.equals("OLDREPUBLIC")){
-            player.persoonToevoegen(credit, naam);
-        }
-        if(credit.equals("SITHLORD")){
-            player.persoonToevoegen(credit, naam);
-        }
-        if(credit.equals("STORMTROOPER")){
-            player.persoonToevoegen(credit, naam);
-        }
+        
+        PlayerService ps = new PlayerService();
+        ps.persoonToevoegen(icoon, naam);
+        
+        
+      
+        
         
         RequestDispatcher view = request.getRequestDispatcher("spelerAanmaken.jsp");
                 view.forward(request, response);

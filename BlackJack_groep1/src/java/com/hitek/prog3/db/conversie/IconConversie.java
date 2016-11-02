@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import model.Icon;
 
 /**
  *
@@ -16,20 +17,21 @@ import java.util.List;
  */
 public class IconConversie {
     
-    public static List convertResultsetToList(ResultSet rs){
+    public static List<Icon> convertResultsetToList(ResultSet rs){
         
-        List lijst = new ArrayList();
+        List<Icon> icoonlijst = new ArrayList();
         
         try{
             while(rs.next()){
-                String naam =null;
-                naam = rs.getString("icoonnaam");
-                lijst.add(naam);
+                Icon icon = new Icon();
+                icon.setNaam(rs.getString("icoonnaam"));
+                icon.setUrl(rs.getString("icoonurl"));
+                icoonlijst.add(icon);
             }
         }catch(SQLException ex){
             
         }
-        return lijst;
+        return icoonlijst;
     }
     
 }

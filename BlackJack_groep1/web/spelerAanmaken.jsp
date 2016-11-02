@@ -10,6 +10,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.hitek.prog3.db.service.IconService"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -62,7 +63,7 @@
     <body background="images/background/background_beheerder2.jpg">
         <h3>Opties</h3>
         <h2 align="center">Speler Aanmaken</h2>
-       
+        
         <form action="spelerAanmakenServlet" method="post">
              <p align="center">Naam Speler:</p>
              <input type="text" name="naam" required>
@@ -71,11 +72,14 @@
             <%
                 IconService icon = new IconService();
                 List<Icon> result = icon.getAllIcon();
+                pageContext.setAttribute("icons", result);
                 Iterator<Icon> iterator= result.iterator();
               while(iterator.hasNext()){
-            %>        
-            <option><%=iterator.next()%></option>
-           <%         
+                  String naam = iterator.next().getNaam();
+                   out.write("<option value='"+ naam +"'>");
+                   out.write(""+naam+"");
+                   out.write("</option>"); 
+                   out.write("<br>");
                 }
             %>
           </select>
@@ -88,5 +92,6 @@
             <input type="button" value="Credits Wijzigen" onclick="location.href='creditsWijzigen.jsp';"><br><br>
             <input type="button" value="Beheer Afsluiten" onclick="location.href='index.html';">
         </aside>
+         
     </body>
 </html>

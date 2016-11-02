@@ -21,7 +21,7 @@ public class IconService {
         
     }
     
-    public List getAllIcon(){
+    public List<Icon> getAllIcon(){
          return IconConversie.convertResultsetToList(IconDAO.getAllIcons());
         
     }
