@@ -39,6 +39,14 @@ public class GameCardRound extends HttpServlet {
           
           Game game = (Game) request.getSession().getAttribute("game");
           ArrayList<Player> currentplayers = game.getPlayers();
+          //bets aanvaarden spelers
+          //bets van hands van speleres updaten
+          //control of iedereen gebet heeft
+          //dan iedereen kaarten geven
+          //dispatchen naar volgende JSP game attributen met alle waarden in
+          
+          
+          
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
