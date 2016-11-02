@@ -32,6 +32,10 @@
         <servlet-name>CardDAO</servlet-name>
         <servlet-class>com.hitek.prog3.db.DAO.CardDAO</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GameCardRound</servlet-name>
+        <servlet-class>com.hitek.prog3.web.GameCardRound</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>GameServlet</servlet-name>
         <url-pattern>/GameServlet</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>CardDAO</servlet-name>
         <url-pattern>/CardDAO</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GameCardRound</servlet-name>
+        <url-pattern>/GameCardRound</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

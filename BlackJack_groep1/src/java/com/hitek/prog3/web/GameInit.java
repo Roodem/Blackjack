@@ -44,7 +44,7 @@ public class GameInit extends HttpServlet {
         }
         Game game =  new Game(selectedPlayers);
         
-        request.setAttribute("game", game);
+        request.getSession().setAttribute("game", game);
         
          RequestDispatcher dispatcher = request.getRequestDispatcher("gamestart.jsp");
         dispatcher.forward(request, response);
