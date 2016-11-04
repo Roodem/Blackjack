@@ -22,26 +22,18 @@ public class PlayerDAO {
         //verder afwerken
     }
     
-    public static ResultSet  getAllPlayers(){
+    public static ResultSet getAllPlayers(){
            String qr = "SELECT * FROM player";
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
         ResultSet rs = null;
         Statement stmt = null;
-       
-       
-
         try {
-
             stmt = con.createStatement();
             rs = stmt.executeQuery(qr);
-
         } catch (SQLException e) {
-
             e.printStackTrace();
 
         }
-
         return rs;
     }
-    
 }

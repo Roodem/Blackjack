@@ -12,6 +12,7 @@ import com.hitek.prog3.db.DAO.PlayerVerwijderenDAO;
 import com.hitek.prog3.db.conversie.PlayerConversie;
 import com.hitek.prog3.db.conversie.PlayerNaamConversie;
 import java.util.ArrayList;
+import java.util.List;
 import model.Player;
 
 /**
@@ -24,7 +25,7 @@ public class PlayerService {
         return PlayerConversie.rsToPlayerList(PlayerDAO.getAllPlayers());
     }
     
-    public ArrayList<Player> getAllPlayersName(){
+    public List<Player> getAllPlayersName(){
         return PlayerNaamConversie.rsToPlayerList(PlayerDAO.getAllPlayers());
     }
     

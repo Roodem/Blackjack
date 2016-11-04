@@ -23,14 +23,4 @@ public class Admin extends Player {
         user.setBalance(amount);
         
     }
-    
-    public void addUser(String name){
-       // User aanmaken en toevoeen aan database
-    }
-    
-    public void editUser(Player user){
-       //User ophalen uit database, gegevens uithalen en terug naar dezelfde record schrijven.
-    }
-    
-    
 }

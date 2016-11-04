@@ -4,6 +4,7 @@
     Author     : MSI
 --%>
 
+<%@page import="java.util.List"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.Player"%>
@@ -13,42 +14,17 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link href="css/opties.css" type="text/css" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <style>
-            body{
-                background-size:cover; 
-                background-repeat: no-repeat;
-            }
-            select{
-                display: block;
-                margin: auto;
-            }
-            aside{
-               position: absolute;
-               top: 273px;
-            }
-            h3{
-                font-size: 50px;
-                color:red;
-            }
-            h2{
-                font-size: 40px;
-                color:white;
-                text-decoration: underline;
-            }
-            p{
-                font-size: 30px;
-                color:white;
-            }
-        </style>
+       
         <script type="text/javascript">
             function btnOnClick() {
                 alert('CREDITS WERDEN TOEGEVOEGD!');
             }
         </script>
     </head>
-    <body background="images/background/background_beheerder2.jpg">
+     <body background="images/background/darth-vader.jpg">
         <h3>Opties</h3>
         <h2 align="center">Credits Wijzigen</h2>
         <form action="creditsWijzigenServlet" method="post">   
@@ -56,14 +32,15 @@
            <select name="naam">
             <%
                 PlayerService sor = new PlayerService();
-                ArrayList<Player> result = sor.getAllPlayersName();
+                List<Player> result = sor.getAllPlayersName();
                 Iterator<Player> iterator= result.iterator();
               while(iterator.hasNext()){
-            %>        
-                <option><%=iterator.next()%></option>
-           <%         
+                  String naam = iterator.next().getNickname();
+                   out.write("<option value='"+ naam +"'>");
+                   out.write(""+naam+"");
+                   out.write("</option>"); 
+                   out.write("<br>");
                 }
-                
             %>
            </select>
            <p align="center">Aantal Credits:</p>

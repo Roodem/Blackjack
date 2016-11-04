@@ -4,66 +4,25 @@
     Author     : MSI
 --%>
 
+<%@page import="java.io.PrintWriter"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page import="model.Icon"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.hitek.prog3.db.service.IconService"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
             <title>JSP Page</title>
-        <style>
-            body{
-                background-size:cover; 
-                background-repeat: no-repeat;
-            }
-            select{
-                display: block;
-                margin: auto;
-                
-            }
-            form:nth-of-type(1){
-                width: 150px;
-                margin-left:auto;
-                margin-right: auto;
-           
-            }
-            form:nth-of-type(1)>input:nth-of-type(2){
-                margin-left: 30px;
-            }
-            aside{
-               position: absolute;
-               top: 273px;
-            }
-            h3{
-                font-size: 50px;
-                color:red;
-                
-            }
-            h2{
-                font-size: 40px;
-                color:white;
-                text-decoration: underline;
-            }
-            p{
-                font-size: 25px;
-                color:white;
-            }
-        </style>
-        <script type="text/javascript">
-            function btnOnClick() {
-                alert('SPELER WERD TOEGVOEGD!');
-            }
-        </script>
+            <link href="css/opties.css" type="text/css" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
-    <body background="images/background/background_beheerder2.jpg">
+    <body background="images/background/darth-vader.jpg">
         <h3>Opties</h3>
         <h2 align="center">Speler Aanmaken</h2>
-        
         <form action="spelerAanmakenServlet" method="post">
              <p align="center">Naam Speler:</p>
              <input type="text" name="naam" required>
@@ -72,7 +31,6 @@
             <%
                 IconService icon = new IconService();
                 List<Icon> result = icon.getAllIcon();
-                pageContext.setAttribute("icons", result);
                 Iterator<Icon> iterator= result.iterator();
               while(iterator.hasNext()){
                   String naam = iterator.next().getNaam();
@@ -84,14 +42,18 @@
             %>
           </select>
              <br><br>
-               <input type="submit" value="Aanmaken" onclick="javascript:btnOnClick()">
+               <input type="submit" value="Aanmaken"><br><br>
         </form>
+          <div align="center">
+            ${b}
+            <%session.invalidate();%>
+          </div>
          <aside>
             <input  type="button" value="Speler Aanmaken" onclick="location.href='spelerAanmaken.jsp';"><br><br>
             <input type="button" value="Speler Verwijderen" onclick="location.href='spelerVerwijderen.jsp';"><br><br>
             <input type="button" value="Credits Wijzigen" onclick="location.href='creditsWijzigen.jsp';"><br><br>
-            <input type="button" value="Beheer Afsluiten" onclick="location.href='index.html';">
-        </aside>
-         
+            <input type="button" value="Beheer Afsluiten" onclick="location.href='index.html';"><br><br>
+        </aside><br><br>
+          
     </body>
 </html>

@@ -3,6 +3,7 @@ package com.hitek.prog3.db.conversie;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import model.Player;
 
 /**
@@ -11,14 +12,14 @@ import model.Player;
  */
 public class PlayerNaamConversie {
     
-    public static ArrayList<Player> rsToPlayerList(ResultSet rs){
+    public static List<Player> rsToPlayerList(ResultSet rs){
         
-        ArrayList playerlist = new ArrayList();
+        List playerlist = new ArrayList();
         try{
             while (rs.next()) {
-                String naam = null;
-                naam= rs.getString("nickname");
-                playerlist.add(naam);
+                Player p = new Player();
+                p.setNickname(rs.getString("nickname"));
+                playerlist.add(p);
             }
         }catch(SQLException e){
             e.printStackTrace();

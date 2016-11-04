@@ -8,29 +8,12 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link href="css/opties.css" type="text/css" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <style>
-            body{
-                background-size:cover; 
-                background-repeat: no-repeat;
-            }
-            aside{
-               position: absolute;
-               top: 273px;
-            }
-            h3{
-                font-size: 50px;
-                color:red
-            }
-            
-            p{
-                font-size: 30px;
-                color:white;
-            }
-        </style>    
+
     </head>
-    <body background="images/background/background_beheerder2.jpg">
+      <body background="images/background/darth-vader.jpg">
         
         <h3>Opties</h3><br><br><br><br><br><br>
         <aside>
