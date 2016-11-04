@@ -1,6 +1,6 @@
 <%-- 
-    Document   : GameActionRound
-    Created on : 2-nov-2016, 18:00:57
+    Document   : dealercardround
+    Created on : 4-nov-2016, 21:53:29
     Author     : Stone
 --%>
 
@@ -45,7 +45,7 @@
     </head>
 
     <body>
-       
+
         <h4>${sessionScope.game}</h4>
         <div id="container">
             <div id="dealer">
@@ -53,19 +53,19 @@
                 <img src="${sessionScope.game.getDealer().getIcon().getUrl()}" alt="dealer"/>
                 <div id="dealercards">
                     <c:forEach items="${sessionScope.game.getDealer().getHand().getCards()}" var="card">
-                        <c:if test="${card.getVisible()}">
+
                         <img src="images/cards/${card}.gif" alt="${card}"/>
-                        </c:if>
-                        <c:if test="${!card.getVisible()}">
-                        <img src="images/cards/BACKSIDE.gif" alt="hiddencard"/>
-                        </c:if>
-                        
+
+
 
                     </c:forEach>
+                    <p>${sessionScope.game.getDealer().getHand().calculateValueHand()}</p> 
+                    <p>${sessionScope.game.getDealer().getHand().evaluateHandStatus()}</p> 
+
                 </div>
             </div>
 
-                <c:forEach items="${sessionScope.game.getPlayers()}" var="player" varStatus="count">
+            <c:forEach items="${sessionScope.game.getPlayers()}" var="player" varStatus="count">
 
                 <div id="player">
                     <div id ="playerhand">
@@ -74,28 +74,21 @@
                         </c:forEach>
                         <p>${player.getHand().calculateValueHand()}</p>
                         <p>${player.getHand().evaluateHandStatus()}</p>
-                          <p>${player.getHand().getStatus()}</p>
+                        <h3>${player.getStatus()}</h3>
 
 
                     </div>
                     <img src="${player.getIcon().getUrl()}" alt="${player.getNickname()}"/>
                     <h4>${player.getNickname()}</h4>
                     <p>bet: ${player.getHand().getBet()}</p>
-<!--                    speler kan zolang hij niet BURNED/STAND/BJ heeft kaarten bijvragen-->
-                    <form name="playeraction" method="POST" action="PlayerAction ">
-                        <c:if test="${player.getHand().getStatus() == 'OTHER'}">
-                            <input type="hidden" value="${count.index.toString()}" name="playernr"/>
-                            <input type="submit" value ="HIT" name="action"/>
-                            <input type="submit" value ="STAND"  name="action"/>
-                        </c:if>
-                    </form>
+
 
 
                 </div>
             </c:forEach>
 
 
-                <form method="POST" action="DealerRound">       
+            <form method="POST" action="">       
                 <input type="submit" name="dealerround" value="reveal dealer"/>
             </form>
         </div>
@@ -109,8 +102,8 @@
                 <p>${player.getHand()}</p>
                 <p>handstatus: ${player.getHand().evaluateHandStatus()}</p>
                 <p>spelerstatus: ${player.getStatus()}</p>
-                
+
             </c:forEach>
-        </div>-->
-    </body>
+        </div>
+    </body>-->
 </html>

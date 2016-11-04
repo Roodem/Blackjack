@@ -44,7 +44,9 @@ public class PlayerAction extends HttpServlet {
 
         if (action.equals("STAND")) {
            
-            game.getPlayers().get(playernr).getHand().setHandStatus(HandStatus.STAND);
+            
+            
+            game.PlayerStand(game.getPlayers().get(playernr));
               
         }
         

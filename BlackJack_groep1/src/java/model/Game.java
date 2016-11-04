@@ -1,4 +1,4 @@
-  /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -58,7 +58,7 @@ public class Game {
 
     //playerhit en logica addcard van hand nog eens bekijken / herzien
     public void PlayerHit(Player player) {
-       
+
         if (player.getHand().evaluateHandStatus().equals(HandStatus.BURNED)) {
             player.setStatus(GameStatus.LOSS);
 
@@ -97,50 +97,54 @@ public class Game {
 
     public void evaluateGame() {
 
-        for (Player player : players) {
-
-            if (player.getHand().getStatus().equals(HandStatus.BURNED)) {
-                player.setStatus(GameStatus.LOSS);
-            } else if (player.getHand().getStatus().equals(HandStatus.STAND)) {
-
-                //Blackjack uitzondering
-                if (player.getHand().calculateValueHand() > dealer.getHand().calculateValueHand()) {
+        if (dealer.getHand().getStatus().equals(HandStatus.BURNED)) {
+            for (Player player : players) {
+                if (player.getHand().getStatus().equals(HandStatus.STAND)) {
                     player.setStatus(GameStatus.WIN);
-
-                } else if(player.getHand().calculateValueHand() == dealer.getHand().calculateValueHand()) {
-                    player.setStatus(GameStatus.PUSH);
-                }
-                else{
-                    player.setStatus(GameStatus.LOSS);
                 }
             }
 
+        } else {
+
+            for (Player player : players) {
+                if (player.getHand().getStatus().equals(HandStatus.BURNED)) {
+                    player.setStatus(GameStatus.LOSS);
+                }
+
+                if (player.getHand().getStatus().equals(HandStatus.STAND)) {
+                    //Blackjack uitzondering
+                    if (player.getHand().calculateValueHand() > dealer.getHand().calculateValueHand()) {
+                        player.setStatus(GameStatus.WIN);
+
+                    } else if (player.getHand().calculateValueHand() == dealer.getHand().calculateValueHand()) {
+                        player.setStatus(GameStatus.PUSH);
+                    } else if (player.getHand().calculateValueHand() < dealer.getHand().calculateValueHand()) {
+                        player.setStatus(GameStatus.LOSS);
+                    }
+
+                }
+
+            }
         }
     }
 
     public void distributePayments() {
         for (Player player : players) {
-            
-            if(player.getHand().getStatus().equals(HandStatus.BLACKJACK)){
-                 player.setBalance((int) (player.getBalance() + (player.getHand().getBet() * 1.5)));
-            }
-            
-            else if(player.getStatus().equals(GameStatus.WIN)){
+
+            if (player.getHand().getStatus().equals(HandStatus.BLACKJACK)) {
+                player.setBalance((int) (player.getBalance() + (player.getHand().getBet() * 1.5)));
+            } else if (player.getStatus().equals(GameStatus.WIN)) {
                 player.setBalance(player.getBalance() + player.getHand().getBet());
-            }
-            
-            else if (player.getStatus().equals(GameStatus.PUSH)){
+            } else if (player.getStatus().equals(GameStatus.PUSH)) {
                 player.setBalance(player.getBalance() + player.getHand().getBet());
-            }
-            
-            else{
-                player.setBalance(player.getBalance() - player.getHand().getBet() );
+            } else {
+                player.setBalance(player.getBalance() - player.getHand().getBet());
             }
         }
 
     }
-        public Date getDate()
-    {
+
+    public Date getDate() {
         cal = Calendar.getInstance();
         Date datum = cal.getTime();
         return datum;

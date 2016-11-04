@@ -7,6 +7,7 @@ package com.hitek.prog3.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -45,13 +46,12 @@ public class DealerRound extends HttpServlet {
                 while(game.getDealer().getHand().getStatus() == HandStatus.OTHER){
                         game.DealerHit(game.getDealer());
                 }
-            
-                 try (PrintWriter out = response.getWriter()) {
-                 out.println("<p>"+ game.getDealer().getHand().calculateValueHand() +"</p>");
-                 
-                     out.println("<p>"+ game.getDealer().getHand().getAmountOfcards() +"</p>");
-                     out.println("<p>"+ game.getDealer().getHand().getStatus() +"</p>");
-                 }
+                
+                game.evaluateGame();
+                
+                RequestDispatcher dispatcher = request.getRequestDispatcher("dealercardround.jsp");
+           dispatcher.forward(request, response);
+                
                 
             }
         

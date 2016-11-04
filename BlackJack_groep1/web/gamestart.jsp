@@ -13,7 +13,7 @@
         <title>JSP Page</title>
         <style type="text/css">
             #container{
-                border: black 1px dotted; width: 950px; height:600px; margin-left: auto; margin-right: auto;
+                border: black 1px dotted; width: 1200px; height:800px; margin-left: auto; margin-right: auto;
             }
             #dealer{
                 height: auto;
