@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html >
+    <head>
+        <meta charset="UTF-8">
+        <title>Login Form</title>
+        <link rel="stylesheet" href="css/loginStyle/style.css">
+    </head>
+    <body>
+        <div class="login">
+            <div class="login-screen">
+                <a class="login-link" href="#">Keer terug</a>
+                <div class="app-title">
+                    <h1>Aanmelden</h1>
+                </div>
+
+                <form method="POST" action="j_security_check" class="login-form">
+                    <div class="control-group">
+                        <input type="text" class="login-field" name="j_username" placeholder="emailadres" id="login-name" required>
+                        <label class="login-field-icon fui-user" for="login-name"></label>
+                    </div>
+
+                    <div class="control-group">
+                        <input type="password" class="login-field" name="j_password" value="" placeholder="wachtwoord" id="login-pass" required>
+                        <label class="login-field-icon fui-lock" for="login-pass"></label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large btn-block" >Aanmelden</button>
+                    <a class="login-link" href="#">Wachtwoord vergeten?</a>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
