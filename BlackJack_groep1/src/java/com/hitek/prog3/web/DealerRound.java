@@ -48,6 +48,7 @@ public class DealerRound extends HttpServlet {
                 }
                 
                 game.evaluateGame();
+                game.distributePayments();
                 
                 RequestDispatcher dispatcher = request.getRequestDispatcher("dealercardround.jsp");
            dispatcher.forward(request, response);

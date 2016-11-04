@@ -43,12 +43,14 @@
                         </c:forEach>
                     </select>
                         
-                    <input type="submit" value="kies" />    
+                      
                 </c:forEach>
                 <input type="submit" value="start spel"/>
 
             </form>
-
+            <c:if test="${requestScope.warning}">
+                <p class="warning">hallooo</p>
+            </c:if>
         </div>
     </body>
 </html>

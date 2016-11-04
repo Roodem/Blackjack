@@ -26,7 +26,7 @@ public class AantalSpelersServlet extends HttpServlet {
   @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                
+                    //control op profielen met 0 credits
                     // lijst met alle speler objecten ophalen
                     PlayerService ps = new PlayerService();
                     ArrayList <Player> allPlayers = new ArrayList<>();

@@ -81,6 +81,8 @@
                     <img src="${player.getIcon().getUrl()}" alt="${player.getNickname()}"/>
                     <h4>${player.getNickname()}</h4>
                     <p>bet: ${player.getHand().getBet()}</p>
+                    
+                    <p>balance:${player.getBalance()} </p>
 
 
 

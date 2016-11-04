@@ -45,9 +45,9 @@
 
             Hand test = new Hand();
             Deck d1 = new Deck();
-            test.addCard(d1.drawCardFromDeck());
-            test.addCard(d1.drawCardFromDeck());
-            test.addCard(d1.drawCardFromDeck());
+            test.addCard(new Card(Rank.ACE, Suit.DIAMONDS));
+            test.addCard(new Card(Rank.ACE, Suit.CLUBS));
+           // test.addCard(d1.drawCardFromDeck());
 
             out.write("<p>" + test.getAmountOfcards() + "</p>");
 
