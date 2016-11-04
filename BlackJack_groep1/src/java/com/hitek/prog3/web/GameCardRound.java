@@ -41,7 +41,7 @@ public class GameCardRound extends HttpServlet {
             throws ServletException, IOException {
           
           Game game = (Game) request.getSession().getAttribute("game");
-          ArrayList<Player> currentplayers = game.getPlayers();
+         
           //bets aanvaarden spelers
            String[] test = request.getParameterValues("bet");
            int[] bets = Arrays.stream(test).mapToInt(Integer::parseInt).toArray();

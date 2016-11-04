@@ -92,7 +92,7 @@
             </c:forEach>
 
 
-                <form method="POST" action="graphicstest.jsp">       
+                <form method="POST" action="DealerRound">       
                 <input type="submit" name="dealerround" value="reveal dealer"/>
             </form>
         </div>
