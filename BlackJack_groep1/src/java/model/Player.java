@@ -10,13 +10,27 @@ package model;
  * @author PreachedMeat
  */
 public class Player {
+
     private Icon icon;
+
+    private String nickname;
+    private int balance;
+
+    public Player(Icon icon, String nickname, int balance) {
+        this.icon = icon;
+        this.nickname = nickname;
+        this.balance = balance;
+        hand = new Hand();
+        status = GameStatus.PLAYING;
+    }
+     public Player() {
+          hand = new Hand();
+          status = GameStatus.PLAYING;
+    }
 
     public Icon getIcon() {
         return icon;
     }
-    private String nickname;
-    private int balance;
 
     public String getNickname() {
         return nickname;
@@ -34,21 +48,12 @@ public class Player {
         this.hand = hand;
     }
 
-    public Player() {
-    }
+   
     private Hand hand;
     private GameStatus status;
 
     public void setBalance(int balance) {
         this.balance = balance;
-    }
-
-    public Player(Icon icon, String nickname, int balance) {
-        this.icon = icon;
-        this.nickname = nickname;
-        this.balance = balance;
-        hand = new Hand();
-        status = GameStatus.PLAYING;
     }
 
     public void editIcon(Icon icon) {
@@ -70,10 +75,5 @@ public class Player {
     public void setStatus(GameStatus status) {
         this.status = status;
     }
-    
-    
-    
-    
-    
-    
+
 }

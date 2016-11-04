@@ -1,4 +1,4 @@
-/*
+  /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -48,6 +48,10 @@ public class Game {
 
     }
 
+    public Deck getDeck() {
+        return deck;
+    }
+
     public Dealer getDealer() {
         return dealer;
     }
@@ -67,22 +71,22 @@ public class Game {
     }
 
     public void PlayerStand(Player player) {
-        player.getHand().setStatus(HandStatus.STAND);
+        player.getHand().setHandStatus(HandStatus.STAND);
     }
 
     public void DealerStand(Dealer dealer) {
-        dealer.getHand().setStatus(HandStatus.STAND);
+        dealer.getHand().setHandStatus(HandStatus.STAND);
     }
 
     public void DealerHit(Dealer dealer) {
 
         if ((dealer.getHand().calculateValueHand() > 21)) {
-            dealer.getHand().setStatus(HandStatus.BURNED);
+            dealer.getHand().setHandStatus(HandStatus.BURNED);
 
         } else if (dealer.getHand().calculateValueHand() == 21 && dealer.getHand().getAmountOfcards() == 2) {
-            dealer.getHand().setStatus(HandStatus.BLACKJACK);
+            dealer.getHand().setHandStatus(HandStatus.BLACKJACK);
         } else if (dealer.getHand().calculateValueHand() >= dealer.getMinStand()) {
-            dealer.getHand().setStatus(HandStatus.STAND);
+            dealer.getHand().setHandStatus(HandStatus.STAND);
 
         } else {
             dealer.getHand().addCard(deck.drawCardFromDeck());

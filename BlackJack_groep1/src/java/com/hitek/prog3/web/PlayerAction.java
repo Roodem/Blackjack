@@ -1,4 +1,3 @@
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,25 +7,21 @@ package com.hitek.prog3.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Game;
+import model.GameStatus;
+import model.HandStatus;
 import model.Player;
 
 /**
  *
  * @author Stone
  */
-public class GameCardRound extends HttpServlet {
-
-   
-   
+public class PlayerAction extends HttpServlet {
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -39,30 +34,28 @@ public class GameCardRound extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-          
-          Game game = (Game) request.getSession().getAttribute("game");
-          ArrayList<Player> currentplayers = game.getPlayers();
-          //bets aanvaarden spelers
-           String[] test = request.getParameterValues("bet");
-           int[] bets = Arrays.stream(test).mapToInt(Integer::parseInt).toArray();
-          
-           
-           int i = 0;
-           for (Player player : game.getPlayers()) {
-               player.getHand().setBet(bets[i]);
-               i++;
+        Game game = (Game) request.getSession().getAttribute("game");
+
+        String action = request.getParameter("action");
+        int playernr = Integer.parseInt(request.getParameter("playernr"));
+
+        
+
+        if (action.equals("STAND")) {
+            game.getPlayers().get(playernr).getHand().setHandStatus(HandStatus.STAND);
               
-            
         }
-           
-          game.CardDistribution();
-          
-          
-           RequestDispatcher dispatcher = request.getRequestDispatcher("gameplayerround.jsp");
-           dispatcher.forward(request, response);
-          
+        
+        if(action.equals("HIT")){
+            game.PlayerHit(game.getPlayers().get(playernr));
+        }
+        
+       
+        
+        
+             RequestDispatcher dispatcher = request.getRequestDispatcher("gameplayerround.jsp");
+            dispatcher.forward(request, response);
+       
     }
-    
-    
 
 }

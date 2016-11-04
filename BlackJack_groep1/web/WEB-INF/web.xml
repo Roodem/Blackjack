@@ -37,6 +37,11 @@
         <servlet-name>GameCardRound</servlet-name>
         <servlet-class>com.hitek.prog3.web.GameCardRound</servlet-class>    
     </servlet>
+     <servlet>
+
+        <servlet-name>PlayerAction</servlet-name>
+        <servlet-class>com.hitek.prog3.web.PlayerAction</servlet-class>    
+    </servlet>
     <servlet>
         <servlet-name>LogOut</servlet-name>
         <servlet-class>com.hitek.prog3.web.LogOut</servlet-class>
@@ -73,6 +78,10 @@
     <servlet-mapping>
         <servlet-name>CardDAO</servlet-name>
         <url-pattern>/CardDAO</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>PlayerAction</servlet-name>
+        <url-pattern>/PlayerAction</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>GameCardRound</servlet-name>

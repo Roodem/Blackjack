@@ -20,6 +20,10 @@ public class Card {
         this.suit = suit;
         visible = true;
     }
+
+    public Boolean getVisible() {
+        return visible;
+    }
     
     public Card() {
     }

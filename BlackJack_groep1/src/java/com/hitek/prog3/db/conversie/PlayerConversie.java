@@ -31,7 +31,7 @@ public class PlayerConversie {
               p.setIcon(icon);
               p.setNickname(rs.getString("nickname"));
               p.setBalance(rs.getInt("balance"));
-              p.setHand(null);
+             
               
               playerlist.add(p);
               

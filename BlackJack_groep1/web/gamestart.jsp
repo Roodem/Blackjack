@@ -47,22 +47,22 @@
 
                 <img src="${game.getDealer().getIcon().getUrl()}" alt="dealer"/>
             </div>
-
+<form name="placebet" action="GameCardRound" method="POST">
             <c:forEach items="${game.getPlayers()}" var="player" varStatus="count">
                 <div id="player">
                     <img src="${player.getIcon().getUrl()}" alt="${player.getNickname()}"/>
                     <h4>${player.getNickname()}</h4>
                     <p>balance: ${player.getBalance()}</p>
 
-                    <form name="frm_player_${count.index.toString()+1}" method="POST">
-                        <input type="number" min="1" max="50" name="bet"/><br>
-                        <input type="submit" name="placebet" value="placebet"/>
-                    </form>
+                    
+                    <input type="number"  value="1" min="1" max="${player.getBalance()}"  name="bet"/><br>
 
                        
                 </div>
             </c:forEach>
-             <form action="GameCardRound" method="POST">
+                        
+
+             
                             <input type="submit" name="dealcards" value="Deal Cards"/>
                         </form>
         </div>

@@ -19,25 +19,25 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-//        //nieuw deck maken
-//        Deck deck = new Deck(2); //Deck uit meerdere spellen kaarten
-//        Deck deck2 = new Deck(); //Deck uit 1 spel kaarten
-//        int count = 0;
-//        int count2 = 0;
-//
-//        //decks shuffelen
-//        deck.shuffle();
-//        deck2.shuffle();
-//
-//       
-//
-//        Hand hand1 = new Hand();
-//       Player p1 = new Player(new Icon("test","test"), "Stijn", 50);
-//        ArrayList<Player> players = new ArrayList<>();
-//        players.add(p1);
-//        Game g = new Game(players);
-//        //dealer testen
-//        g.CardDistribution();
+        //nieuw deck maken
+        Deck deck = new Deck(2); //Deck uit meerdere spellen kaarten
+        Deck deck2 = new Deck(); //Deck uit 1 spel kaarten
+        int count = 0;
+        int count2 = 0;
+
+        //decks shuffelen
+        deck.shuffle();
+        deck2.shuffle();
+
+       
+
+        Hand hand1 = new Hand();
+       Player p1 = new Player(new Icon("test","test"), "Stijn", 50);
+        ArrayList<Player> players = new ArrayList<>();
+        players.add(p1);
+        Game g = new Game(players);
+        //dealer testen
+        g.CardDistribution();
 //       
 //        System.out.println(g.getDealer().getHand().getStatus());
 //        System.out.println(g.getDealer().getHand().calculateValueHand()); 

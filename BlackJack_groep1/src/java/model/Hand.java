@@ -16,14 +16,11 @@ public class Hand {
 
     private ArrayList<Card> cards;
     private int bet;
-    private HandStatus status;
-   
-
-  
+    private HandStatus handStatus;
 
     public Hand() {
         cards = new ArrayList<>();
-        status = HandStatus.OTHER;
+        handStatus = HandStatus.OTHER;
     }
 
     public ArrayList<Card> getCards() {
@@ -42,19 +39,24 @@ public class Hand {
         this.bet = bet;
     }
 
-    public void setStatus(HandStatus status) {
-        this.status = status;
+    public void setHandStatus(HandStatus handStatus) {
+        this.handStatus = handStatus;
     }
 
-    public void evaluateHandStatus() {
-        if (calculateValueHand() == 21 && getAmountOfcards() == 2) {
-            setStatus(HandStatus.BLACKJACK);
-        }  else if (calculateValueHand() > 21) {
+   
 
-            setStatus(HandStatus.BURNED);
+    public HandStatus evaluateHandStatus() {
+        if (calculateValueHand() == 21 && getAmountOfcards() == 2) {
+            setHandStatus(HandStatus.BLACKJACK);
+        } else if (calculateValueHand() > 21) {
+
+            setHandStatus(HandStatus.BURNED);
+        } else if (calculateValueHand() == 21) {
+            setHandStatus(HandStatus.STAND);
         } else {
-            setStatus(HandStatus.OTHER);
+            setHandStatus(HandStatus.OTHER);
         }
+        return handStatus;
     }
 
     public int getBet() {
@@ -83,7 +85,7 @@ public class Hand {
     }
 
     public HandStatus getStatus() {
-        return status;
+        return handStatus;
     }
 
     /**
