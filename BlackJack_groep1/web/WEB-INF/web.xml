@@ -36,8 +36,8 @@
 
         <servlet-name>GameCardRound</servlet-name>
         <servlet-class>com.hitek.prog3.web.GameCardRound</servlet-class>    
-        </servlet>
-        <servlet>
+    </servlet>
+    <servlet>
         <servlet-name>LogOut</servlet-name>
         <servlet-class>com.hitek.prog3.web.LogOut</servlet-class>
 
@@ -78,7 +78,7 @@
         <servlet-name>GameCardRound</servlet-name>
         <url-pattern>/GameCardRound</url-pattern>
     </servlet-mapping>
-<servlet-mapping>
+    <servlet-mapping>
         <servlet-name>LogOut</servlet-name>
         <url-pattern>/LogOut</url-pattern>
     </servlet-mapping>
