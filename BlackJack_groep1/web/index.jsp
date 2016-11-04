@@ -12,7 +12,7 @@
     <body>
         <div>
             <a href="help.html"><img id="help" src="./images/etc/help.png" alt="help"/></a>
-            <form id="login" action="inlog.html"><button name="btn_login" value="adminlogin">Aanmelden</button></form>
+            <form id="login" action="login.html"><button name="btn_login" value="adminlogin">Aanmelden</button></form>
         </div>
 
         <div id="container">

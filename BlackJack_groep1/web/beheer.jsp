@@ -37,7 +37,7 @@
             <input type="button" value="Speler Aanmaken" onclick="location.href='spelerAanmaken.jsp';"><br><br>
             <input type="button" value="Speler Verwijderen" onclick="location.href='spelerVerwijderen.jsp';"><br><br>
             <input type="button" value="Credits Wijzigen" onclick="location.href='creditsWijzigen.jsp';"><br><br>
-            <input type="button" value="Beheer Afsluiten" onclick="location.href='index.html';">
+            <input type="button" value="Beheer Afsluiten" onclick="location.href='index.jsp';">
         </aside>
         
     </body>
