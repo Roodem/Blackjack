@@ -15,6 +15,8 @@ public class Player {
 
     private String nickname;
     private int balance;
+    private Hand hand;
+    private GameStatus status;
 
     public Player(Icon icon, String nickname, int balance) {
         this.icon = icon;
@@ -49,8 +51,7 @@ public class Player {
     }
 
    
-    private Hand hand;
-    private GameStatus status;
+  
 
     public void setBalance(int balance) {
         this.balance = balance;

@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.Game;
 import model.GameStatus;
 import model.HandStatus;
+
 import model.Player;
 
 /**
@@ -38,10 +39,11 @@ public class PlayerAction extends HttpServlet {
 
         String action = request.getParameter("action");
         int playernr = Integer.parseInt(request.getParameter("playernr"));
-
+        
         
 
         if (action.equals("STAND")) {
+           
             game.getPlayers().get(playernr).getHand().setHandStatus(HandStatus.STAND);
               
         }

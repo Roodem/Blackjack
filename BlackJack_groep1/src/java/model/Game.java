@@ -58,7 +58,8 @@ public class Game {
 
     //playerhit en logica addcard van hand nog eens bekijken / herzien
     public void PlayerHit(Player player) {
-        if (player.getHand().getStatus().equals(HandStatus.BURNED)) {
+       
+        if (player.getHand().evaluateHandStatus().equals(HandStatus.BURNED)) {
             player.setStatus(GameStatus.LOSS);
 
         } else {

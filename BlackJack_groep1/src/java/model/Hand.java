@@ -43,18 +43,18 @@ public class Hand {
         this.handStatus = handStatus;
     }
 
-   
-
     public HandStatus evaluateHandStatus() {
-        if (calculateValueHand() == 21 && getAmountOfcards() == 2) {
-            setHandStatus(HandStatus.BLACKJACK);
-        } else if (calculateValueHand() > 21) {
+        if (!getStatus().equals(HandStatus.STAND)) {
+            if (calculateValueHand() == 21 && getAmountOfcards() == 2) {
+                setHandStatus(HandStatus.BLACKJACK);
+            } else if (calculateValueHand() > 21) {
 
-            setHandStatus(HandStatus.BURNED);
-        } else if (calculateValueHand() == 21) {
-            setHandStatus(HandStatus.STAND);
-        } else {
-            setHandStatus(HandStatus.OTHER);
+                setHandStatus(HandStatus.BURNED);
+            } else if (calculateValueHand() == 21) {
+                setHandStatus(HandStatus.STAND);
+            } else {
+                setHandStatus(HandStatus.OTHER);
+            }
         }
         return handStatus;
     }
