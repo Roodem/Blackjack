@@ -42,16 +42,19 @@ public class DealerRound extends HttpServlet {
         }
         
         if(playeractionscomplete){
-            try (PrintWriter out = response.getWriter()) {
-                for (Player player : game.getPlayers()) {
-                     out.println("<p>"+ player.getHand().calculateValueHand() +"</p>");
-                     out.println("<p>"+ player.getHand().getAmountOfcards() +"</p>");
-                     out.println("<p>"+ player.getHand().getStatus() +"</p>");
+                while(game.getDealer().getHand().getStatus() == HandStatus.OTHER){
+                        game.DealerHit(game.getDealer());
                 }
-               
             
+                 try (PrintWriter out = response.getWriter()) {
+                 out.println("<p>"+ game.getDealer().getHand().calculateValueHand() +"</p>");
+                 
+                     out.println("<p>"+ game.getDealer().getHand().getAmountOfcards() +"</p>");
+                     out.println("<p>"+ game.getDealer().getHand().getStatus() +"</p>");
+                 }
+                
             }
-        }
+        
         
         else{
             
