@@ -1,26 +1,25 @@
-package com.hitek.prog3.web;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package com.hitek.prog3.web;
 
-
+import com.hitek.prog3.db.service.LoginService;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 
 /**
  *
  * @author Gebruiker
  */
-public class LogOut extends HttpServlet {
+public class LoginServlet extends HttpServlet {
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -33,10 +32,7 @@ public class LogOut extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession(false);
-        session.invalidate();
-        RequestDispatcher view = request.getRequestDispatcher("index.html");
-        view.forward(request,response);
+      
     }
 
     /**
@@ -50,7 +46,25 @@ public class LogOut extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+         String email = request.getParameter("username");
+       String password = request.getParameter("password");
+       
+       LoginService login = new LoginService();
+       int check = login.action(email,password);
+
      
+      if(check == 0)
+       {
+          RequestDispatcher view =  request.getRequestDispatcher("index.jsp");
+        view.forward(request,response);
+      
+      }
+       else if(check == 1)
+       {
+        RequestDispatcher view =  request.getRequestDispatcher("beheer.jsp");
+        view.forward(request,response);
+       }
+
     }
 
     /**

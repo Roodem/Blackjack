@@ -41,12 +41,12 @@
         <servlet-class>com.hitek.prog3.web.PlayerAction</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>LogOut</servlet-name>
-        <servlet-class>com.hitek.prog3.web.LogOut</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>DealerRound</servlet-name>
         <servlet-class>com.hitek.prog3.web.DealerRound</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.hitek.prog3.web.LoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>GameServlet</servlet-name>
@@ -89,46 +89,12 @@
         <url-pattern>/GameCardRound</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>LogOut</servlet-name>
-        <url-pattern>/LogOut</url-pattern>
-    </servlet-mapping>
-    <login-config>
-        <auth-method>FORM</auth-method>
-        <realm-name>BLACKJACKRealm</realm-name>
-        <form-login-config>
-            <form-login-page>/inlog.html</form-login-page>
-            <form-error-page>/LogOut</form-error-page>
-        </form-login-config>
-    </login-config>
-    <security-role>
-        <description/>
-        <role-name>admin</role-name>
-    </security-role>
-    <security-constraint>
-        <display-name>admin</display-name>
-        <web-resource-collection>
-            <web-resource-name>admin</web-resource-name>
-            <description/>
-            <url-pattern>/beheer.jsp</url-pattern>
-            <http-method>GET</http-method>
-            <http-method>POST</http-method>
-        </web-resource-collection>
-        <auth-constraint>
-            <description/>
-            <role-name>admin</role-name>
-        </auth-constraint>
-    </security-constraint>
-    <error-page>
-        <error-code>403</error-code>
-        <location>/LogOut</location>
-    </error-page>
-    <error-page>
-        <error-code>401</error-code>
-        <location>/LogOut</location>
-    </error-page>
-    <servlet-mapping>
         <servlet-name>DealerRound</servlet-name>
         <url-pattern>/DealerRound</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
