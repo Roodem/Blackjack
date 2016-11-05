@@ -101,6 +101,16 @@ public class Game {
         }
 
     }
+    
+    public void comparePlayerHandWithDealer(Player player){
+         Hand playerHand = player.getHand();
+         Hand dealerHand = getDealer().getHand();
+            
+        
+        
+        
+        
+    }
 
     public void evaluateGame() {
 

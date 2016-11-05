@@ -9,6 +9,7 @@ import com.hitek.prog3.db.service.PlayerService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.ListIterator;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,30 +23,54 @@ import model.Player;
  */
 public class AantalSpelersServlet extends HttpServlet {
 
-    
-  @Override
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                    //control op profielen met 0 credits
-                    // lijst met alle speler objecten ophalen
-                    PlayerService ps = new PlayerService();
-                    ArrayList <Player> allPlayers = new ArrayList<>();
-                    allPlayers = ps.getAllPlayers();
+        //control op profielen met 0 credits
+        // lijst met alle speler objecten ophalen
+        PlayerService ps = new PlayerService();
+        ArrayList<Player> allPlayers = new ArrayList<>();
+        allPlayers = ps.getAllPlayers();
+
+        int aantal = Integer.parseInt(request.getParameter("aantalspelers"));
+
+        if (allPlayers.size() < aantal) {
+            aantal = allPlayers.size();
+            request.setAttribute("label", "er zijn maar " + aantal + " Spelers geregistreerd");
+        }
+
+        ArrayList<Player> playersNoCredits = new ArrayList<>();
         
-                    int aantal =  Integer.parseInt(request.getParameter("aantalspelers"));
-                
-                    if(allPlayers.size() < aantal){
-                        aantal = allPlayers.size();
-                        request.setAttribute("label", "er zijn maar " + aantal + " Spelers geregistreerd" );
-                    }
-                
-                request.getSession().setAttribute("allplayers", allPlayers);
-                request.setAttribute("aantal", aantal);
-                RequestDispatcher view = request.getRequestDispatcher("profielkiezen.jsp");
-                view.forward(request, response);
-                
-                       
-       
+        //allplayers checken op genoeg credits
+        for (ListIterator<Player> iterator = allPlayers.listIterator(); iterator.hasNext();) {
+            Player next = iterator.next();
+            if (next.getBalance() < 1) {
+                playersNoCredits.add(next);
+              
+
+            }
+
+        }
+        
+        for (ListIterator<Player> iterator = playersNoCredits.listIterator(); iterator.hasNext();) {
+            Player next = iterator.next();
+            if (next.getBalance() < 1) {
+                allPlayers.remove(next);
+              
+
+            }
+
+        }
+      
+            request.setAttribute("nocreditplayers", playersNoCredits);
+           
+        
+
+        request.getSession().setAttribute("allplayers", allPlayers);
+        request.setAttribute("aantal", aantal);
+        RequestDispatcher view = request.getRequestDispatcher("profielkiezen.jsp");
+        view.forward(request, response);
+
     }
 
 }

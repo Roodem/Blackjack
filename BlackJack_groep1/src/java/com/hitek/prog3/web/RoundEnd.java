@@ -53,10 +53,18 @@ public class RoundEnd extends HttpServlet {
         }
         
         if(newround != null){
-            //loggen
+            //loggen en balance update spelers
             //zelfde spelers inladen
             Game currentGame = (Game) request.getSession().getAttribute("game");
             ArrayList<Player> currentPlayers = currentGame.getPlayers();
+//            //controle of er spelers zijn zonder credits
+//            boolean nocredits = false;
+//            for (Player player : currentPlayers) {
+//                   if(player.getBalance() < 1){
+//                       nocredits = true;
+//                   }
+//            }
+//            
             
                 //lege handen
                 for (Player player : currentPlayers) {
@@ -65,10 +73,11 @@ public class RoundEnd extends HttpServlet {
             }
                
             
+            //new game      
             Game newGame = new Game(currentPlayers);
          
            
-           request.getSession(false).invalidate();                    
+           //request.getSession(false).invalidate();                    
            request.getSession(true).setAttribute("game", newGame);
             
             RequestDispatcher dispatcher = request.getRequestDispatcher("gamestart.jsp");

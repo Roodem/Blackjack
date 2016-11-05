@@ -48,9 +48,14 @@
                 <input type="submit" value="start spel"/>
 
             </form>
-            <c:if test="${requestScope.warning}">
-                <p class="warning">hallooo</p>
-            </c:if>
+            <c:if test="${requestScope.nocreditplayers.size() > 0}">
+                <p>volgende spelers hebben geen credits meer</p>
+                <ul>
+                <c:forEach items="${requestScope.nocreditplayers}" var="player">
+                    <li>${player.getNickname()}</li>
+                </c:forEach>
+                </ul>
+            </c:if>  
         </div>
     </body>
 </html>

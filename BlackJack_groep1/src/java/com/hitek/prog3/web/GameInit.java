@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.ListIterator;
 import java.util.Set;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -42,7 +44,7 @@ public class GameInit extends HttpServlet {
             selectedPlayers.add(allPlayers.get(i));
 
         }
-
+       
         //control op dezelfde spelers, nog properder uitwerken
         Set<Player> playerSet = new HashSet<>();
         playerSet.addAll(selectedPlayers);
