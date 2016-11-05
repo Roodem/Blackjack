@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Game;
+import model.Hand;
 import model.Player;
 
 /**
@@ -35,7 +36,7 @@ public class RoundEnd extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String newround = request.getParameter("endround");
+        String newround = request.getParameter("newround");
         String quit = request.getParameter("quit");
         
         //ronde afsluiten en naar indexx
@@ -52,7 +53,27 @@ public class RoundEnd extends HttpServlet {
         }
         
         if(newround != null){
+            //loggen
+            //zelfde spelers inladen
+            Game currentGame = (Game) request.getSession().getAttribute("game");
+            ArrayList<Player> currentPlayers = currentGame.getPlayers();
+            
+                //lege handen
+                for (Player player : currentPlayers) {
+                    player.setHand(new Hand());
+                
+            }
+               
+            
+            Game newGame = new Game(currentPlayers);
+         
            
+           request.getSession(false).invalidate();                    
+           request.getSession(true).setAttribute("game", newGame);
+            
+            RequestDispatcher dispatcher = request.getRequestDispatcher("gamestart.jsp");
+            dispatcher.forward(request, response);
+               
         }
     }
 

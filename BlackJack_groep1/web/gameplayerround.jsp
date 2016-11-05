@@ -46,7 +46,8 @@
 
     <body>
 
-        
+                <h1>${sessionScope.game}</h1>
+
         <div id="container">
             <div id="dealer">
 
