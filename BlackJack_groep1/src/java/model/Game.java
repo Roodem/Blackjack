@@ -29,7 +29,8 @@ public class Game {
 
     public Game() {
         players = new ArrayList<>();
-        
+        deck = new Deck();
+        dealer = new Dealer(new Icon("SITHLORD", "images/icons/SITHLORD.png"), 17, 16);
     }
     
 
