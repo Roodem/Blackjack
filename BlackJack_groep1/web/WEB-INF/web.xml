@@ -48,6 +48,10 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>com.hitek.prog3.web.LoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RoundEnd</servlet-name>
+        <servlet-class>com.hitek.prog3.web.RoundEnd</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>GameServlet</servlet-name>
         <url-pattern>/GameServlet</url-pattern>
@@ -95,6 +99,10 @@
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RoundEnd</servlet-name>
+        <url-pattern>/RoundEnd</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

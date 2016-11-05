@@ -12,8 +12,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <style type="text/css">
+            body{
+                
+            }
             #container{
                 border: black 1px dotted; width: 1200px; height:800px; margin-left: auto; margin-right: auto;
+                
             }
             #dealer{
                 height: auto;
@@ -90,7 +94,10 @@
             </c:forEach>
 
                    
-               
+                    <form method="post" action="RoundEnd">
+                        <input type="submit" name="newround" value="New Round"/>
+                         <input type="submit" name="quit" value="Quit Game"/>
+                    </form>
                
         </div>
              
