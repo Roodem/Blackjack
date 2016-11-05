@@ -81,7 +81,7 @@
                     <img src="${player.getIcon().getUrl()}" alt="${player.getNickname()}"/>
                     <h4>${player.getNickname()}</h4>
                     <p>bet: ${player.getHand().getBet()}</p>
-                    
+
                     <p>balance:${player.getBalance()} </p>
 
 
@@ -89,23 +89,22 @@
                 </div>
             </c:forEach>
 
-
-            <form method="POST" action="">       
-                <input type="submit" name="dealerround" value="reveal dealer"/>
-            </form>
+                   
+               
+               
         </div>
-<!--        <div id="debug">
-            <p>${game}</p>
-            <p>${game.getDealer()}</p>
-            <p>${game.getDeck()}</p>
+        <!--        <div id="debug">
+                    <p>${game}</p>
+                    <p>${game.getDealer()}</p>
+                    <p>${game.getDeck()}</p>
+        
+        <c:forEach items="${game.getPlayers()}" var="player">
+            <p>${player}</p>
+            <p>${player.getHand()}</p>
+            <p>handstatus: ${player.getHand().evaluateHandStatus()}</p>
+            <p>spelerstatus: ${player.getStatus()}</p>
 
-            <c:forEach items="${game.getPlayers()}" var="player">
-                <p>${player}</p>
-                <p>${player.getHand()}</p>
-                <p>handstatus: ${player.getHand().evaluateHandStatus()}</p>
-                <p>spelerstatus: ${player.getStatus()}</p>
-
-            </c:forEach>
-        </div>
-    </body>-->
+        </c:forEach>
+    </div>
+</body>-->
 </html>

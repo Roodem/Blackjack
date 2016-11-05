@@ -41,7 +41,7 @@ public class DealerRound extends HttpServlet {
             }
 
         }
-        
+        request.setAttribute("playeraction", playeractionscomplete);
         if(playeractionscomplete){
                 while(game.getDealer().getHand().getStatus() == HandStatus.OTHER){
                         game.DealerHit(game.getDealer());

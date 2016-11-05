@@ -38,6 +38,20 @@ public class Main {
         Game g = new Game(players);
         //dealer testen
         g.CardDistribution();
+//
+//        //decks shuffelen
+//        deck.shuffle();
+//        deck2.shuffle();
+//
+//       
+//
+//        Hand hand1 = new Hand();
+//       Player p1 = new Player(new Icon("test","test"), "Stijn", 50);
+//        ArrayList<Player> players = new ArrayList<>();
+//        players.add(p1);
+//        Game g = new Game(players);
+//        //dealer testen
+//        g.CardDistribution();
 //       
 //        System.out.println(g.getDealer().getHand().getStatus());
 //        System.out.println(g.getDealer().getHand().calculateValueHand()); 
@@ -96,5 +110,5 @@ public class Main {
 
     //   PlayerService persoon = new PlayerService();
     //   persoon.CreditsWijzigen(500, "tahsin");
+        }
     }
-}

@@ -45,7 +45,7 @@
     </head>
 
     <body>
-       
+
         <h4>${sessionScope.game}</h4>
         <div id="container">
             <div id="dealer">
@@ -54,18 +54,18 @@
                 <div id="dealercards">
                     <c:forEach items="${sessionScope.game.getDealer().getHand().getCards()}" var="card">
                         <c:if test="${card.getVisible()}">
-                        <img src="images/cards/${card}.gif" alt="${card}"/>
+                            <img src="images/cards/${card}.gif" alt="${card}"/>
                         </c:if>
                         <c:if test="${!card.getVisible()}">
-                        <img src="images/cards/BACKSIDE.gif" alt="hiddencard"/>
+                            <img src="images/cards/BACKSIDE.gif" alt="hiddencard"/>
                         </c:if>
-                        
+
 
                     </c:forEach>
                 </div>
             </div>
 
-                <c:forEach items="${sessionScope.game.getPlayers()}" var="player" varStatus="count">
+            <c:forEach items="${sessionScope.game.getPlayers()}" var="player" varStatus="count">
 
                 <div id="player">
                     <div id ="playerhand">
@@ -74,16 +74,17 @@
                         </c:forEach>
                         <p>${player.getHand().calculateValueHand()}</p>
                         <p>${player.getHand().evaluateHandStatus()}</p>
-                          <p>${player.getHand().getStatus()}</p>
+                        <p>${player.getHand().getStatus()}</p>
 
 
                     </div>
                     <img src="${player.getIcon().getUrl()}" alt="${player.getNickname()}"/>
                     <h4>${player.getNickname()}</h4>
                     <p>bet: ${player.getHand().getBet()}</p>
-<!--                    speler kan zolang hij niet BURNED/STAND/BJ heeft kaarten bijvragen-->
+                    <!--                    speler kan zolang hij niet BURNED/STAND/BJ heeft kaarten bijvragen-->
                     <form name="playeraction" method="POST" action="PlayerAction ">
                         <c:if test="${player.getHand().getStatus() == 'OTHER'}">
+                            <c:set value="${true}"  var="stillAction" /> 
                             <input type="hidden" value="${count.index.toString()}" name="playernr"/>
                             <input type="submit" value ="HIT" name="action"/>
                             <input type="submit" value ="STAND"  name="action"/>
@@ -93,24 +94,25 @@
 
                 </div>
             </c:forEach>
-
-
-                <form method="POST" action="DealerRound">       
-                <input type="submit" name="dealerround" value="reveal dealer"/>
-            </form>
-        </div>
-<!--        <div id="debug">
-            <p>${game}</p>
-            <p>${game.getDealer()}</p>
-            <p>${game.getDeck()}</p>
-
-            <c:forEach items="${game.getPlayers()}" var="player">
-                <p>${player}</p>
-                <p>${player.getHand()}</p>
-                <p>handstatus: ${player.getHand().evaluateHandStatus()}</p>
-                <p>spelerstatus: ${player.getStatus()}</p>
                 
-            </c:forEach>
-        </div>-->
+                <c:if test="${!stillAction}" > 
+                <form method="POST" action="DealerRound">       
+                    <input type="submit" name="dealerround" value="reveal dealer"/>
+                </form>
+                </c:if>
+        </div>
+        <!--        <div id="debug">
+                    <p>${game}</p>
+                    <p>${game.getDealer()}</p>
+                    <p>${game.getDeck()}</p>
+        
+        <c:forEach items="${game.getPlayers()}" var="player">
+            <p>${player}</p>
+            <p>${player.getHand()}</p>
+            <p>handstatus: ${player.getHand().evaluateHandStatus()}</p>
+            <p>spelerstatus: ${player.getStatus()}</p>
+            
+        </c:forEach>
+    </div>-->
     </body>
 </html>
