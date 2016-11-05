@@ -38,51 +38,55 @@ public class RoundEnd extends HttpServlet {
 
         String newround = request.getParameter("newround");
         String quit = request.getParameter("quit");
-        
+
         //ronde afsluiten en naar indexx
         if (quit != null) {
-            
+
             //hier loggen??
             HttpSession session = request.getSession(false);
             if (session != null) {
                 session.invalidate();
-                
-             response.sendRedirect("index.jsp");
+
+                response.sendRedirect("index.jsp");
             }
 
         }
-        
-        if(newround != null){
+
+        if (newround != null) {
             //loggen en balance update spelers
             //zelfde spelers inladen
             Game currentGame = (Game) request.getSession().getAttribute("game");
             ArrayList<Player> currentPlayers = currentGame.getPlayers();
-//            //controle of er spelers zijn zonder credits
-//            boolean nocredits = false;
-//            for (Player player : currentPlayers) {
-//                   if(player.getBalance() < 1){
-//                       nocredits = true;
-//                   }
-//            }
-//            
-            
-                //lege handen
-                for (Player player : currentPlayers) {
-                    player.setHand(new Hand());
-                
+            //controle of er spelers zijn zonder credits
+            boolean nocredits = false;
+            for (Player player : currentPlayers) {
+                if (player.getBalance() < 1) {
+                    nocredits = true;
+                }
             }
+
+            //lege handen
+            for (Player player : currentPlayers) {
+                player.setHand(new Hand());
+
+            }
+
+            if (nocredits) {
                
-            
+               response.sendRedirect("index.jsp");
+               return;
+
+            }
+
             //new game      
             Game newGame = new Game(currentPlayers);
-         
-           
-           //request.getSession(false).invalidate();                    
-           request.getSession(true).setAttribute("game", newGame);
-            
+
+            //request.getSession(false).invalidate();                    
+            request.getSession(true).setAttribute("game", newGame);
+
             RequestDispatcher dispatcher = request.getRequestDispatcher("gamestart.jsp");
             dispatcher.forward(request, response);
-               
+
         }
     }
 
