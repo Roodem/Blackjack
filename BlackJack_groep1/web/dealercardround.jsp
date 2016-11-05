@@ -46,7 +46,7 @@
 
     <body>
 
-        <h4>${sessionScope.game}</h4>
+        
         <div id="container">
             <div id="dealer">
 
@@ -93,18 +93,6 @@
                
                
         </div>
-        <!--        <div id="debug">
-                    <p>${game}</p>
-                    <p>${game.getDealer()}</p>
-                    <p>${game.getDeck()}</p>
-        
-        <c:forEach items="${game.getPlayers()}" var="player">
-            <p>${player}</p>
-            <p>${player.getHand()}</p>
-            <p>handstatus: ${player.getHand().evaluateHandStatus()}</p>
-            <p>spelerstatus: ${player.getStatus()}</p>
-
-        </c:forEach>
-    </div>
-</body>-->
+             
+</body>
 </html>
