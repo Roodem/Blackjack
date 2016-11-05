@@ -27,6 +27,10 @@ public class Game {
         dealer = new Dealer(new Icon("SITHLORD", "images/icons/SITHLORD.png"), 17, 16);
     }
 
+    public Game() {
+    }
+    
+
     public void CardDistribution() {
         // elke speler een kaart
         for (Player player : players) {
