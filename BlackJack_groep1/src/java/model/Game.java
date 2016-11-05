@@ -136,7 +136,7 @@ public class Game {
             } else if (player.getStatus().equals(GameStatus.WIN)) {
                 player.setBalance(player.getBalance() + player.getHand().getBet());
             } else if (player.getStatus().equals(GameStatus.PUSH)) {
-                player.setBalance(player.getBalance() + player.getHand().getBet());
+                player.setBalance(player.getBalance());
             } else {
                 player.setBalance(player.getBalance() - player.getHand().getBet());
             }
