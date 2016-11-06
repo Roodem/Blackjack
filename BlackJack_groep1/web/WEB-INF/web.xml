@@ -52,6 +52,10 @@
         <servlet-name>RoundEnd</servlet-name>
         <servlet-class>com.hitek.prog3.web.RoundEnd</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>WachtwoordWijzigenServlet</servlet-name>
+        <servlet-class>com.hitek.prog3.web.WachtwoordWijzigenServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>GameServlet</servlet-name>
         <url-pattern>/GameServlet</url-pattern>
@@ -103,6 +107,10 @@
     <servlet-mapping>
         <servlet-name>RoundEnd</servlet-name>
         <url-pattern>/RoundEnd</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>WachtwoordWijzigenServlet</servlet-name>
+        <url-pattern>/WachtwoordWijzigenServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
