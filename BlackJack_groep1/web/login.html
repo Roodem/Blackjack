@@ -6,15 +6,21 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Login</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/loginStyle/style.css">
     </head>
     <body>
-        <form method="POST" action="LoginServlet"><input type="text" name="username" placeholder="emailadres" required>
-            <input type="password" name="password" placeholder="wachtwoord" required>
-            <button type="submit">Aanmelden</button>
-        </form>
-            
+        <div class="login">
+            <div class="login-screen">
+                <div class="app-title"><h1>Aanmelden</h1></div>
+                <form class="login-form" method="POST" action="LoginServlet"><div class="control-group"> <input type="text" name="username" placeholder="emailadres" required></div>
+                    <div class="control-group">  <input type="password" name="password" placeholder="wachtwoord" required></div>
+                    <button class="btn" type="submit" name="login_btn">Aanmelden</button>
+                </form>
+                <a class="login-link" href="#">Maak een admin account aan</a>
+            </div>
+        </div>
     </body>
 </html>
