@@ -72,8 +72,9 @@ public class Hand {
         for (Iterator<Card> iterator = cards.iterator(); iterator.hasNext();) {
 
             Card next = iterator.next();
-            //ace logica niet helemaal juist
-            if (next.getRank().getTrueValue() == 11 && getAmountOfcards() > 2) {
+            
+            
+            if (next.getRank().getTrueValue() == 11 && value + next.getRank().getTrueValue() > 21) {
                 value += 1;
             } else {
                 value += next.getRank().getTrueValue();

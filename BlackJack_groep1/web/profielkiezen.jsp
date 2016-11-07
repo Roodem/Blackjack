@@ -12,15 +12,22 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <style type="text/css">
+            body{
+                color: yellow; 
+                    
+            }
             #container{
-                border: black 1px dotted; width: 1200px; height:800px; margin-left: auto; margin-right: auto;
+                border: yellow 5px solid;
+                width: 1200px;
+                height:800px; 
+                margin:auto;
+                padding: 20px;
+                border-radius: 25px;
+                background-image: url("images/background/darth-vader.jpg");
+                background-size: contain;
             }
 
-            #profile{
-                border: dotted black 1px;
-                height: 200px;
-                width: 200px;
-            }
+           
             .label{
                 color: red;
                 

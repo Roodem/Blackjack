@@ -47,6 +47,7 @@ public class DealerRound extends HttpServlet {
                         game.DealerHit(game.getDealer());
                 }
                 
+                
                 game.evaluateGame();
                 game.distributePayments();
                 

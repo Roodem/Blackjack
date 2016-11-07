@@ -47,6 +47,9 @@
             Deck d1 = new Deck();
             test.addCard(new Card(Rank.ACE, Suit.DIAMONDS));
             test.addCard(new Card(Rank.ACE, Suit.CLUBS));
+            test.addCard(new Card(Rank.JACK, Suit.CLUBS));
+            
+            
            // test.addCard(d1.drawCardFromDeck());
 
             out.write("<p>" + test.getAmountOfcards() + "</p>");

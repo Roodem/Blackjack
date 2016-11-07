@@ -116,19 +116,29 @@ public class Game {
 
         if (dealer.getHand().getStatus().equals(HandStatus.BURNED)) {
             for (Player player : players) {
-                if (player.getHand().getStatus().equals(HandStatus.STAND)) {
+                if (!player.getHand().getStatus().equals(HandStatus.BURNED)) {
                     player.setStatus(GameStatus.WIN);
                 }
             }
 
-        } else {
+        } else {    
 
             for (Player player : players) {
                 if (player.getHand().getStatus().equals(HandStatus.BURNED)) {
                     player.setStatus(GameStatus.LOSS);
                 }
+                
+                else if(dealer.getHand().getStatus().equals(HandStatus.BLACKJACK) && player.getHand().getStatus().equals(HandStatus.BLACKJACK)){
+                    player.setStatus(GameStatus.PUSH);
+                }
+                else if(!dealer.getHand().getStatus().equals(HandStatus.BLACKJACK) && player.getHand().getStatus().equals(HandStatus.BLACKJACK)){
+                    player.setStatus(GameStatus.WIN);
+                }
+                else if(dealer.getHand().getStatus().equals(HandStatus.BLACKJACK) && !player.getHand().getStatus().equals(HandStatus.BLACKJACK)){
+                    player.setStatus(GameStatus.LOSS);
+                }
 
-                if (player.getHand().getStatus().equals(HandStatus.STAND)) {
+                else if (player.getHand().getStatus().equals(HandStatus.STAND) && getDealer().getHand().getStatus().equals(HandStatus.STAND)) {
                     //Blackjack uitzondering
                     if (player.getHand().calculateValueHand() > dealer.getHand().calculateValueHand()) {
                         player.setStatus(GameStatus.WIN);

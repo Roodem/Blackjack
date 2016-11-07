@@ -82,13 +82,13 @@ public class Deck {
 
     
     public void removeCardFromDeck(Card card) {
-        //controle op null
+        
         cards.remove(card);
         
     }
     
     public void addCardToDeck(Card card){
-        //control op null
+        
         cards.add(card);
     }
     
