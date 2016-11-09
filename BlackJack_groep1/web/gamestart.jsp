@@ -35,9 +35,6 @@
                 height: 120px;
                 width: auto
             }
-            #warning{
-                color:red;
-            }
 
         </style>
     </head>
@@ -45,38 +42,29 @@
     <body>
         <c:set value="${sessionScope.game}" var="game"/>
         <h4>${game}</h4>
-        <div id="warning">
-            <c:if test="${requestScope.playernocredits != null}">
-                <p>No more Credits</p>
-                    <ul>
-                        <c:forEach items="${requestScope.playernocredits}" var="player">
-                            <li>${player.getNickname()}</li>
-                        </c:forEach>   
-                    </ul>    
-                </c:if>
-        </div>
         <div id="container">
             <div id="dealer">
 
                 <img src="${game.getDealer().getIcon().getUrl()}" alt="dealer"/>
             </div>
-            <form name="placebet" action="GameCardRound" method="POST">
-                <c:forEach items="${game.getPlayers()}" var="player" varStatus="count">
-                    <div id="player">
-                        <img src="${player.getIcon().getUrl()}" alt="${player.getNickname()}"/>
-                        <h4>${player.getNickname()}</h4>
-                        <p>balance: ${player.getBalance()}</p>
+<form name="placebet" action="GameCardRound" method="POST">
+            <c:forEach items="${game.getPlayers()}" var="player" varStatus="count">
+                <div id="player">
+                    <img src="${player.getIcon().getUrl()}" alt="${player.getNickname()}"/>
+                    <h4>${player.getNickname()}</h4>
+                    <p>balance: ${player.getBalance()}</p>
 
+                    
+                    <input type="number"  value="1" min="1" max="${player.getBalance()}"  name="bet"/><br>
 
-                        <input type="number"  value="1" min="1" max="${player.getBalance()}"  name="bet"/><br>
+                       
+                </div>
+            </c:forEach>
+                        
 
-
-                    </div>
-                </c:forEach>
-                
-              
-                <input type="submit" name="dealcards" value="Deal Cards"/>
-            </form>
+             
+                            <input type="submit" name="dealcards" value="Deal Cards"/>
+                        </form>
         </div>
     </body>
 </html>
