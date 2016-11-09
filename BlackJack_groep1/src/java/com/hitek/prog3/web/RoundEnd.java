@@ -35,6 +35,9 @@ public class RoundEnd extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        Game currentGame = (Game) request.getSession().getAttribute("game");
+        ArrayList<Player> currentPlayers = currentGame.getPlayers();
 
         String newround = request.getParameter("newround");
         String quit = request.getParameter("quit");
@@ -42,39 +45,58 @@ public class RoundEnd extends HttpServlet {
         //ronde afsluiten en naar indexx
         if (quit != null) {
 
-            //hier loggen??
+            
             HttpSession session = request.getSession(false);
             if (session != null) {
                 session.invalidate();
-
+                
                 response.sendRedirect("index.jsp");
             }
+            
+            //balans updaten spelers
+            //registratie game
 
         }
 
         if (newround != null) {
             //loggen en balance update spelers
             //zelfde spelers inladen
-            Game currentGame = (Game) request.getSession().getAttribute("game");
-            ArrayList<Player> currentPlayers = currentGame.getPlayers();
-            //controle of er spelers zijn zonder credits
+            
+           
+          //controle of er spelers zijn zonder credits
+            ArrayList<Player> playersNoCredits = new ArrayList<>();
             boolean nocredits = false;
             for (Player player : currentPlayers) {
                 if (player.getBalance() < 1) {
+                    playersNoCredits.add(player);
                     nocredits = true;
+                   
                 }
             }
 
             //lege handen
-            for (Player player : currentPlayers) {
-                player.setHand(new Hand());
-
-            }
+            
 
             if (nocredits) {
-               
-               response.sendRedirect("index.jsp");
-               return;
+              currentPlayers.removeAll(playersNoCredits);
+              request.setAttribute("playernocredits", playersNoCredits);
+
+            }
+            
+            //alle spelers hebben geen credits meer
+            if(currentPlayers.isEmpty()){
+                
+                 HttpSession session = request.getSession(false);
+                 if (session != null) {
+                session.invalidate();
+                
+                response.sendRedirect("index.jsp");
+            }
+                
+            }
+            
+            for (Player player : currentPlayers) {
+                player.setHand(new Hand());
 
             }
 
