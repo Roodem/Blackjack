@@ -14,6 +14,7 @@ public class Card {
     private Rank rank;
     private Suit suit;
     private Boolean visible;
+    
 
     public Card(Rank rank, Suit suit) {
         this.rank = rank;

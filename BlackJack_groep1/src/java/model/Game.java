@@ -116,7 +116,7 @@ public class Game {
 
         if (dealer.getHand().getStatus().equals(HandStatus.BURNED)) {
             for (Player player : players) {
-                if (!player.getHand().getStatus().equals(HandStatus.BURNED)) {
+                if (!player.getHand().getStatus().equals(HandStatus.BURNED) && !player.getHand().getStatus().equals(HandStatus.OTHER)) {
                     player.setStatus(GameStatus.WIN);
                 }
             }

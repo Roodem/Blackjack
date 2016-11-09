@@ -45,9 +45,18 @@
 
             Hand test = new Hand();
             Deck d1 = new Deck();
-            test.addCard(new Card(Rank.ACE, Suit.DIAMONDS));
+            test.addCard(new Card(Rank.FIVE, Suit.DIAMONDS));
+            
+            test.addCard(new Card(Rank.THREE, Suit.CLUBS));
+            
             test.addCard(new Card(Rank.ACE, Suit.CLUBS));
+            
+            test.addCard(new Card(Rank.ACE, Suit.CLUBS));
+            
+            test.addCard(new Card(Rank.ACE, Suit.CLUBS));
+            
             test.addCard(new Card(Rank.JACK, Suit.CLUBS));
+            test.calculateValueHand();
             
             
            // test.addCard(d1.drawCardFromDeck());
@@ -56,12 +65,15 @@
 
             for (Card next : test.getCards()) {
                
-                 out.write("<img src='images/cards/" + next.toString() + ".gif' alt='" + next.toString() + "'>" + next.toString() + "</img>");
+                
+                
+                out.write("<img src='images/cards/" + next.toString() + ".gif' alt='" + next.toString() + "'>" + next.toString() + "</img>");
+                
             }
-            test.calculateValueHand();
-            test.evaluateHandStatus();
             
-            out.write("<p>" + test.calculateValueHand() + "</p>");
+            
+            
+            out.write("<p>" + test.calculateValueHand()+ "</p>");
             out.write("<p>" + test.getStatus() + "</p>");
             
             

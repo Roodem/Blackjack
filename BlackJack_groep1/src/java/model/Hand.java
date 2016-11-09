@@ -17,6 +17,15 @@ public class Hand {
     private ArrayList<Card> cards;
     private int bet;
     private HandStatus handStatus;
+    private int handValue;
+
+    public void setHandValue(int handValue) {
+        this.handValue = handValue;
+    }
+
+    public int getHandValue() {
+        return handValue;
+    }
 
     public Hand() {
         cards = new ArrayList<>();
@@ -28,14 +37,12 @@ public class Hand {
     }
 
     public void addCard(Card card) {
-        //geen controle op null
-        // control op burn / blackjack
         cards.add(card);
 
     }
 
     public void setBet(int bet) {
-        //geen control op < 0
+        
         this.bet = bet;
     }
 
@@ -68,21 +75,19 @@ public class Hand {
      * @return geeft de numerieke waarde van de som van de kaarten terug
      */
     public int calculateValueHand() {
-        int value = 0;
+        int totalValue = 0;
         for (Iterator<Card> iterator = cards.iterator(); iterator.hasNext();) {
 
             Card next = iterator.next();
-            
-            
-            if (next.getRank().getTrueValue() == 11 && value + next.getRank().getTrueValue() > 21) {
-                value += 1;
-            } else {
-                value += next.getRank().getTrueValue();
 
+            if (next.getRank().equals(Rank.ACE) && totalValue + next.getRank().getTrueValue() > 21) {
+                totalValue += 1;
+               
             }
+             totalValue += next.getRank().getTrueValue();
 
         }
-        return value;
+        return totalValue;
     }
 
     public HandStatus getStatus() {

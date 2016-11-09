@@ -8,10 +8,29 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style type="text/css">
+           
             body{
-             
+                color: yellow; 
+                    
+            }
+            #container{
+                border: yellow 5px solid;
+                width: 1200px;
+                height:800px; 
+                margin:auto;
+                padding: 20px;
+                border-radius: 25px;
+                background-image: url("images/background/darth-vader.jpg");
+                background-size: contain;
+            }
+
+           
+            .label{
+                color: red;
+                
             }
         </style>
+        
     </head>
     <body>
         <div>
