@@ -76,18 +76,22 @@ public class Hand {
      */
     public int calculateValueHand() {
         int totalValue = 0;
-        for (Iterator<Card> iterator = cards.iterator(); iterator.hasNext();) {
-
-            Card next = iterator.next();
-
-            if (next.getRank().equals(Rank.ACE) && totalValue + next.getRank().getTrueValue() > 21) {
-                totalValue += 1;
-               
-            }
-             totalValue += next.getRank().getTrueValue();
-
+        //total waarde berekenen
+        for (Card card : cards) {
+            totalValue+= card.getRank().getTrueValue();
+            
         }
-        return totalValue;
+        //indien azen aanwezig en waarde over 21 waarde herleiden naar 1
+        for (Iterator<Card> iterator = cards.iterator(); iterator.hasNext();) {
+            Card next = iterator.next();
+            if(next.getRank().equals(Rank.ACE) && totalValue >21){
+                totalValue -= 10;
+            }
+        
+      
+    
+    }
+          return totalValue;
     }
 
     public HandStatus getStatus() {
