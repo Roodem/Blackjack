@@ -13,70 +13,87 @@
         <title>JSP Page</title>
         <style type="text/css">
             #container{
-                border: black 1px dotted; width: 1200px; height:800px; margin-left: auto; margin-right: auto;
+                background-image: url('images/background/starwarsbg.png');
+                background-size: contain;
+                border: yellow 5px solid;
+                border-radius: 25px;
+                width: 1200px; height:800px; margin-left: auto; margin-right: auto;
             }
             #dealer{
                 height: auto;
-                width: 30%;
+                width: 300px;
+                height: 300px;
+                border:solid red;
                 margin: auto;
                 top: 0;
 
             }
-            #dealer img{
-                height: 120px;
+            .dealer_img{
+                height: 150px;
+                margin:auto;
                 width: auto;
+            }
+            #playerside{
+                width: 100%;
+                height: 400px;
+                border: dotted 1px red;
             }
             #player{
                 text-align: center;
                 display: inline-block;
-                margin :auto;
+                width: 24%;
+                box-sizing: border-box;
+
             }
-            #player img{
+            .player_icon{
                 height: 120px;
                 width: auto
             }
             #warning{
                 color:red;
+                
             }
 
         </style>
     </head>
 
     <body>
-        <c:set value="${sessionScope.game}" var="game"/>
-        <h4>${game}</h4>
-        <div id="warning">
-            <c:if test="${requestScope.playernocredits != null}">
+
+
+        <c:if test="${requestScope.playernocredits != null}">
+            <div id="warning">
                 <p>No more Credits</p>
-                    <ul>
-                        <c:forEach items="${requestScope.playernocredits}" var="player">
-                            <li>${player.getNickname()}</li>
+                <ul>
+                    <c:forEach items="${requestScope.playernocredits}" var="player">
+                        <li>${player.getNickname()}</li>
                         </c:forEach>   
-                    </ul>    
-                </c:if>
-        </div>
+                </ul>
+            </div>
+        </c:if>
+
         <div id="container">
             <div id="dealer">
 
-                <img src="${game.getDealer().getIcon().getUrl()}" alt="dealer"/>
+                <img class="dealer_img" src="${game.getDealer().getIcon().getUrl()}" alt="dealer"/>
             </div>
-            <form name="placebet" action="GameCardRound" method="POST">
-                <c:forEach items="${game.getPlayers()}" var="player" varStatus="count">
-                    <div id="player">
-                        <img src="${player.getIcon().getUrl()}" alt="${player.getNickname()}"/>
-                        <h4>${player.getNickname()}</h4>
-                        <p>balance: ${player.getBalance()}</p>
+            <div id="playerside">
+                <form name="placebet" action="GameCardRound" method="POST">
+                    <c:forEach items="${game.getPlayers()}" var="player" varStatus="count">
+                        <div id="player">
+                            <img class="player_icon" class="card" src="${player.getIcon().getUrl()}" alt="${player.getNickname()}"/>
+                            <h4>${player.getNickname()}</h4>
+                            <p>balance: ${player.getBalance()}</p>
 
 
-                        <input type="number"  value="1" min="1" max="${player.getBalance()}"  name="bet"/><br>
+                            <input type="number"  value="1" min="1" max="${player.getBalance()}"  name="bet"/><br>
 
 
-                    </div>
-                </c:forEach>
-                
-              
-                <input type="submit" name="dealcards" value="Deal Cards"/>
-            </form>
-        </div>
-    </body>
+                        </div>
+                    </c:forEach>
+            </div>
+
+            <input type="submit" name="dealcards" value="Deal Cards"/>
+        </form>
+    </div>
+</body>
 </html>

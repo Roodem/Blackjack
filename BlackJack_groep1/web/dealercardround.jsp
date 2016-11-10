@@ -13,31 +13,47 @@
         <title>JSP Page</title>
         <style type="text/css">
             body{
-                
+
             }
             #container{
-                border: black 1px dotted; width: 1200px; height:800px; margin-left: auto; margin-right: auto;
-                
+                background-image: url('images/background/starwarsbg.png');
+                background-size: contain;
+                border: yellow 5px solid;
+                border-radius: 25px;
+                width: 1200px; height:800px; margin-left: auto; margin-right: auto;
             }
-            #dealer{
+           #dealer{
                 height: auto;
-                width: 30%;
+                width: 300px;
+                height: 300px;
+                border:solid red;
                 margin: auto;
                 top: 0;
 
             }
-            #dealer img{
-                height: 120px;
+            .dealer_img{
+                height: 150px;
                 width: auto;
+            }
+            
+            #playerside{
+                width: 100%;
+                height: 400px;
+                border: dotted 1px red;
             }
             #player{
                 text-align: center;
                 display: inline-block;
                 margin :auto;
             }
-            #player img{
+            .player_icon{
                 height: 120px;
                 width: auto
+            }
+            .card{
+                border-radius: 10px;
+                height: 120px;
+
             }
             #debug{
                 color:red;
@@ -54,7 +70,7 @@
         <div id="container">
             <div id="dealer">
 
-                <img src="${sessionScope.game.getDealer().getIcon().getUrl()}" alt="dealer"/>
+                <img class="dealer_img" src="${sessionScope.game.getDealer().getIcon().getUrl()}" alt="dealer"/>
                 <div id="dealercards">
                     <c:forEach items="${sessionScope.game.getDealer().getHand().getCards()}" var="card">
 
@@ -82,7 +98,7 @@
 
 
                     </div>
-                    <img src="${player.getIcon().getUrl()}" alt="${player.getNickname()}"/>
+                    <img  class="player_icon" src="${player.getIcon().getUrl()}" alt="${player.getNickname()}"/>
                     <h4>${player.getNickname()}</h4>
                     <p>bet: ${player.getHand().getBet()}</p>
 
@@ -93,13 +109,13 @@
                 </div>
             </c:forEach>
 
-                   
-                    <form method="post" action="RoundEnd">
-                        <input type="submit" name="newround" value="New Round"/>
-                         <input type="submit" name="quit" value="Quit Game"/>
-                    </form>
-               
+
+            <form method="post" action="RoundEnd">
+                <input type="submit" name="newround" value="New Round"/>
+                <input type="submit" name="quit" value="Quit Game"/>
+            </form>
+
         </div>
-             
-</body>
+
+    </body>
 </html>
