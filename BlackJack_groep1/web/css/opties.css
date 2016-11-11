@@ -6,20 +6,15 @@
                 background-size:cover; 
                 background-repeat: no-repeat;
                 font-family: "starwars";
-           
-                
             }
             select{
                 display: block;
                 margin: auto;
-                
             }
             form:nth-of-type(1){
                 width: 150px;
                 margin-left:auto;
                 margin-right: auto;
-              
-           
             }
             form:nth-of-type(1)>input:nth-of-type(2){
                 margin-left: 30px;
@@ -33,13 +28,10 @@
             aside{
                position: absolute;
                top: 273px;
-                 
-                
             }
             h3{
                 font-size: 50px;
                 color:white;
-                
             }
             form>input{
                 background-color: transparent;
@@ -48,18 +40,14 @@
                 border-color: white;
                 text-align: center;
                 outline: none;
-                 -webkit-transition-duration: 0.8s; /* Safari */
+                -webkit-transition-duration: 0.8s; /* Safari */
                 transition-duration: 0.8s;
             }
               form>input:focus{
-                   -webkit-transition-duration: 0.8s; /* Safari */
+                -webkit-transition-duration: 0.8s; /* Safari */
                 transition-duration: 0.8s;
-
                 border-radius: 20px;
-                 outline: none;
-         
-                
-             
+                outline: none;
             }
             h2{
                 font-size: 40px;
@@ -99,5 +87,14 @@
                 color:white;
                 background-color: black;
             }
+            div{
+                color:red;
+            }
             
-
+            td{
+                color:white;
+                
+            }
+            tr{
+                 color:white;
+            }

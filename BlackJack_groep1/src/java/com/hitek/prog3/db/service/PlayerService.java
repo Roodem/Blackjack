@@ -30,7 +30,7 @@ public class PlayerService {
     }
     
     public void persoonToevoegen(String icoonid, String nickname){
-        PlayerAanmakenDAO.persoonWegschrijven("player", icoonid, nickname, 500);
+        PlayerAanmakenDAO.persoonWegschrijven("player", nickname, icoonid, 500);
     }
    
     public void persoonVerwijderen(String nickname){

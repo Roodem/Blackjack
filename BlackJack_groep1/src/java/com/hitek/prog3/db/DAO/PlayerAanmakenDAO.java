@@ -16,8 +16,8 @@ import java.sql.Statement;
  */
 public class PlayerAanmakenDAO {
     
-    public static void persoonWegschrijven(String tabel, String icoonid, String nickname, int balance){
-        String query = "INSERT INTO " + tabel + " (icoonid, nickname, balance) VALUES ('" + icoonid + "','" + nickname + "','" + balance + "')";
+    public static void persoonWegschrijven(String tabel, String nickname, String icoonid, int balance){
+        String query = "INSERT INTO " + tabel + " (nickname, icoonid,  balance) VALUES ('" + nickname + "','" + icoonid + "','" + balance + "')";
         
 
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);

@@ -50,9 +50,6 @@ public class Player {
         this.hand = hand;
     }
 
-   
-  
-
     public void setBalance(int balance) {
         this.balance = balance;
     }

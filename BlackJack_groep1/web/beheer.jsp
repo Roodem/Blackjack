@@ -10,7 +10,7 @@
     <head>
         <link href="css/opties.css" type="text/css" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Beheerder</title>
 
     </head>
       <body background="images/background/darth-vader.jpg">

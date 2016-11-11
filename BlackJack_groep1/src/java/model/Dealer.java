@@ -25,8 +25,6 @@ public class Dealer {
     public Icon getIcon() {
         return icon;
     }
-    
-
     public int getMinStand() {
         return minStand;
     }
@@ -35,14 +33,7 @@ public class Dealer {
         return minDraw;
     }
     
-    
-
-    
-    
     public Hand getHand() {
         return hand;
     }
-    
-    
-
 }

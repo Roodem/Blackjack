@@ -82,22 +82,22 @@
 
                 <img class="dealer_img" src="${game.getDealer().getIcon().getUrl()}" alt="dealer"/>
             </div>
+            
+        <form name="placebet" action="GameCardRound" method="POST">
             <div id="playerside">
-                <form name="placebet" action="GameCardRound" method="POST">
-                    <c:forEach items="${game.getPlayers()}" var="player" varStatus="count">
-                        <div id="player">
-                            <img class="player_icon" class="card" src="${player.getIcon().getUrl()}" alt="${player.getNickname()}"/>
-                            <h4>${player.getNickname()}</h4>
-                            <p>balance: ${player.getBalance()}</p>
+                <c:forEach items="${game.getPlayers()}" var="player" varStatus="count">
+                    <div id="player">
+                        <img class="player_icon" src="${player.getIcon().getUrl()}" alt="${player.getNickname()}"/>
+                        <h4>${player.getNickname()}</h4>
+                        <p>balance: ${player.getBalance()}</p>
 
 
-                            <input type="number"  value="1" min="1" max="${player.getBalance()}"  name="bet"/><br>
+                        <input type="number" value="1" min="1" max="${player.getBalance()}"  name="bet"/><br>
 
 
-                        </div>
-                    </c:forEach>
+                    </div>
+                </c:forEach>
             </div>
-
             <input type="submit" name="dealcards" value="Deal Cards"/>
         </form>
     </div>

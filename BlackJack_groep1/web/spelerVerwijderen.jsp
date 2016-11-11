@@ -19,7 +19,7 @@
        
         <script type="text/javascript">
             function btnOnClick() {
-                alert('SPERLER WERD VERWIJDERD!');
+                alert('SPERLER WORD VERWIJDERD!');
             }
         </script>
     </head>
@@ -51,7 +51,9 @@
             <input  type="button" value="Speler Aanmaken" onclick="location.href='spelerAanmaken.jsp';"><br><br>
             <input type="button" value="Speler Verwijderen" onclick="location.href='spelerVerwijderen.jsp';"><br><br>
             <input type="button" value="Credits Wijzigen" onclick="location.href='creditsWijzigen.jsp';"><br><br>
-            <input type="button" value="Beheer Afsluiten" onclick="location.href='index.html';">
+            <input type="button" value="Wachtwoord Wijzigen" onclick="location.href='wachtwoordWijzigen.jsp';"><br><br>
+            <input type="button" value="Historiek" onclick="location.href='historiek.jsp';"><br><br>
+            <input type="button" value="Beheer Afsluiten" onclick="location.href='index.jsp';">
         </aside>
     </body>
 </html>
