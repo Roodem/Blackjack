@@ -45,13 +45,13 @@ public class GameInit extends HttpServlet {
 
         }
        
-        //control op dezelfde spelers, nog properder uitwerken
+        
         Set<Player> playerSet = new HashSet<>();
         playerSet.addAll(selectedPlayers);
         if (playerSet.size() < selectedPlayers.size()) {
             
         
-        request.setAttribute("warning", true);
+        request.setAttribute("warning", "Iedereen gelieve een ander profiel te kiezen");
         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
         dispatcher.forward(request, response);
         return;

@@ -49,8 +49,11 @@ public class RoundEnd extends HttpServlet {
             HttpSession session = request.getSession(false);
             if (session != null) {
                 session.invalidate();
-                
+                  
                 response.sendRedirect("index.jsp");
+                return;
+                
+                
             }
             
             //balans updaten spelers
@@ -82,8 +85,8 @@ public class RoundEnd extends HttpServlet {
             
             //alle spelers hebben geen credits meer
             if(currentPlayers.isEmpty()){
-                
-            RequestDispatcher dispatcher = request.getRequestDispatcher("profielkiezen.jsp");
+            request.setAttribute("noplayernocredits", true);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
             dispatcher.forward(request, response);
                 
                

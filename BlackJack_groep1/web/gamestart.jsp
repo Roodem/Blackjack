@@ -16,6 +16,7 @@
             body{
                  font-family: 'Share Tech Mono', monospace;
                   color: #ffd700;
+                   background-color: black;
             }
             #container{
                 background-image: url('images/background/starwarsbg.png');
@@ -28,7 +29,7 @@
                 height: auto;
                 width: 300px;
                 height: 300px;
-                border:solid red;
+              
                 margin: auto;
                 top: 0;
 
@@ -41,7 +42,7 @@
             #playerside{
                 width: 100%;
                 height: 400px;
-                border: dotted 1px red;
+             
             }
             #player{
                 text-align: center;

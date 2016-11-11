@@ -56,6 +56,9 @@
             <c:if test="${requestScope.warning}">
                 <p class="warning">Iedereen moet een ander profiel kiezen</p>
             </c:if>
+                 <c:if test="${requestScope.noplayernocredits}">
+                <p class="warning">Niemand heeft nog credits</p>
+            </c:if>
             
         </div>
         <a href="beheer.jsp">BEHEER</a>

@@ -15,6 +15,7 @@
             body{
                  font-family: 'Share Tech Mono', monospace;
                  color: #ffd700;
+                 background-color: black;
             }
             #container{
                 background-image: url('images/background/starwarsbg.png');
@@ -27,7 +28,7 @@
                 height: auto;
                 width: 300px;
                 height: 300px;
-                border:solid red;
+                
                 margin: auto;
                 top: 0;
 
@@ -62,7 +63,7 @@
             .card{
                 border-radius: 10px;
                 height: 120px;
-                margin-left: -10%;
+                margin-left: -15%;
 
             }
             #debug{
@@ -102,7 +103,7 @@
                         </c:forEach>
                         <p>${player.getHand().calculateValueHand()}</p>
                         <p>${player.getHand().evaluateHandStatus()}</p>
-                        <h3>${player.getStatus()}</h3>
+                        <p>${player.getStatus()}</p>
 
 
                     </div>

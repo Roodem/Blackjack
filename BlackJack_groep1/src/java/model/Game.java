@@ -32,7 +32,6 @@ public class Game {
         deck = new Deck();
         dealer = new Dealer(new Icon("SITHLORD", "images/icons/SITHLORD.png"), 17, 16);
     }
-    
 
     public void CardDistribution() {
         // elke speler een kaart
@@ -101,57 +100,40 @@ public class Game {
         }
 
     }
-    
-    public void comparePlayerHandWithDealer(Player player){
-         Hand playerHand = player.getHand();
-         Hand dealerHand = getDealer().getHand();
-            
-        
-        
-        
-        
+
+    public void comparePlayerHandWithDealer(Player player) {
+        Hand playerHand = player.getHand();
+        Hand dealerHand = getDealer().getHand();
+
     }
 
     public void evaluateGame() {
 
-        if (dealer.getHand().getStatus().equals(HandStatus.BURNED)) {
-            for (Player player : players) {
-                if (!player.getHand().getStatus().equals(HandStatus.BURNED) && !player.getHand().getStatus().equals(HandStatus.OTHER)) {
+        for (Player player : players) {
+            if (player.getHand().getStatus().equals(HandStatus.BURNED)) {
+                player.setStatus(GameStatus.LOSS);
+            } else if (dealer.getHand().getStatus().equals(HandStatus.BLACKJACK) && player.getHand().getStatus().equals(HandStatus.BLACKJACK)) {
+                player.setStatus(GameStatus.PUSH);
+            } else if (!dealer.getHand().getStatus().equals(HandStatus.BLACKJACK) && player.getHand().getStatus().equals(HandStatus.BLACKJACK)) {
+                player.setStatus(GameStatus.WIN);
+            } else if (dealer.getHand().getStatus().equals(HandStatus.BLACKJACK) && !player.getHand().getStatus().equals(HandStatus.BLACKJACK)) {
+                player.setStatus(GameStatus.LOSS);
+            } else if (dealer.getHand().getStatus().equals(HandStatus.BURNED) && !player.getHand().getStatus().equals(HandStatus.BURNED)) {
+                player.setStatus(GameStatus.WIN);
+
+            } else if (player.getHand().getStatus().equals(HandStatus.STAND) && getDealer().getHand().getStatus().equals(HandStatus.STAND)) {
+                //Blackjack uitzondering
+                if (player.getHand().calculateValueHand() > dealer.getHand().calculateValueHand()) {
                     player.setStatus(GameStatus.WIN);
-                }
-            }
 
-        } else {    
-
-            for (Player player : players) {
-                if (player.getHand().getStatus().equals(HandStatus.BURNED)) {
-                    player.setStatus(GameStatus.LOSS);
-                }
-                
-                else if(dealer.getHand().getStatus().equals(HandStatus.BLACKJACK) && player.getHand().getStatus().equals(HandStatus.BLACKJACK)){
+                } else if (player.getHand().calculateValueHand() == dealer.getHand().calculateValueHand()) {
                     player.setStatus(GameStatus.PUSH);
-                }
-                else if(!dealer.getHand().getStatus().equals(HandStatus.BLACKJACK) && player.getHand().getStatus().equals(HandStatus.BLACKJACK)){
-                    player.setStatus(GameStatus.WIN);
-                }
-                else if(dealer.getHand().getStatus().equals(HandStatus.BLACKJACK) && !player.getHand().getStatus().equals(HandStatus.BLACKJACK)){
+                } else if (player.getHand().calculateValueHand() < dealer.getHand().calculateValueHand()) {
                     player.setStatus(GameStatus.LOSS);
                 }
 
-                else if (player.getHand().getStatus().equals(HandStatus.STAND) && getDealer().getHand().getStatus().equals(HandStatus.STAND)) {
-                    //Blackjack uitzondering
-                    if (player.getHand().calculateValueHand() > dealer.getHand().calculateValueHand()) {
-                        player.setStatus(GameStatus.WIN);
-
-                    } else if (player.getHand().calculateValueHand() == dealer.getHand().calculateValueHand()) {
-                        player.setStatus(GameStatus.PUSH);
-                    } else if (player.getHand().calculateValueHand() < dealer.getHand().calculateValueHand()) {
-                        player.setStatus(GameStatus.LOSS);
-                    }
-
-                }
-
             }
+
         }
     }
 
