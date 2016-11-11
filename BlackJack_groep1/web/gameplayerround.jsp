@@ -10,9 +10,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Blackjack Star Wars</title>
+        <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
         <style type="text/css">
-             #container{
+            body{
+                font-family: 'Share Tech Mono', monospace;
+                 color: #ffd700;
+            } 
+            #container{
                 background-image: url('images/background/starwarsbg.png');
                 background-size: contain;
                 border: yellow 5px solid;
@@ -21,19 +26,19 @@
             }
             #dealer{
                 height: auto;
-                width: 300px;
+                width: 500px;
                 height: 300px;
-                border:solid red;
                 margin: auto;
-                top: 0;
+                top: 10px;
 
             }
             .dealer_img{
-                height: 150px;
-                margin:auto;
+                height: 120px;
+                 margin: 0 auto;
                 width: auto;
             }
             #dealerhand{
+                 margin: 0 auto;
                 
             }
             #playerside{
@@ -63,7 +68,7 @@
             .card{
                 border-radius: 10px;
                 height: 120px;
-                display:inline; 
+                margin-left: -10%;
                 
                 
             }
@@ -82,9 +87,6 @@
     </head>
 
     <body>
-
-                <h1>${sessionScope.game}</h1>
-
         <div id="container">
             <div id="dealer">
 

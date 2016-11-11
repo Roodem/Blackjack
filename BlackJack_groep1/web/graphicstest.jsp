@@ -50,6 +50,7 @@
             test.addCard(new Card(Rank.ACE, Suit.CLUBS));
             test.addCard(new Card(Rank.TWO , Suit.DIAMONDS));
              test.addCard(new Card(Rank.KING, Suit.DIAMONDS));
+             test.addCard(new Card(Rank.KING, Suit.DIAMONDS));
             
             
             

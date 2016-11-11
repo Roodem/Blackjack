@@ -10,8 +10,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Blackjack Star Wars</title>
+        <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
         <style type="text/css">
+            body{
+                 font-family: 'Share Tech Mono', monospace;
+                  color: #ffd700;
+            }
             #container{
                 background-image: url('images/background/starwarsbg.png');
                 background-size: contain;
@@ -29,8 +34,8 @@
 
             }
             .dealer_img{
-                height: 150px;
-                margin:auto;
+                height: 120px;
+                margin: 0 auto;
                 width: auto;
             }
             #playerside{

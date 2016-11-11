@@ -10,10 +10,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Blackjack Star Wars</title>
         <style type="text/css">
             body{
-
+                 font-family: 'Share Tech Mono', monospace;
+                 color: #ffd700;
             }
             #container{
                 background-image: url('images/background/starwarsbg.png');
@@ -31,9 +32,13 @@
                 top: 0;
 
             }
+            #dealerhand{
+                 margin: 0 auto;
+            }
             .dealer_img{
-                height: 150px;
+                height: 120px;
                 width: auto;
+                 margin: 0 auto;
             }
             
             #playerside{
@@ -46,6 +51,10 @@
                 display: inline-block;
                 margin :auto;
             }
+            #playerhand{
+                 margin-left: auto;
+                margin-right: auto;
+            }
             .player_icon{
                 height: 120px;
                 width: auto
@@ -53,6 +62,7 @@
             .card{
                 border-radius: 10px;
                 height: 120px;
+                margin-left: -10%;
 
             }
             #debug{
@@ -65,8 +75,6 @@
     </head>
 
     <body>
-
-        <h1>${sessionScope.game}</h1>
         <div id="container">
             <div id="dealer">
 
@@ -74,7 +82,7 @@
                 <div id="dealercards">
                     <c:forEach items="${sessionScope.game.getDealer().getHand().getCards()}" var="card">
 
-                        <img src="images/cards/${card}.gif" alt="${card}"/>
+                        <img class="card" src="images/cards/${card}.gif" alt="${card}"/>
 
 
 
@@ -90,7 +98,7 @@
                 <div id="player">
                     <div id ="playerhand">
                         <c:forEach items="${player.getHand().getCards()}" var="card">
-                            <img src="images/cards/${card}.gif" alt="${card}"/>
+                            <img class="card" src="images/cards/${card}.gif" alt="${card}"/>
                         </c:forEach>
                         <p>${player.getHand().calculateValueHand()}</p>
                         <p>${player.getHand().evaluateHandStatus()}</p>
