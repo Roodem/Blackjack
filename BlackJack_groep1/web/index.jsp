@@ -80,7 +80,6 @@
                    
             <div>
                 <input type="button" value="BEHEER" onclick="location.href='beheer.jsp';">
-            <form id="login" action="login.html"><button name="btn_login" value="adminlogin">Aanmelden</button></form>
         </div>
             
                <img src="images/background/background-starwars-logo.png">

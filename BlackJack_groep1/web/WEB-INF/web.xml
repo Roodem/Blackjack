@@ -60,6 +60,10 @@
         <servlet-name>HistoriekServlet</servlet-name>
         <servlet-class>com.hitek.prog3.web.HistoriekServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RegisterAdminServlet</servlet-name>
+        <servlet-class>com.hitek.prog3.web.RegisterAdminServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>GameServlet</servlet-name>
         <url-pattern>/GameServlet</url-pattern>
@@ -119,6 +123,10 @@
     <servlet-mapping>
         <servlet-name>HistoriekServlet</servlet-name>
         <url-pattern>/HistoriekServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterAdminServlet</servlet-name>
+        <url-pattern>/RegisterAdminServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

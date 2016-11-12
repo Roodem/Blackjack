@@ -5,7 +5,7 @@
  */
 package com.hitek.prog3.web;
 
-import com.hitek.prog3.db.service.LoginService;
+import com.hitek.prog3.db.service.RegisterAdminService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -13,27 +13,18 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import model.Admin;
 
 /**
  *
  * @author Gebruiker
  */
-public class LoginServlet extends HttpServlet {
+public class RegisterAdminServlet extends HttpServlet {
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      
+       
     }
 
     /**
@@ -47,27 +38,21 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         String email = request.getParameter("username");
-       String password = request.getParameter("password");
-       
-       LoginService login = new LoginService();
-       int check = login.action(email,password);
-
-     HttpSession session = request.getSession();
-      if(check == 0)
-       {
-            RequestDispatcher view =  request.getRequestDispatcher("index.jsp");
+        String email = request.getParameter("email");
+        String password = request.getParameter("nieuwWachtwoord");
+        String name = request.getParameter("name");
+        
+        Admin admin = new Admin();
+        admin.setName(name);
+        admin.setEmail(email);
+        admin.setPassword(password);
+        
+        RegisterAdminService RA = new RegisterAdminService();
+        RA.registerAdmin(name, email, password);
+        if(email != null && password != null && name != null){
+            RequestDispatcher view =  request.getRequestDispatcher("registersucces.html");
             view.forward(request,response);
-      
-      }
-       else if(check == 1)
-       {
-           
-           session.setAttribute("email",email);
-            RequestDispatcher view =  request.getRequestDispatcher("beheer.jsp");
-            view.forward(request,response);
-       }
-
+        }
     }
 
     /**

@@ -17,11 +17,11 @@ import java.sql.Statement;
  */
 public class LoginDAO {
 
-    public static int action(String mail, String password) {
+    public static int action(String email, String password) {
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
         int count = 0;
         try {
-            String query = "SELECT mail, paswoord FROM admin WHERE ( mail = '" + mail + "' and paswoord = '" + password + "')";
+            String query = "SELECT email, password FROM admin WHERE ( email = '" + email + "' and password = '" + password + "')";
 
             Statement stmt = con.createStatement();
         ResultSet    rs = stmt.executeQuery(query);
