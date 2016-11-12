@@ -23,17 +23,7 @@
         <title>JSP Page</title>
     </head>
     <body background="images/background/darth-vader.jpg">
-        
         <h3>Opties</h3><br><br><br><br><br><br>
-        <aside>
-            <input type="button" value="Speler Aanmaken" onclick="location.href='spelerAanmaken.jsp';"><br><br>
-            <input type="button" value="Speler Verwijderen" onclick="location.href='spelerVerwijderen.jsp';"><br><br>
-            <input type="button" value="Credits Wijzigen" onclick="location.href='creditsWijzigen.jsp';"><br><br>
-            <input type="button" value="Wachtwoord Wijzigen" onclick="location.href='wachtwoordWijzigen.jsp';"><br><br>
-            <input type="button" value="Historiek" onclick="location.href='historiek.jsp';"><br><br>
-            <input type="button" value="Beheer Afsluiten" onclick="location.href='index.jsp';">
-        </aside>
-        
         <form action="HistoriekServlet" method="post">   
             <div align="center">
           <select name="naam">  
@@ -54,31 +44,32 @@
           <input type="submit" value="Toon">
             </div>
         </form>
-        
-           
           <br><br><br>            
         <TABLE align="center" BORDER="1" style="width: 30%; ">
-            
             <TR>
                 <TH>GAME ID</TH>
                 <TH>DATUM</TH>
                 <TH>BALANCE</TH>
             </TR>
-            <c:forEach items="${itarator}" var="itarator.next()">
-                <tr>
-                    <td align="center"><c:out value="${itarator}"></c:out></td>
-                    <td align="center"><c:out value="${itarator.next()}"></c:out></td>
-                    <td align="center"><c:out value="${itarator.next()}"></c:out></td>
-                </tr>    
-                  
-            </c:forEach>
+          
+        <c:forEach items="${itarator}" >
+            <TR>
+                <td align="center"><c:out value="${itarator.next()}"></c:out></td>   
+                <td align="center"><c:out value="${itarator.next()}"></c:out></td>   
+                <td align="center"><c:out value="${itarator.next()}"></c:out></td>   
+            </tr>
+        </c:forEach>
             
-                
+            
+
     </TABLE>
-        
-        
-        
-                
-       
+          <aside>
+            <input type="button" value="Speler Aanmaken" onclick="location.href='spelerAanmaken.jsp';"><br><br>
+            <input type="button" value="Speler Verwijderen" onclick="location.href='spelerVerwijderen.jsp';"><br><br>
+            <input type="button" value="Credits Wijzigen" onclick="location.href='creditsWijzigen.jsp';"><br><br>
+            <input type="button" value="Wachtwoord Wijzigen" onclick="location.href='wachtwoordWijzigen.jsp';"><br><br>
+            <input type="button" value="Historiek" onclick="location.href='historiek.jsp';"><br><br>
+            <input type="button" value="Beheer Afsluiten" onclick="location.href='index.jsp';">
+        </aside>
     </body>
 </html>

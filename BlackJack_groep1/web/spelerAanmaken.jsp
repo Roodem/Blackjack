@@ -46,7 +46,6 @@
         </form>
           <div align="center">
             ${b}
-            <%session.invalidate();%>
           </div>
          <aside>
             <input  type="button" value="Speler Aanmaken" onclick="location.href='spelerAanmaken.jsp';"><br><br>

@@ -21,18 +21,17 @@ public class spelerAanmakenServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        //serverside controleren naam niet al gebruikt in database
        
         String naam = request.getParameter("naam");
         String icoon = request.getParameter("icoon");
-        String b;
+        String b =null;
         
         
         PlayerService ps = new PlayerService();
         List<Player> lijstPlayersName = ps.getAllPlayersName();
         
-            Boolean bestaatNiet = false;
-            HttpSession session = request.getSession();
+        Boolean bestaatNiet = false;
+            
                 
         for(Player ps2 : lijstPlayersName ){
             if(naam.equalsIgnoreCase(ps2.getNickname())){
@@ -46,15 +45,13 @@ public class spelerAanmakenServlet extends HttpServlet {
         }
         if(bestaatNiet==true){
              b="Gebruikers is toegevoegd";
-                session.setAttribute("b", b);
         }
         
         else
         {
             b="Naam is bezet, gelieve een ander speler naam te kiezen";
-            session.setAttribute("b", b);
         }
-        
+        request.setAttribute("b", b);
         RequestDispatcher view = request.getRequestDispatcher("spelerAanmaken.jsp");
         view.forward(request, response);
     }

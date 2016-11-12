@@ -22,11 +22,13 @@ public class HistoriekConversie {
             while (rs.next()) {
                 
                 
+                String id2 =  Integer.toString(rs.getInt("gameId"));
                 String id =  Integer.toString(rs.getInt("gameId"));
                 String date = df.format(rs.getDate("date"));
                 String balance = Integer.toString(rs.getInt("balance"));
                 
                 
+                lijst.add(id2);
                 lijst.add(id);
                 lijst.add(date);
                 lijst.add(balance);

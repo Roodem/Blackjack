@@ -21,16 +21,17 @@ public class HistoriekServlet extends HttpServlet {
             throws ServletException, IOException {
         
         String naam =request.getParameter("naam");
-       
+        
             HistoriekService his = new HistoriekService();
             List<String> l = his.historiekWeergeven(naam);
-
+            
             Iterator itarator = l.iterator();
+                request.setAttribute("itarator", itarator);
             
             
-            request.setAttribute("itarator", itarator);
+             
         RequestDispatcher view = request.getRequestDispatcher("historiek.jsp");
-          view.forward(request, response);
+         view.forward(request, response);
     }
 
 }
