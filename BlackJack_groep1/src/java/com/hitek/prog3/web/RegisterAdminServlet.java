@@ -24,7 +24,7 @@ public class RegisterAdminServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+
     }
 
     /**
@@ -41,18 +41,38 @@ public class RegisterAdminServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("nieuwWachtwoord");
         String name = request.getParameter("name");
-        
+        String confirmPassword = request.getParameter("confirmPassword");
         Admin admin = new Admin();
         admin.setName(name);
         admin.setEmail(email);
         admin.setPassword(password);
-        
+
         RegisterAdminService RA = new RegisterAdminService();
         RA.registerAdmin(name, email, password);
-        if(email != null && password != null && name != null){
-            RequestDispatcher view =  request.getRequestDispatcher("registersucces.html");
-            view.forward(request,response);
+        if (email != null && name != null) {
+
+            if (Admin.validate(email)) {
+                if (password != null) {
+                    if (password.equals(confirmPassword)) {
+                        RequestDispatcher view = request.getRequestDispatcher("registersucces.html");
+                        view.forward(request, response);
+                    } else {
+                        String errorConfirmed = "Wachtwoord onjuist bevestigd";
+                        request.getServletContext().setAttribute("errorConfirmed", errorConfirmed);
+                        RequestDispatcher view = request.getRequestDispatcher("registerAdmin.jsp");
+                        view.forward(request, response);
+                    }
+
+                }
+
+            } else {
+                String errormessage = "Ongeldig emailadres. Voorbeeld: Example@example.com";
+                request.getServletContext().setAttribute("errormessage", errormessage);
+                RequestDispatcher view = request.getRequestDispatcher("registerAdmin.jsp");
+                view.forward(request, response);
+            }
         }
+
     }
 
     /**

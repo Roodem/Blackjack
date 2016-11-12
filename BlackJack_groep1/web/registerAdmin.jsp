@@ -12,12 +12,14 @@
         <title>Registreer</title>
     </head>
     <body>
+        <button onclick="location.href='index.jsp'">Hoofdpagina</button>
          <form method="POST" action="RegisterAdminServlet">
              <input type="text" name="name" placeholder="naam" required><br>
             <input type="text" name="email" placeholder="email" required><br>
+            ${errormessage}<br>
             <input type="password" placeholder="Wachtwoord" id="password" name="nieuwWachtwoord" required>
-            <input type="password" placeholder="Bevestig Wachtwoord" id="confirm_password" required>
-
+            <input type="password" placeholder="Bevestig Wachtwoord" id="confirm_password" name="confirmPassword" required>
+            ${errorConfirmed}<br>
             <button type="submit" class="pure-button pure-button-primary">Registreer</button>
         </form>
     </body>

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.Admin;
 
 /**
  *
@@ -52,9 +53,10 @@ public class LoginServlet extends HttpServlet {
        
        LoginService login = new LoginService();
        int check = login.action(email,password);
-
      HttpSession session = request.getSession();
-      if(check == 0)
+     if(Admin.validate(email))
+     {
+         if(check == 0)
        {
             RequestDispatcher view =  request.getRequestDispatcher("index.jsp");
             view.forward(request,response);
@@ -67,6 +69,16 @@ public class LoginServlet extends HttpServlet {
             RequestDispatcher view =  request.getRequestDispatcher("beheer.jsp");
             view.forward(request,response);
        }
+     }else
+     {
+         String errormessage = "Controleer uw emailadres opnieuw. bv: example@example.com";
+         session.setAttribute("errormessage",errormessage);
+         RequestDispatcher view =  request.getRequestDispatcher("login.jsp");
+            view.forward(request,response);
+     }
+     
+     
+      
 
     }
 
