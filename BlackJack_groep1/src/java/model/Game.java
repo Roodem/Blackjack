@@ -6,7 +6,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -18,7 +17,7 @@ public class Game {
     private Dealer dealer;
     private ArrayList<Player> players;
     private Deck deck;
-    private Calendar cal;
+    private Date datum;
 
     public Game(ArrayList<Player> players) {
         this.players = players;
@@ -153,10 +152,10 @@ public class Game {
 
     }
 
-    public Date getDate() {
-        cal = Calendar.getInstance();
-        Date datum = cal.getTime();
-        return datum;
+    public Date getDate() { 
+        datum = new java.util.Date();
+        java.sql.Date sqlDate = new java.sql.Date(datum.getTime());
+        return sqlDate;
     }
 
 }

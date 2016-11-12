@@ -1,13 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.hitek.prog3.web;
 
+import com.hitek.prog3.db.service.GameService;
+import com.hitek.prog3.db.service.PlayerService;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -37,14 +34,28 @@ public class RoundEnd extends HttpServlet {
             throws ServletException, IOException {
         
         Game currentGame = (Game) request.getSession().getAttribute("game");
+        
         ArrayList<Player> currentPlayers = currentGame.getPlayers();
 
         String newround = request.getParameter("newround");
         String quit = request.getParameter("quit");
-
+        PlayerService credit = new PlayerService();
+        GameService game = new GameService();
         //ronde afsluiten en naar indexx
         if (quit != null) {
-
+            //update balance van alle spelers
+            for (Player player : currentPlayers) {
+                int balance = player.getBalance();
+                String name = player.getNickname();
+                int aantal2 = currentGame.getPlayers().size();
+                game.winstWegschrijven(aantal2, balance, name);
+                credit.persoonCreditsWijzigen(balance, name);
+            }
+            
+            int aantal = currentGame.getPlayers().size();
+            Date datum = currentGame.getDate();
+            GameService game2 = new GameService();
+            game2.gameToevoegen(datum, aantal);
             
             HttpSession session = request.getSession(false);
             if (session != null) {
@@ -52,20 +63,25 @@ public class RoundEnd extends HttpServlet {
                   
                 response.sendRedirect("index.jsp");
                 return;
-                
-                
             }
-            
-            //balans updaten spelers
-            //registratie game
-
         }
 
         if (newround != null) {
-            //loggen en balance update spelers
-            //zelfde spelers inladen
+            //update balance van alle spelers
+            for (Player player : currentPlayers) {
+                int balance = player.getBalance();
+                String name = player.getNickname();
+                int aantal3 = currentGame.getPlayers().size();
+                game.winstWegschrijven(aantal3, balance, name);
+                credit.persoonCreditsWijzigen(balance, name);
+            }
             
-           
+            int aantal = currentGame.getPlayers().size();
+            Date datum = currentGame.getDate();
+            GameService game2 = new GameService();
+            game2.gameToevoegen(datum, aantal);
+            
+            
           //controle of er spelers zijn zonder credits
             ArrayList<Player> playersNoCredits = new ArrayList<>();
             boolean nocredits = false;
@@ -88,11 +104,11 @@ public class RoundEnd extends HttpServlet {
             request.setAttribute("noplayernocredits", true);
             RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
             dispatcher.forward(request, response);
-                
-               
             }
-                
-            }
+            
+            
+            
+        }
             
             for (Player player : currentPlayers) {
                 player.setHand(new Hand());

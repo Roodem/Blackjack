@@ -1,18 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.hitek.prog3.web;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashSet;
-import java.util.Iterator;
-import java.util.ListIterator;
 import java.util.Set;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -31,7 +21,6 @@ public class GameInit extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         //index van spelers op halen uit select forms
         String[] test = request.getParameterValues("spelers");
 
@@ -50,7 +39,6 @@ public class GameInit extends HttpServlet {
         playerSet.addAll(selectedPlayers);
         if (playerSet.size() < selectedPlayers.size()) {
             
-        
         request.setAttribute("warning", "Iedereen gelieve een ander profiel te kiezen");
         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
         dispatcher.forward(request, response);
