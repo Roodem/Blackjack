@@ -12,11 +12,11 @@ import java.sql.Statement;
  */
 public class HistoriekDAO {
     public static ResultSet getHistoriekBepaaldSpeler(String nicknaam){
-        String query =  "select gameId, date, balance " +
+        String query =  "select gameId, date, player_game.balance " +
                         "from game, player_game, player " +
                         "where game.gameId = player_game.GamegameId " +
                         "and player_game.Playernickname = player.nickname " +
-                        "and nickname = '" + nicknaam + "'";
+                        "and player_game.Playernickname = '" + nicknaam + "'";
         
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
         ResultSet rs = null;

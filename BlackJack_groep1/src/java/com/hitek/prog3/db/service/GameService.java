@@ -21,4 +21,8 @@ public class GameService {
         GameDAO.winstWegschrijven("player_game", GamegameID, balance, playernickname);
     }
     
+    public int gameIdOphalen(){
+        return GameDAO.laatsteGameIdOphalen("game","gameID");
+    }
+    
 }

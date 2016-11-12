@@ -7,6 +7,7 @@ package com.hitek.prog3.db.DAO;
 
 import com.hitek.prog3.db.util.DatabaseSingleton;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
@@ -47,4 +48,25 @@ public class GameDAO {
         }
         
     }
+    
+    public static int laatsteGameIdOphalen(String tabel, String foreignKey){
+        String query = "SELECT " + foreignKey + " FROM " + tabel + " ORDER BY " + foreignKey + " DESC LIMIT 1";
+        
+        Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
+        ResultSet rs = null;
+        Statement stmt = null;
+        int id = 0;
+        try{
+            stmt = con.createStatement();
+            rs=stmt.executeQuery(query);
+            while(rs.next()){
+               id = rs.getInt(foreignKey);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return id;
+    }
+    
+    
 }

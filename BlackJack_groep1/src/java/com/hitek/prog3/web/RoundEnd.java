@@ -47,9 +47,10 @@ public class RoundEnd extends HttpServlet {
             for (Player player : currentPlayers) {
                 int balance = player.getBalance();
                 String name = player.getNickname();
-                int aantal2 = currentGame.getPlayers().size();
-                game.winstWegschrijven(aantal2, balance, name);
+                int gameid = game.gameIdOphalen();
                 credit.persoonCreditsWijzigen(balance, name);
+                
+                game.winstWegschrijven(gameid, balance, name);
             }
             
             int aantal = currentGame.getPlayers().size();
@@ -71,9 +72,12 @@ public class RoundEnd extends HttpServlet {
             for (Player player : currentPlayers) {
                 int balance = player.getBalance();
                 String name = player.getNickname();
-                int aantal3 = currentGame.getPlayers().size();
-                game.winstWegschrijven(aantal3, balance, name);
+                
+                
+                int gameid = game.gameIdOphalen();
+                
                 credit.persoonCreditsWijzigen(balance, name);
+                game.winstWegschrijven(gameid, balance, name);
             }
             
             int aantal = currentGame.getPlayers().size();
