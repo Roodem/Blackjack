@@ -1,6 +1,6 @@
     @font-face{
                 font-family: starwars;
-                src:url('css/fonts/OptimusPrincepsSemiBold.ttf');
+                src:url('../css/fonts/OptimusPrincepsSemiBold.ttf');
             }
             body{
                 background-size:cover; 

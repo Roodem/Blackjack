@@ -18,20 +18,20 @@
                  background-color: black;
             }
             #container{
-                background-image: url('images/background/starwarsbg.png');
-                background-size: contain;
-                border: yellow 5px solid;
+               background-image: url('images/background/starwarsbg.png');
+                background-size: 1420px;
+                border: silver 5px solid;
                 border-radius: 25px;
                 width: 1200px; height:800px; margin-left: auto; margin-right: auto;
+                margin-top: 50px;
+                background-repeat: no-repeat;
             }
-           #dealer{
+            #dealer{
                 height: auto;
                 width: 300px;
                 height: 300px;
-                
-                margin: auto;
+                margin-left: 525px;
                 top: 0;
-
             }
             #dealerhand{
                  margin: 0 auto;

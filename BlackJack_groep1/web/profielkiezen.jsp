@@ -12,32 +12,59 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <style type="text/css">
+            @font-face{
+                font-family: starwars;
+                src:url('css/fonts/OptimusPrincepsSemiBold.ttf');
+            }
             body{
-                color: yellow; 
+                color: silver; 
+                background-color:black;
+                font-family: "starwars";
                     
             }
             #container{
-                border: yellow 5px solid;
+                width:1300px;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 100px;
+                border: silver 5px solid;
                 width: 1200px;
-                height:800px; 
-                margin:auto;
+                height:650px;
+                margin-left:auto;
+                margin-right:auto;
                 padding: 20px;
                 border-radius: 25px;
-                background-image: url("images/background/darth-vader.jpg");
-                background-size: contain;
+                background: url("images/background/joda.jpg");
+                background-size: 1300px;
+                background-repeat: no-repeat;
             }
-
-           
             .label{
                 color: red;
-                
+            }
+            select{
+                margin-left: 50px;
+            }
+            input{
+                background-color:black;
+                font-family: "starwars";
+                padding:50px;
+                font-size:50px;
+                margin-left: 150px;
+                margin-top: 100px;
+                color:silver;
+            }
+            input:hover{
+                text-decoration: underline;
+            }
+            h1{
+                margin-left:50px;
             }
         </style>
 
     </head>
     <body>
         <div id="container">
-            <h1>BlackJack spelerprofiel kiezen</h1>
+            <h1>Kies Speler:</h1>
             <c:if test="${requestScope.label != null}">
                 <p class="label"><c:out value="${requestScope.label}"/></p>
             </c:if>
@@ -51,12 +78,12 @@
                     </select>
                         
                       
-                </c:forEach>
+                </c:forEach><br><br><br>
                 <input type="submit" value="start spel"/>
 
             </form>
             <c:if test="${requestScope.nocreditplayers.size() > 0}">
-                <p>volgende spelers hebben geen credits meer</p>
+                <p style="color:red;">volgende spelers hebben geen credits meer</p>
                 <ul>
                 <c:forEach items="${requestScope.nocreditplayers}" var="player">
                     <li>${player.getNickname()}</li>

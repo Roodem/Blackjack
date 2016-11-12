@@ -1,23 +1,46 @@
- body
-            {
-                background-color: black; color: yellow
-            }
-            #container{
-                border: black 1px dotted; width: 60%; height:600px; margin-left: auto; margin-right: auto;overflow-y: scroll;
-            }
-            .button.black {
-                background-image: -webkit-gradient(linear, left top, left bottom, 
-                    from(#4286f5), 
-                    color-stop(0.5, #4286f5),
-                    color-stop(0.5, #194fdb),
-                    to(#194fdb));
-
-                border: solid 1px rgba(79, 79, 79, 0.75);
-            }
-            .button.black:hover {
-                background-image: -webkit-gradient(linear, left top, left bottom, 
-                    from(#7d828c),
-                    color-stop(0.5, #303749), 
-                    color-stop(0.5, #121a2e), 
-                    to(#121a2e));
-            }
+@font-face{
+    font-family: starwars;
+    src:url('../css/fonts/OptimusPrincepsSemiBold.ttf');
+}
+body{
+    background-color: black; 
+    color: silver;
+    font-family: "starwars";
+}
+#container{
+    width:1300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    border: silver 5px solid;
+    width: 1200px;
+    height:650px;
+    margin-left:auto;
+    margin-right:auto;
+    padding: 20px;
+    border-radius: 25px;
+    overflow-y: scroll;
+    font-family: "starwars";
+}
+ p{
+    font-family: "starwars";
+}
+.button.black {
+    background-image: -webkit-gradient(linear, left top, left bottom, 
+    from(#4286f5), 
+    color-stop(0.5, #4286f5),
+    color-stop(0.5, #194fdb),
+    to(#194fdb));
+    padding:20px;
+    margin-left: 850px;
+    border: solid 1px rgba(79, 79, 79, 0.75);
+    font-family: "starwars";
+    font-size: 35px;
+}
+.button.black:hover {
+    background-image: -webkit-gradient(linear, left top, left bottom, 
+    from(#7d828c),
+    color-stop(0.5, #303749), 
+    color-stop(0.5, #121a2e), 
+    to(#121a2e));
+}

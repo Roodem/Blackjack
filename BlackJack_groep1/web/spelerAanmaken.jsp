@@ -15,10 +15,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
             <title>JSP Page</title>
             <link href="css/opties.css" type="text/css" rel="stylesheet">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body background="images/background/darth-vader.jpg">
         <h3>Opties</h3>

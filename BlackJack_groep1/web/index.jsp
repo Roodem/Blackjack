@@ -4,44 +4,88 @@
 <html>
     <head>
         <title>Blackjack</title>
-         <link rel="stylesheet" href="css/indexStyle/style.css">
+  
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style type="text/css">
-           
-            body{
-                color: yellow; 
-                    
+           @font-face{
+                font-family: starwars;
+                src:url('css/fonts/OptimusPrincepsSemiBold.ttf');
             }
-            #container{
-                border: yellow 5px solid;
+            body{
+              background-color: black;
+            }
+            section{
+                width:1300px;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 100px;
+                border: silver 5px solid;
                 width: 1200px;
-                height:800px; 
-                margin:auto;
+                height:650px;
+                margin-left:auto;
+                margin-right:auto;
                 padding: 20px;
                 border-radius: 25px;
-                background-image: url("images/background/darth-vader.jpg");
-                background-size: contain;
+                background: url("images/background/background_index.jpg");
+                background-size: 1300px;
+                background-repeat: no-repeat;
             }
-
+     
+            .container{
+                margin-top: 50px;
+                width: 400px;
+                margin-left: 400px;
+                text-align: center;
+            }
+            a{
+                font-size:55px;
+               float: left;
+               text-decoration: none;
+               color:silver;
+              font-family: "starwars";
+       
+            }
+            a:hover{
+                text-decoration: underline;
+            }
            
-            .label{
-                color: red;
-                
+            div:nth-of-type(1){
+             float:right;   
+            }
+            h1, h2{
+                color: silver;
+                 font-family: "starwars";
+            }
+            section img{
+                margin-top: 0px;
+             width: 450px;
+             margin-left: auto;
+             margin-right: auto;
+             display: block;
+             clear: both;
+            }
+            .warning{
+                margin-bottom: 20px;
+                color:red;
             }
         </style>
         
     </head>
     <body>
-        <div>
-            <a href="help.html"><img id="help" src="./images/etc/help.png" alt="help"/></a>
+     
+        <section>
+     
+            <a href="help.html">?</a>
+                   
+            <div>
+                <input type="button" value="BEHEER" onclick="location.href='beheer.jsp';">
             <form id="login" action="login.html"><button name="btn_login" value="adminlogin">Aanmelden</button></form>
         </div>
-
-        <div id="container">
-            <h1>BLACKJACK</h1>
-
-            <div>
+            
+               <img src="images/background/background-starwars-logo.png">
+            <div class="container">
+                <h1>BLACKJACK</h1>
                 <h2>aantal spelers kiezen</h2>  
                 <form action="AantalSpelersServlet" method="POST">
                     <select name="aantalspelers">
@@ -60,7 +104,7 @@
                 <p class="warning">Niemand heeft nog credits</p>
             </c:if>
             
-        </div>
-        <a href="beheer.jsp">BEHEER</a>
+        
+       </section>
     </body>
 </html>
