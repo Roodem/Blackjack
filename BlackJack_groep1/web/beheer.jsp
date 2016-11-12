@@ -17,7 +17,7 @@
         <%
             if(session.getAttribute("email")==null)
             {
-                response.sendRedirect("login.html");
+                response.sendRedirect("login.jsp");
             }
             %>
         <h3>Opties</h3><br><br><br><br><br><br>

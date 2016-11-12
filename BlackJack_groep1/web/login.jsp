@@ -1,25 +1,26 @@
+<%-- 
+    Document   : login
+    Created on : Nov 12, 2016, 10:27:12 PM
+    Author     : Gebruiker
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
-        <title>Login</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/loginStyle/style.css">
+        <title>Login</title>
     </head>
     <body>
-        <div class="login">
+         <div class="login">
             <div class="login-screen">
                 <div class="app-title"><h1>Aanmelden</h1></div>
                 <form class="login-form" method="POST" action="LoginServlet"><div class="control-group"> <input type="text" name="username" placeholder="emailadres" required></div>
                     <div class="control-group">  <input type="password" name="password" placeholder="wachtwoord" required></div>
                     <button class="btn" type="submit" name="login_btn">Aanmelden</button>
                 </form>
-                <form action="registerAdmin.jsp"><a>Maak een nieuw admin account aan</a></form>
+                <a href="registerAdmin.jsp">Registreer</a>
             </div>
         </div>
     </body>
