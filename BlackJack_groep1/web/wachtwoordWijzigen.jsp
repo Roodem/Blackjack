@@ -75,8 +75,9 @@
         <form method="POST" action="WachtwoordWijzigenServlet">
             <input  type="text" name="email" placeholder="Vul email in" required><br><br>
             <input type="password" name="oudWachtwoord" placeholder="Vul oud wachtwoord in" required><br><br>
-            <input type="password" placeholder="Vul Nieuw Wachtwoord" id="password" name="nieuwWachtwoord in" required><br><br>
-            <input type="password" placeholder="Bevestig Wachtwoord" id="confirm_password" required><br><br>
+            <input type="password" placeholder="Vul Nieuw Wachtwoord" id="password" name="nieuwWachtwoord" required><br><br>
+            <input type="password" placeholder="Bevestig Wachtwoord" id="confirm_password" name="confirmPassword" required><br><br>
+            <p style="color:red;">${errorConfirmed}</p>
             <button type="submit" class="pure-button pure-button-primary">OK</button>
         </form>
 

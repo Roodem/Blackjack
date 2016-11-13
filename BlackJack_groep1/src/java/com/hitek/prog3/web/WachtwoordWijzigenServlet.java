@@ -5,6 +5,7 @@
  */
 package com.hitek.prog3.web;
 
+import com.hitek.prog3.db.service.RegisterAdminService;
 import com.hitek.prog3.db.service.WachtwoordWijzigenService;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,8 +21,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class WachtwoordWijzigenServlet extends HttpServlet {
 
-
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -34,7 +33,7 @@ public class WachtwoordWijzigenServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      
+
     }
 
     /**
@@ -49,10 +48,22 @@ public class WachtwoordWijzigenServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String email = request.getParameter("email");
-        String nieuwWachtwoord = request.getParameter("nieuwWachtwoord");
-        WachtwoordWijzigenService.WachtwoordWijzigen(email, nieuwWachtwoord);
-        RequestDispatcher view = request.getRequestDispatcher("confirmChange.html");
+        String password = request.getParameter("nieuwWachtwoord");
+        String confirmPassword = request.getParameter("confirmPassword");
+        if (password != null) {
+            if (password.equals(confirmPassword)) {
+                WachtwoordWijzigenService.WachtwoordWijzigen(email, password);
+                RequestDispatcher view = request.getRequestDispatcher("confirmChange.html");
                 view.forward(request, response);
+            } else {
+                String errorConfirmed = "Wachtwoord onjuist bevestigd";
+                request.getServletContext().setAttribute("errorConfirmed", errorConfirmed);
+                RequestDispatcher view = request.getRequestDispatcher("wachtwoordWijzigen.jsp");
+                view.forward(request, response);
+            }
+
+        }
+
     }
 
     /**
