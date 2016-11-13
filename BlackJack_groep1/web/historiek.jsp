@@ -29,11 +29,27 @@
                 response.sendRedirect("login.jsp");
             }
             %>
-        <form action="HistoriekServlet" method="post">   
+        <form action="HistoriekServlet" method="post">
+            <h3>HISTORIEK</h3>
             <%
-                ResultSet  rs;
+                ResultSet  rs = HistoriekService.volledigHistoriekWeergeven();
+                
             %>
-            <h3>Opties</h3><br><br><br><br><br><br>
+            <TABLE BORDER="1">
+            <TR>
+                <TH>GAME ID</TH>
+                <TH>DATUM</TH>
+                <TH>BALANCE</TH>
+            </TR>
+            <% while(rs.next()){ %>
+            <TR>
+                <TD> <%= rs.getInt("GamegameId") %></td>
+                <TD> <%= rs.getString("Playernickname") %></TD>
+                <TD> <%= rs.getString("balance") %></TD>
+            </TR>
+            <% } %>
+        </TABLE>
+            <h3>Opties</h3><br>
             <div align="center">
           <select name="naam">  
             <%
