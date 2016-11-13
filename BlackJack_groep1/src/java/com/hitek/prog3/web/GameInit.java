@@ -39,7 +39,7 @@ public class GameInit extends HttpServlet {
         playerSet.addAll(selectedPlayers);
         if (playerSet.size() < selectedPlayers.size()) {
             
-        request.setAttribute("warning", "Iedereen gelieve een ander profiel te kiezen");
+        request.setAttribute("same_player", true);
         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
         dispatcher.forward(request, response);
         return;

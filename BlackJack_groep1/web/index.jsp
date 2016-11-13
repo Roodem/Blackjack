@@ -96,7 +96,7 @@
                     <input type="submit" value="kies"/>
                 </form>
             </div>
-            <c:if test="${requestScope.warning}">
+            <c:if test="${requestScope.same_player}">
                 <p class="warning">Iedereen moet een ander profiel kiezen</p>
             </c:if>
                  <c:if test="${requestScope.noplayernocredits}">
