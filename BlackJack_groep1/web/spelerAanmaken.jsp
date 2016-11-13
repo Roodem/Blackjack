@@ -21,6 +21,12 @@
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body background="images/background/darth-vader.jpg">
+        <%
+            if(session.getAttribute("email")==null)
+            {
+                response.sendRedirect("login.jsp");
+            }
+            %>
         <h3>Opties</h3>
         <h2 align="center">Speler Aanmaken</h2>
         <form action="spelerAanmakenServlet" method="post">

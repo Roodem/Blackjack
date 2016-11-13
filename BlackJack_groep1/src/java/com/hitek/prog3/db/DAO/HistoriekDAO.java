@@ -30,4 +30,19 @@ public class HistoriekDAO {
         }
         return rs;
     }
+    public static ResultSet getOverallHistoriek()
+    {
+        String query = "SELECT GamegameID, Playernickname, balance from player_game";
+        Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
+        ResultSet rs = null;
+        Statement stmt = null;
+               
+        try{
+            stmt = con.createStatement();
+            rs=stmt.executeQuery(query);
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return rs;
+    }
 }

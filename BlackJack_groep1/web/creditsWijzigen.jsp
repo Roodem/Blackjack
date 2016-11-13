@@ -24,6 +24,12 @@
             }
         </script>
     </head>
+    <%
+            if(session.getAttribute("email")==null)
+            {
+                response.sendRedirect("login.jsp");
+            }
+            %>
      <body background="images/background/darth-vader.jpg">
         <h3>Opties</h3>
         <h2 align="center">Credits Wijzigen</h2>

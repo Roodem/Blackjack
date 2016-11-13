@@ -23,8 +23,15 @@
         <title>JSP Page</title>
     </head>
     <body background="images/background/darth-vader.jpg">
-        <h3>Opties</h3><br><br><br><br><br><br>
+        <%
+            if(session.getAttribute("email")==null)
+            {
+                response.sendRedirect("login.jsp");
+            }
+            %>
         <form action="HistoriekServlet" method="post">   
+            
+            <h3>Opties</h3><br><br><br><br><br><br>
             <div align="center">
           <select name="naam">  
             <%

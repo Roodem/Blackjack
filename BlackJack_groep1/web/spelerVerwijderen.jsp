@@ -24,6 +24,12 @@
         </script>
     </head>
     <body background="images/background/darth-vader.jpg">
+        <%
+            if(session.getAttribute("email")==null)
+            {
+                response.sendRedirect("login.jsp");
+            }
+            %>
         <h3>Opties</h3>
         <h2 align="center">Speler Verwijderen</h2>
         <form action="spelerVerwijderenServlet" method="post">   
