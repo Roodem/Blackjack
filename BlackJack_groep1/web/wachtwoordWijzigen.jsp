@@ -19,6 +19,7 @@
                 response.sendRedirect("login.jsp");
             }
             %>
+            <button onclick="location.href='beheer.jsp'">Beheerpagina</button>
         <form method="POST" action="WachtwoordWijzigenServlet">
             <input type="text" name="email" placeholder="email" required><br>
             <input type="password" name="oudWachtwoord" placeholder="oud wachtwoord" required><br>

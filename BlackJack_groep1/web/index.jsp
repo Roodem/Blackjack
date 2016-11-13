@@ -103,7 +103,7 @@
                 <p class="warning">Niemand heeft nog credits</p>
             </c:if>
             
-        
+        <% session.invalidate();%>
        </section>
     </body>
 </html>

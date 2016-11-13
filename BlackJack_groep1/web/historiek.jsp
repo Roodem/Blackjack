@@ -30,7 +30,9 @@
             }
             %>
         <form action="HistoriekServlet" method="post">   
-            
+            <%
+                ResultSet  rs;
+            %>
             <h3>Opties</h3><br><br><br><br><br><br>
             <div align="center">
           <select name="naam">  
