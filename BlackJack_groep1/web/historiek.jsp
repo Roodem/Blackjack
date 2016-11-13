@@ -21,7 +21,7 @@
         <link href="css/opties.css" type="text/css" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-         <style type="text/css">
+        <style type="text/css">
             form input{
                 margin-left: 0px;
                 cursor: pointer;
@@ -59,37 +59,38 @@
         </style>
     </head>
     <body background="images/background/darth-vader.jpg" >
-
+        <h3>Opties</h3>
         <%
             if (session.getAttribute("email") == null) {
                 response.sendRedirect("login.jsp");
             }
         %>
-        <form action="HistoriekServlet" method="post">
-            <h3>HISTORIEK</h3>
+        
+        
+        
+        
+        <h3 style="text-decoration:underline;" align=center>HISTORIEK</h3>
             <%
                 ResultSet rs = HistoriekService.volledigHistoriekWeergeven();
                 int count  = 0;
             %>
-            <div>
-                <TABLE BORDER="1">
-                    <TR>
+                <TABLE align="center" style="width:30%; border-color:silver;" BORDER="1">
+                    <TR >
                         <TH>GAME ID</TH>
                         <TH>DATUM</TH>
                         <TH>BALANCE</TH>
                     </TR>
                     <% while (rs.next() && count <= 8) {%>
                     <TR>
-                        <TD> <%= rs.getInt("GamegameId")%></TD>
-                        <TD> <%= rs.getString("Playernickname")%></TD>
-                        <TD> <%= rs.getString("balance")%></TD>
+                        <TD align="center"> <%= rs.getInt("GamegameId")%></TD>
+                        <TD align="center"> <%= rs.getString("Playernickname")%></TD>
+                        <TD align="center"> <%= rs.getString("balance")%></TD>
                     </TR>
                     <% count++; } %>
-                </TABLE>
-            </div>
+                </TABLE><br><br>
             
-                <h3>Opties</h3><br>
-                <div align="center">
+        <form action="HistoriekServlet" method="post">        
+            <div style=" width: 150px;" align="center">
                     <select name="naam">  
                         <%
                             PlayerService sor = new PlayerService();
@@ -105,11 +106,13 @@
 
                         %>
                     </select>
-                    <input type="submit" value="Toon"/>
-            </div   >
+                    <input type="submit" value="OK"/>
+            </div>
 
         </form>
-        <br><br><br>            
+        <br><br><br> 
+        
+        
         <TABLE align="center" BORDER="1" style="width: 30%; ">
             <TR>
                 <TH>GAME ID</TH>
@@ -123,7 +126,7 @@
                     <td align="center"><c:out value="${itarator.next()}"></c:out></td>   
                     <td align="center"><c:out value="${itarator.next()}"></c:out></td>   
                     </tr>
-            </c:forEach>
+            </c:forEach>    
 
 
         </TABLE>

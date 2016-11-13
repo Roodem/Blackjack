@@ -8,11 +8,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link href="css/opties.css" type="text/css" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Wachtwoord wijzigen</title>
-    </head>
-<style type="text/css">
-
+        <style type="text/css">
+            
             form:nth-of-type(1)>input{
                 padding:10px;
                 color:white;    
@@ -21,21 +21,21 @@
                 margin-left: 0px;
                 padding:10px;
             }
-            form:nth-of-type(1)>input{
+            form:nth-of-type(1)>input:hover{
                 margin-left: 0px;
                 border-radius: 20px;
                 cursor: auto;
                 background-color: black;
                 
             }
-            form:nth-of-type(1)>input:nth-of-type(2){
+            form:nth-of-type(1)>input:nth-of-type(2):hover{
                 margin-left: 0px;
                 cursor: auto;
                 background-color: black;
                 color:white;
             }
             form button{
-                
+                margin-left: 55px;
                 cursor: pointer;
                 background-color: transparent;
                 color: white;
@@ -46,7 +46,7 @@
                 -webkit-transition-duration: 0.8s; /* Safari */
                 transition-duration: 0.8s;
             }
-            form button{
+            form button:hover{
                 border-radius: 20px;
                 background-color: darkgray;
                 color:black;
@@ -58,31 +58,36 @@
                 font-weight: bold;
                 -webkit-transition-duration: 0.8s; /* Safari */
                 transition-duration: 0.3s;
-                
-            }
-            #container{
-                width:60%;
-                margin:auto;
             }
           
         </style>
-        <body background="images/background/darth-vader.jpg">
+    </head>
+
+    <body background="images/background/darth-vader.jpg"    >
         <%
             if(session.getAttribute("email")==null)
             {
                 response.sendRedirect("login.jsp");
             }
-            %>
-            <button onclick="location.href='beheer.jsp'">Beheerpagina</button>
-            <div id="container">
+        %>
+        <h3>Opties</h3>
+        <h2 align="center">WachtWoord Wijzigen</h2><br><br><br><br><br>
         <form method="POST" action="WachtwoordWijzigenServlet">
-            <input type="text" name="email" placeholder="email" required><br><br>
-            <input type="password" name="oudWachtwoord" placeholder="oud wachtwoord" required><br><br>
-            <input type="password" placeholder="Nieuw Wachtwoord" id="password" name="nieuwWachtwoord" required><br><br>
-            <input type="password" placeholder="Bevestig Wachtwoord" id="confirm_password" required>
-            <br><br>
-            <button type="submit" class="pure-button pure-button-primary">Wijzig wachtwoord</button>
+            <input  type="text" name="email" placeholder="Vul email in" required><br><br>
+            <input type="password" name="oudWachtwoord" placeholder="Vul oud wachtwoord in" required><br><br>
+            <input type="password" placeholder="Vul Nieuw Wachtwoord" id="password" name="nieuwWachtwoord in" required><br><br>
+            <input type="password" placeholder="Bevestig Wachtwoord" id="confirm_password" required><br><br>
+            <button type="submit" class="pure-button pure-button-primary">OK</button>
         </form>
-</div>
+
+            <aside>
+            <input type="button" value="Speler Aanmaken" onclick="location.href='spelerAanmaken.jsp';"><br><br>
+            <input type="button" value="Speler Verwijderen" onclick="location.href='spelerVerwijderen.jsp';"><br><br>
+            <input type="button" value="Credits Wijzigen" onclick="location.href='creditsWijzigen.jsp';"><br><br>
+            <input type="button" value="Wachtwoord Wijzigen" onclick="location.href='wachtwoordWijzigen.jsp';"><br><br>
+            <input type="button" value="Historiek" onclick="location.href='historiek.jsp';"><br><br>
+            <input type="button" value="Beheer Afsluiten" name="afsluiten" onclick="location.href='index.jsp';">
+           
+        </aside>
     </body>
 </html>
