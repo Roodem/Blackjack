@@ -47,6 +47,8 @@
                 }
             %>
           </select>
+          <br>
+          <p style="color:green;"><input type="checkbox" name="adminAccount" value="adminAccount">Admin</p>
              <br><br>
                <input type="submit" value="Aanmaken"><br><br>
         </form>

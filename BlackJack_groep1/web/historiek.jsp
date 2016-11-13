@@ -21,6 +21,42 @@
         <link href="css/opties.css" type="text/css" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+         <style type="text/css">
+            form input{
+                margin-left: 0px;
+                cursor: pointer;
+                background-color: transparent;
+                color: white;
+                border: 3px solid;
+                border-color: silver;
+                text-align: center;
+                outline: none;
+                -webkit-transition-duration: 0.8s; /* Safari */
+                transition-duration: 0.8s;
+            }
+            form input:hover{
+                border-radius: 20px;
+                background-color: darkgray;
+                color:black;
+                border-color: white;
+                padding-bottom: 5px;
+                padding-left: 5px;
+                padding-right: 5px;
+                padding-top: 5px;
+                font-weight: bold;
+                -webkit-transition-duration: 0.8s; /* Safari */
+                transition-duration: 0.3s;
+                
+                margin-top: -5px;
+            }
+            form input{
+                float: right;
+            }
+            form select{
+                float: left;
+            }
+            
+        </style>
     </head>
     <body background="images/background/darth-vader.jpg" >
 

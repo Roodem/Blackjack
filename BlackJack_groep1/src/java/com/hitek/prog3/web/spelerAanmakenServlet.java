@@ -24,6 +24,8 @@ public class spelerAanmakenServlet extends HttpServlet {
        
         String naam = request.getParameter("naam");
         String icoon = request.getParameter("icoon");
+        //admin checkbox
+        String checkAdmin = request.getParameter("adminAccount");
         String b =null;
         
         
@@ -50,6 +52,11 @@ public class spelerAanmakenServlet extends HttpServlet {
         else
         {
             b="Naam is bezet, gelieve een ander speler naam te kiezen";
+        }
+        
+        if(checkAdmin != null)
+        {
+           ps.adminAccount(naam);
         }
         request.setAttribute("b", b);
         RequestDispatcher view = request.getRequestDispatcher("spelerAanmaken.jsp");

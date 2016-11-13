@@ -31,5 +31,17 @@ public class PlayerAanmakenDAO {
         }
         
     }
-    
+    public static void adminSpeler(String nickname)
+    {
+        String query = "UPDATE `admin` SET `Playernickname`= '"+nickname+"' ";
+          Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
+
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

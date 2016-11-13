@@ -40,6 +40,10 @@ public class PlayerService {
     public void persoonCreditsWijzigen(int balance,String nickname){
         CreditsWijzigenDAO.CreditsWijzigen("player", balance, nickname);
     }
+    public void adminAccount(String nickname)
+    {
+        PlayerAanmakenDAO.adminSpeler(nickname);
+    }
     
     
 }

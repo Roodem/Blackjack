@@ -17,7 +17,7 @@ import java.sql.Statement;
 public class WachtwoordWijzigenDAO {
     public static void WijzigenWachtwoord(String mail, String nieuw)
     {
-        String query = "UPDATE admin SET paswoord=('" + nieuw + "') WHERE mail=('" + mail + "') ";
+        String query = "UPDATE admin SET password=('" + nieuw + "') WHERE email=('" + mail + "') ";
         
 
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
