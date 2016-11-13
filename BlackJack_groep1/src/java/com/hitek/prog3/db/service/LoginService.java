@@ -17,4 +17,8 @@ public class LoginService {
          return LoginDAO.action(username,password);
 
     }
+
+    public int getAllAdmin() {
+        return LoginDAO.getAllAdmin();
+    }
 }

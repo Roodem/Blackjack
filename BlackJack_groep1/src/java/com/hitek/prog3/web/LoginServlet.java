@@ -56,13 +56,13 @@ public class LoginServlet extends HttpServlet {
      HttpSession session = request.getSession();
      if(Admin.validate(email))
      {
-         if(check == 0)
+         if(check == 0)//er zijn geen records gevonden
        {
             RequestDispatcher view =  request.getRequestDispatcher("index.jsp");
             view.forward(request,response);
       
       }
-       else if(check == 1)
+       else if(check == 1)//er is een admin record gevonden
        {
            
            session.setAttribute("email",email);

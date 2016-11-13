@@ -35,4 +35,23 @@ public class LoginDAO {
         }
         return count;
     }
+    public static int getAllAdmin()
+    {
+        Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
+        int count = 0;
+        try {
+            String query = "SELECT * FROM admin";
+
+            Statement stmt = con.createStatement();
+        ResultSet    rs = stmt.executeQuery(query);
+            
+            while (rs.next()) {
+
+                   count = + 1; 
+            }
+        } catch (SQLException ex) {
+
+        }
+        return count;
+    }
 }

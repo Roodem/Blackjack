@@ -21,6 +21,7 @@
             <input type="password" placeholder="Bevestig Wachtwoord" id="confirm_password" name="confirmPassword" required>
             ${errorConfirmed}<br>
             <button type="submit" class="pure-button pure-button-primary">Registreer</button>
+            ${errorMaxAdmin}<br>
         </form>
     </body>
 </html>
