@@ -56,6 +56,11 @@
                 height: 120px;
                 width: auto
             }
+            #controls{
+                position: absolute;
+                top: 100px;
+                left: 100px;
+            }
             #warning{
                 color:red;
                 
@@ -93,13 +98,15 @@
                         <p>balance: ${player.getBalance()}</p>
 
 
-                        <input type="number" value="1" min="1" max="${player.getBalance()}"  name="bet"/><br>
+                        <label>Bet:</label><input type="number" value="1" min="1" max="${player.getBalance()}"  name="bet"/><br>
 
 
                     </div>
                 </c:forEach>
             </div>
+            <div id="controls">
             <input type="submit" name="dealcards" value="Deal Cards"/>
+            </div>
         </form>
     </div>
 </body>

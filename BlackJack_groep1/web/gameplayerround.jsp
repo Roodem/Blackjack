@@ -15,17 +15,17 @@
         <style type="text/css">
             body{
                 font-family: 'Share Tech Mono', monospace;
-                 color: #ffd700;
-                  background-color: black;
+                color: #ffd700;
+                background-color: black;
             } 
             #container{
-               background-image: url('images/background/starwarsbg.png');
+                background-image: url('images/background/starwarsbg.png');
                 background-size: 1420px;
                 border: silver 5px solid;
                 border-radius: 25px;
                 width: 1200px; height:800px; margin-left: auto; margin-right: auto;
                 margin-top: 50px;
-                background-repeat: no-repeat;
+                background-size: cover;
             }
             #dealer{
                 height: auto;
@@ -36,45 +36,50 @@
             }
             .dealer_img{
                 height: 120px;
-                 margin: 0 auto;
+                margin: 0 auto;
                 width: auto;
             }
             #dealerhand{
-                 margin: 0 auto;
-                
+                margin: 0 auto;
+
             }
             #playerside{
                 width: 100%;
                 height: 400px;
-                border: dotted 1px red;
+
             }
-            
-            
+
+
             #player{
                 text-align: center;
                 display: inline-block;
                 width: 24%;
                 box-sizing: border-box;
 
-            
+
             }
             #playerhand{
-                
-                
+
+
             }
             .player_icon{
-                 height: 120px;
+                height: 120px;
                 width: auto
             }
-            
+
             .card{
                 border-radius: 10px;
                 height: 120px;
                 margin-left: -15%;
-                
-                
+
+
             }
-            
+             #controls{
+                position: absolute;
+                top: 100px;
+                left: 100px ;
+            }
+
             #action{
                 position: absolute;
                 top: 50px;
@@ -106,43 +111,45 @@
                     </c:forEach>
                 </div>
             </div>
-                <div id="playerside" >  
-            <c:forEach items="${sessionScope.game.getPlayers()}" var="player" varStatus="count">
+            <div id="playerside" >  
+                <c:forEach items="${sessionScope.game.getPlayers()}" var="player" varStatus="count">
 
-                <div id="player">
-                    <div id ="playerhand">
-                        <c:forEach items="${player.getHand().getCards()}" var="card">
-                            <img class="card" src="images/cards/${card}.gif" alt="${card}"/>
-                        </c:forEach>
-                        <p>${player.getHand().calculateValueHand()}</p>
-                        <p>${player.getHand().evaluateHandStatus()}</p>
-                       
+                    <div id="player">
+                        <div id ="playerhand">
+                            <c:forEach items="${player.getHand().getCards()}" var="card">
+                                <img class="card" src="images/cards/${card}.gif" alt="${card}"/>
+                            </c:forEach>
+                            <p>${player.getHand().calculateValueHand()}</p>
+                            <p>${player.getHand().evaluateHandStatus()}</p>
+
+
+
+                        </div>
+                        <img class="player_icon" src="${player.getIcon().getUrl()}" alt="${player.getNickname()}"/>
+                        <h4>${player.getNickname()}</h4>
+                        <p>bet: ${player.getHand().getBet()}</p>
+                        <!--                    speler kan zolang hij niet BURNED/STAND/BJ heeft kaarten bijvragen-->
+                        <form id="playeraction" name="playeraction" method="POST" action="PlayerAction ">
+                            <c:if test="${player.getHand().getStatus() == 'OTHER'}">
+                                <c:set value="${true}"  var="stillAction" /> 
+                                <input type="hidden" value="${count.index.toString()}" name="playernr"/>
+                                <input type="submit" value ="HIT" name="action"/>
+                                <input type="submit" value ="STAND"  name="action"/>
+                            </c:if>
+                        </form>
 
 
                     </div>
-                    <img class="player_icon" src="${player.getIcon().getUrl()}" alt="${player.getNickname()}"/>
-                    <h4>${player.getNickname()}</h4>
-                    <p>bet: ${player.getHand().getBet()}</p>
-                    <!--                    speler kan zolang hij niet BURNED/STAND/BJ heeft kaarten bijvragen-->
-                    <form id="playeraction" name="playeraction" method="POST" action="PlayerAction ">
-                        <c:if test="${player.getHand().getStatus() == 'OTHER'}">
-                            <c:set value="${true}"  var="stillAction" /> 
-                            <input type="hidden" value="${count.index.toString()}" name="playernr"/>
-                            <input type="submit" value ="HIT" name="action"/>
-                            <input type="submit" value ="STAND"  name="action"/>
-                        </c:if>
+                </c:forEach>
+            </div>    
+            <c:if test="${!stillAction}" > 
+                <div id="controls>">
+                    <form id="action" method="POST" action="DealerRound">       
+                        <input type="submit" name="dealerround" value="reveal dealer"/>
                     </form>
-
-
                 </div>
-            </c:forEach>
-                </div>    
-                <c:if test="${!stillAction}" > 
-                <form id="action" method="POST" action="DealerRound">       
-                    <input type="submit" name="dealerround" value="reveal dealer"/>
-                </form>
                 </c:if>
-        </div>
-      
+            </div>
+
     </body>
 </html>

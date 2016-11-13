@@ -13,18 +13,18 @@
         <title>Blackjack Star Wars</title>
         <style type="text/css">
             body{
-                 font-family: 'Share Tech Mono', monospace;
-                 color: #ffd700;
-                 background-color: black;
+                font-family: 'Share Tech Mono', monospace;
+                color: #ffd700;
+                background-color: black;
             }
             #container{
-               background-image: url('images/background/starwarsbg.png');
-                background-size: 1420px;
+                background-image: url('images/background/starwarsbg.png');
+                background-size: cover;
                 border: silver 5px solid;
                 border-radius: 25px;
                 width: 1200px; height:800px; margin-left: auto; margin-right: auto;
                 margin-top: 50px;
-                background-repeat: no-repeat;
+
             }
             #dealer{
                 height: auto;
@@ -34,14 +34,14 @@
                 top: 0;
             }
             #dealerhand{
-                 margin: 0 auto;
+                margin: 0 auto;
             }
             .dealer_img{
                 height: 120px;
                 width: auto;
-                 margin: 0 auto;
+                margin: 0 auto;
             }
-            
+
             #playerside{
                 width: 100%;
                 height: 400px;
@@ -53,7 +53,7 @@
                 margin :auto;
             }
             #playerhand{
-                 margin-left: auto;
+                margin-left: auto;
                 margin-right: auto;
             }
             .player_icon{
@@ -65,6 +65,11 @@
                 height: 120px;
                 margin-left: -15%;
 
+            }
+            #controls{
+                position: absolute;
+                top: 100px;
+                left: 100px;
             }
             #debug{
                 color:red;
@@ -118,12 +123,12 @@
                 </div>
             </c:forEach>
 
-
-            <form method="post" action="RoundEnd">
-                <input type="submit" name="newround" value="New Round"/>
-                <input type="submit" name="quit" value="Quit Game"/>
-            </form>
-
+            <div id="controls">       
+                <form method="post" action="RoundEnd">
+                    <input type="submit" name="newround" value="New Round"/>
+                    <input type="submit" name="quit" value="Quit Game"/>
+                </form>
+            </div>
         </div>
 
     </body>
