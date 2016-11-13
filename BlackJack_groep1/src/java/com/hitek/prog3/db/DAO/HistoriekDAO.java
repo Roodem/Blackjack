@@ -32,7 +32,7 @@ public class HistoriekDAO {
     }
     public static ResultSet getOverallHistoriek()
     {
-        String query = "SELECT GamegameID, Playernickname, balance from player_game";
+        String query = "SELECT GamegameID, Playernickname, balance from player_game ORDER BY GamegameID DESC";
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
         ResultSet rs = null;
         Statement stmt = null;

@@ -33,22 +33,22 @@
             <h3>HISTORIEK</h3>
             <%
                 ResultSet rs = HistoriekService.volledigHistoriekWeergeven();
-
+                int count  = 0;
             %>
-            <div style="overflow-y:scroll; width:250px; height:400px;">
+            <div>
                 <TABLE BORDER="1">
                     <TR>
                         <TH>GAME ID</TH>
                         <TH>DATUM</TH>
                         <TH>BALANCE</TH>
                     </TR>
-                    <% while (rs.next()) {%>
+                    <% while (rs.next() && count <= 8) {%>
                     <TR>
-                        <TD> <%= rs.getInt("GamegameId")%></td>
+                        <TD> <%= rs.getInt("GamegameId")%></TD>
                         <TD> <%= rs.getString("Playernickname")%></TD>
                         <TD> <%= rs.getString("balance")%></TD>
                     </TR>
-                    <% } %>
+                    <% count++; } %>
                 </TABLE>
             </div>
             
