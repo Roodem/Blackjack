@@ -31,5 +31,20 @@ public class PlayerVerwijderenDAO {
         }
         
     }
+    public static void persoonVerwijderenUitHistoriek(String tabel, String nickname){
+        String query = "DELETE FROM " + tabel + " WHERE Playernickname='" + nickname + "'";
+        
+
+        Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
+
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+    }
     
 }

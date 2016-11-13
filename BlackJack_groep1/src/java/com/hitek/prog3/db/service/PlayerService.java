@@ -34,6 +34,7 @@ public class PlayerService {
     }
    
     public void persoonVerwijderen(String nickname){
+        PlayerVerwijderenDAO.persoonVerwijderenUitHistoriek("player_game", nickname);
         PlayerVerwijderenDAO.persoonVerwijderen("player", nickname);
     }
     
