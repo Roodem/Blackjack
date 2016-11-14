@@ -15,6 +15,11 @@ import java.sql.Statement;
  * @author Gebruiker
  */
 public class RegisterAdminDAO {
+/*
+ * method inserAdmin - Registreren van nieuwe admin en deze in de database stoppen.
+ * @param name,email, password   
+ */
+  
     public static void insertAdmin(String name, String email, String password)
     {
         String query = "INSERT INTO admin (name, password,  email) VALUES ('" + name + "','" + password + "','" + email + "')";

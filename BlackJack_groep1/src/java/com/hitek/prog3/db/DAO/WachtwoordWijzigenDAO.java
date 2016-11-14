@@ -15,6 +15,12 @@ import java.sql.Statement;
  * @author Gebruiker
  */
 public class WachtwoordWijzigenDAO {
+ /*
+ * method WijzigenWachtwoord - Het wijzigen van een admin wachtwoord
+ * @param email - we geven een email adres mee om een admin record te herkennen. 
+ * @param nieuw - het nieuwe wachtwoord die we vervangen met het oude.   
+ */
+  
     public static void WijzigenWachtwoord(String mail, String nieuw)
     {
         String query = "UPDATE admin SET password=('" + nieuw + "') WHERE email=('" + mail + "') ";

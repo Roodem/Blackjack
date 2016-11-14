@@ -16,7 +16,12 @@ import java.sql.Statement;
  * @author Gebruiker
  */
 public class LoginDAO {
-
+/*
+ * method action - opvragen van een record met de opgegeven email en wachtwoord
+ * @param email, password   
+ * @return count retourneert een integer die we later kunnen gebruiken om te weten of de gegeven parameters overeen komen met wat er in onze database staat. 
+ */
+  
     public static int action(String email, String password) {
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
         int count = 0;
@@ -35,6 +40,11 @@ public class LoginDAO {
         }
         return count;
     }
+/*
+ * method getAllAdmin - opvragen hoeveel records er van admin zijn
+ * @return count - waarbij we verwachten dat dit 0 of 1 is.
+ */
+  
     public static int getAllAdmin()
     {
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);

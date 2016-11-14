@@ -15,7 +15,10 @@ import javax.servlet.http.HttpServletResponse;
  * @author MSI
  */
 public class HistoriekServlet extends HttpServlet {
-    
+/*
+ * method doPost - opvragen van historiek van een bepaalde speler.
+ * @param request, response
+ */    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

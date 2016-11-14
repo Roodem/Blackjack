@@ -12,6 +12,11 @@ import com.hitek.prog3.db.DAO.RegisterAdminDAO;
  * @author Gebruiker
  */
 public class RegisterAdminService {
+/*
+ * method registerAdmin - registreren van een admin account via onze DAO.
+ * @param name, email, password   
+ */
+  
     public void registerAdmin(String name, String email, String password)
     {
         RegisterAdminDAO.insertAdmin(name, email, password);

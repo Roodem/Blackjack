@@ -5,10 +5,8 @@
  */
 package com.hitek.prog3.web;
 
-import com.hitek.prog3.db.service.RegisterAdminService;
 import com.hitek.prog3.db.service.WachtwoordWijzigenService;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

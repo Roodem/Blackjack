@@ -15,7 +15,11 @@ import java.sql.Statement;
  * @author MSI
  */
 public class PlayerAanmakenDAO {
-    
+/*
+ * method persoonWegschrijven - Het wegschrijven van een nieuwe speler
+ * @param tabel, nickname, icoonid, balance   
+ */
+  
     public static void persoonWegschrijven(String tabel, String nickname, String icoonid, int balance){
         String query = "INSERT INTO " + tabel + " (nickname, icoonid,  balance) VALUES ('" + nickname + "','" + icoonid + "','" + balance + "')";
         
@@ -31,6 +35,11 @@ public class PlayerAanmakenDAO {
         }
         
     }
+ /*
+ * method adminSpeler - We geven aan dat een bepaalde speler een admin is.
+ * @param nickname - nickname van het bepaald speel profiel   
+ */
+  
     public static void adminSpeler(String nickname)
     {
         String query = "UPDATE `admin` SET `Playernickname`= '"+nickname+"' ";

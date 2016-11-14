@@ -39,29 +39,39 @@ public class RegisterAdminServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //vraag email op
         String email = request.getParameter("email");
+        //vraag wachtwoord op
         String password = request.getParameter("nieuwWachtwoord");
+        //vraag naam op
         String name = request.getParameter("name");
+        //vraag bevestigings email op
         String confirmPassword = request.getParameter("confirmPassword");
+        //instantie van admin met zijn setters
         Admin admin = new Admin();
         admin.setName(name);
         admin.setEmail(email);
         admin.setPassword(password);
+        
+        //instantie login
         LoginService login = new LoginService();
+        //controleer hoeveel admin records er zijn
         int check = login.getAllAdmin();
-       
+       //als er 0 records zijn dan is er nog geen admin account aan gemaakt.
         if (check == 0) {
-
+             //input controle
             if (email != null && name != null) {
-
+                //valideer email
                 if (Admin.validate(email)) {
                     if (password != null) {
+                        //valideer wachtwoord en bevestiging
                         if (password.equals(confirmPassword)) {
                              RegisterAdminService RA = new RegisterAdminService();
                              RA.registerAdmin(name, email, password);
                             RequestDispatcher view = request.getRequestDispatcher("registersucces.html");
                             view.forward(request, response);
                         } else {
+                            //foutief bericht 
                             String errorConfirmed = "Wachtwoord onjuist bevestigd";
                             request.getServletContext().setAttribute("errorConfirmed", errorConfirmed);
                             RequestDispatcher view = request.getRequestDispatcher("registerAdmin.jsp");
@@ -71,6 +81,7 @@ public class RegisterAdminServlet extends HttpServlet {
                     }
 
                 } else {
+                    //fout bericht foutief email
                     String errormessage = "Ongeldig emailadres. Voorbeeld: Example@example.com";
                     request.getServletContext().setAttribute("errormessage", errormessage);
                     RequestDispatcher view = request.getRequestDispatcher("registerAdmin.jsp");
@@ -79,8 +90,9 @@ public class RegisterAdminServlet extends HttpServlet {
             }
 
         }
-        else if(check >= 1)
+        else if(check >= 1)//als er 1 of meerdere records aanwezig zijn krijgt men een foutbericht
         {
+            
             String errorMaxAdmin = "Er mag slechts 1 hoofdgebruikersaccount per applicatie gemaakt worden.";
             request.getServletContext().setAttribute("errorMaxAdmin",errorMaxAdmin);
             RequestDispatcher view = request.getRequestDispatcher("registerAdmin.jsp");

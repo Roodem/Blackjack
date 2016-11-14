@@ -12,6 +12,11 @@ import com.hitek.prog3.db.DAO.WachtwoordWijzigenDAO;
  * @author Gebruiker
  */
 public class WachtwoordWijzigenService {
+ /*
+ * method WachtwoordWijzigen - wijzigen van een admin wachtwoord
+ * @param email, password   
+ */
+  
    public static void WachtwoordWijzigen(String mail, String wachtwoord)
    {
        WachtwoordWijzigenDAO.WijzigenWachtwoord(mail, wachtwoord);
