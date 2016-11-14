@@ -15,15 +15,15 @@ import model.Icon;
  * @author Stone
  */
 public class IconService {
-    
-    public Icon getIconByID(String icoonnaam){
+
+    public Icon getIconByID(String icoonnaam) {
         return IconDAO.getIconByName(icoonnaam);
-        
+
     }
-    
-    public List<Icon> getAllIcon(){
-         return IconConversie.convertResultsetToList(IconDAO.getAllIcons());
-        
+
+    public List<Icon> getAllIcon() {
+        return IconConversie.convertResultsetToList(IconDAO.getAllIcons());
+
     }
-    
+
 }

@@ -18,33 +18,29 @@ import model.Player;
  * @author Stone
  */
 public class PlayerConversie {
-    
-    public static ArrayList<Player> rsToPlayerList(ResultSet rs){
+
+    public static ArrayList<Player> rsToPlayerList(ResultSet rs) {
         IconService is = new IconService();
         ArrayList playerlist = new ArrayList();
-        try{
+        try {
             while (rs.next()) {
                 //haal icoon op
-              Icon icon =  is.getIconByID(rs.getString("IcoonId"));
-              Player p = new Player();
-              
-              p.setIcon(icon);
-              p.setNickname(rs.getString("nickname"));
-              p.setBalance(rs.getInt("balance"));
-             
-              
-              playerlist.add(p);
-              
-                
+                Icon icon = is.getIconByID(rs.getString("IcoonId"));
+                Player p = new Player();
+
+                p.setIcon(icon);
+                p.setNickname(rs.getString("nickname"));
+                p.setBalance(rs.getInt("balance"));
+
+                playerlist.add(p);
+
             }
-           
-            
-            
-        }catch(SQLException e){
+
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-        
+
         return playerlist;
     }
-    
+
 }

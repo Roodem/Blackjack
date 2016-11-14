@@ -152,7 +152,7 @@ public class Game {
 
     }
 
-    public Date getDate() { 
+    public Date getDate() {
         datum = new java.util.Date();
         java.sql.Date sqlDate = new java.sql.Date(datum.getTime());
         return sqlDate;

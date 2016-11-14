@@ -13,12 +13,12 @@
         <title>Login</title>
     </head>
     <body>
-        <button onclick="location.href='index.jsp'">Hoofdpagina</button>
-         <div class="login">
+        <button onclick="location.href = 'index.jsp'">Hoofdpagina</button>
+        <div class="login">
             <div class="login-screen">
                 <div class="app-title"><h1>Aanmelden</h1></div>
                 <form class="login-form" method="POST" action="LoginServlet"><div class="control-group"> <input type="text" name="username" placeholder="emailadres" required></div>
-                    ${errormessage}
+                        ${errormessage}
                     <div class="control-group">  <input type="password" name="password" placeholder="wachtwoord" required></div>
                     <button class="btn" type="submit" name="login_btn">Aanmelden</button>
                 </form>

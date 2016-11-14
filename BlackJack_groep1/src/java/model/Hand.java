@@ -42,7 +42,7 @@ public class Hand {
     }
 
     public void setBet(int bet) {
-        
+
         this.bet = bet;
     }
 
@@ -78,20 +78,18 @@ public class Hand {
         int totalValue = 0;
         //total waarde berekenen
         for (Card card : cards) {
-            totalValue+= card.getRank().getTrueValue();
-            
+            totalValue += card.getRank().getTrueValue();
+
         }
         //indien azen aanwezig en waarde over 21 waarde herleiden naar 1
         for (Iterator<Card> iterator = cards.iterator(); iterator.hasNext();) {
             Card next = iterator.next();
-            if(next.getRank().equals(Rank.ACE) && totalValue >21){
+            if (next.getRank().equals(Rank.ACE) && totalValue > 21) {
                 totalValue -= 10;
             }
-        
-      
-    
-    }
-          return totalValue;
+
+        }
+        return totalValue;
     }
 
     public HandStatus getStatus() {

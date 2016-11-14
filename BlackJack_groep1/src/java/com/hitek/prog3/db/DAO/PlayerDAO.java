@@ -17,13 +17,13 @@ import model.Player;
  * @author Stone
  */
 public class PlayerDAO {
-    
-    public static void inserPlayer(Player p){
+
+    public static void inserPlayer(Player p) {
         //verder afwerken
     }
-    
-    public static ResultSet getAllPlayers(){
-           String qr = "SELECT * FROM player";
+
+    public static ResultSet getAllPlayers() {
+        String qr = "SELECT * FROM player";
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
         ResultSet rs = null;
         Statement stmt = null;

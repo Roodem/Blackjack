@@ -33,16 +33,15 @@ public class GameInit extends HttpServlet {
             selectedPlayers.add(allPlayers.get(i));
 
         }
-       
-        
+
         Set<Player> playerSet = new HashSet<>();
         playerSet.addAll(selectedPlayers);
         if (playerSet.size() < selectedPlayers.size()) {
-            
-        request.setAttribute("same_player", true);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
-        dispatcher.forward(request, response);
-        return;
+
+            request.setAttribute("same_player", true);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+            dispatcher.forward(request, response);
+            return;
 
         }
 

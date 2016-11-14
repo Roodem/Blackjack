@@ -25,9 +25,10 @@ public class Player {
         hand = new Hand();
         status = GameStatus.PLAYING;
     }
-     public Player() {
-          hand = new Hand();
-          status = GameStatus.PLAYING;
+
+    public Player() {
+        hand = new Hand();
+        status = GameStatus.PLAYING;
     }
 
     public Icon getIcon() {

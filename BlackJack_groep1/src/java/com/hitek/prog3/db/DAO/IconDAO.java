@@ -1,4 +1,4 @@
-    /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -20,42 +20,42 @@ import model.Player;
  * @author Stone
  */
 public class IconDAO {
-    
-     public static Icon getIconByName(String icoonnaam){
+
+    public static Icon getIconByName(String icoonnaam) {
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
         ResultSet rs = null;
         Icon icon = new Icon();
-               
-        try{
-            String qr = "SELECT * FROM icoon WHERE icoonnaam = '"+ icoonnaam +"' ";
+
+        try {
+            String qr = "SELECT * FROM icoon WHERE icoonnaam = '" + icoonnaam + "' ";
             PreparedStatement stmt = con.prepareStatement(qr);
             rs = stmt.executeQuery();
-            
-            if(rs.next()){
+
+            if (rs.next()) {
                 icon.setNaam(rs.getString("icoonnaam"));
                 icon.setUrl(rs.getString("icoonurl"));
             }
-        }catch(SQLException e){
-            
+        } catch (SQLException e) {
+
             e.printStackTrace();
         }
         return icon;
     }
-     
-     public static ResultSet getAllIcons(){
+
+    public static ResultSet getAllIcons() {
         String query = "SELECT * FROM icoon";
-        
+
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
         ResultSet rs = null;
         Statement stmt = null;
-               
-        try{
+
+        try {
             stmt = con.createStatement();
-            rs=stmt.executeQuery(query);
-        }catch(SQLException e){
+            rs = stmt.executeQuery(query);
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return rs;
     }
-    
+
 }

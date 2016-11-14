@@ -22,17 +22,15 @@ public class spelerVerwijderenServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         String naam = request.getParameter("naam");
-        
+
         PlayerService persoon = new PlayerService();
         persoon.persoonVerwijderen(naam);
-        
-       
-        
+
         RequestDispatcher view = request.getRequestDispatcher("spelerVerwijderen.jsp");
-                view.forward(request, response);
-        
+        view.forward(request, response);
+
     }
 
 }

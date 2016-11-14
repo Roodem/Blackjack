@@ -10,18 +10,19 @@ import java.util.regex.Pattern;
  *
  * @author PreachedMeat
  */
-public class Admin  {
-    
+public class Admin {
+
     private String password;
     private String email;
     private String name;
-    
+
     public static final Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
-   
+
     public Admin() {
-        
+
     }
-    public void setCredits(Player user, int amount){
+
+    public void setCredits(Player user, int amount) {
         user.setBalance(amount);
     }
 
@@ -32,13 +33,14 @@ public class Admin  {
     public String getPassword() {
         return password;
     }
-    
+
     /**
-     *methode validate - valideer een email met regex
+     * methode validate - valideer een email met regex
+     *
      * @return true of false
      */
-     public static boolean validate(String emailStr) {
-        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(emailStr);
+    public static boolean validate(String emailStr) {
+        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
         return matcher.find();
     }
 
@@ -57,7 +59,5 @@ public class Admin  {
     public String getName() {
         return name;
     }
-    
-     
-     
+
 }

@@ -4,16 +4,16 @@
 <html>
     <head>
         <title>Blackjack</title>
-  
+
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style type="text/css">
-           @font-face{
+            @font-face{
                 font-family: starwars;
                 src:url('css/fonts/OptimusPrincepsSemiBold.ttf');
             }
             body{
-              background-color: black;
+                background-color: black;
             }
             section{
                 width:1300px;
@@ -31,7 +31,7 @@
                 background-size: 1300px;
                 background-repeat: no-repeat;
             }
-     
+
             .container{
                 margin-top: 50px;
                 width: 400px;
@@ -40,49 +40,49 @@
             }
             a{
                 font-size:55px;
-               float: left;
-               text-decoration: none;
-               color:silver;
-              font-family: "starwars";
-       
+                float: left;
+                text-decoration: none;
+                color:silver;
+                font-family: "starwars";
+
             }
             a:hover{
                 text-decoration: underline;
             }
-           
+
             div:nth-of-type(1){
-             float:right;   
+                float:right;   
             }
             h1, h2{
                 color: silver;
-                 font-family: "starwars";
+                font-family: "starwars";
             }
             section img{
                 margin-top: 0px;
-             width: 450px;
-             margin-left: auto;
-             margin-right: auto;
-             display: block;
-             clear: both;
+                width: 450px;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+                clear: both;
             }
             .warning{
                 margin-bottom: 20px;
                 color:red;
             }
         </style>
-        
+
     </head>
     <body>
-     
+
         <section>
-     
+
             <a href="help.html">?</a>
-                   
+
             <div>
-                <input type="button" value="BEHEER" onclick="location.href='beheer.jsp';">
-        </div>
-            
-               <img src="images/background/background-starwars-logo.png">
+                <input type="button" value="BEHEER" onclick="location.href = 'beheer.jsp';">
+            </div>
+
+            <img src="images/background/background-starwars-logo.png">
             <div class="container">
                 <h1>BLACKJACK</h1>
                 <h2>aantal spelers kiezen</h2>  
@@ -99,11 +99,11 @@
             <c:if test="${requestScope.same_player}">
                 <p class="warning">Iedereen moet een ander profiel kiezen</p>
             </c:if>
-                 <c:if test="${requestScope.noplayernocredits}">
+            <c:if test="${requestScope.noplayernocredits}">
                 <p class="warning">Niemand heeft nog credits</p>
             </c:if>
-            
-        <% session.invalidate();%>
-       </section>
+
+            <% session.invalidate();%>
+        </section>
     </body>
 </html>

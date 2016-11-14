@@ -46,7 +46,7 @@
                 font-weight: bold;
                 -webkit-transition-duration: 0.8s; /* Safari */
                 transition-duration: 0.3s;
-                
+
                 margin-top: -5px;
             }
             form input{
@@ -55,7 +55,7 @@
             form select{
                 float: left;
             }
-            
+
         </style>
     </head>
     <body background="images/background/darth-vader.jpg" >
@@ -65,54 +65,55 @@
                 response.sendRedirect("login.jsp");
             }
         %>
-        
-        
-        
-        
+
+
+
+
         <h3 style="text-decoration:underline;" align=center>HISTORIEK</h3>
-            <%
-                ResultSet rs = HistoriekService.volledigHistoriekWeergeven();
-                int count  = 0;
-            %>
-                <TABLE align="center" style="width:30%; border-color:silver;" BORDER="1">
-                    <TR >
-                        <TH>GAME ID</TH>
-                        <TH>DATUM</TH>
-                        <TH>BALANCE</TH>
-                    </TR>
-                    <% while (rs.next() && count <= 8) {%>
-                    <TR>
-                        <TD align="center"> <%= rs.getInt("GamegameId")%></TD>
-                        <TD align="center"> <%= rs.getString("Playernickname")%></TD>
-                        <TD align="center"> <%= rs.getString("balance")%></TD>
-                    </TR>
-                    <% count++; } %>
-                </TABLE><br><br>
-            
+        <%
+            ResultSet rs = HistoriekService.volledigHistoriekWeergeven();
+            int count = 0;
+        %>
+        <TABLE align="center" style="width:30%; border-color:silver;" BORDER="1">
+            <TR >
+                <TH>GAME ID</TH>
+                <TH>DATUM</TH>
+                <TH>BALANCE</TH>
+            </TR>
+            <% while (rs.next() && count <= 8) {%>
+            <TR>
+                <TD align="center"> <%= rs.getInt("GamegameId")%></TD>
+                <TD align="center"> <%= rs.getString("Playernickname")%></TD>
+                <TD align="center"> <%= rs.getString("balance")%></TD>
+            </TR>
+            <% count++;
+                } %>
+        </TABLE><br><br>
+
         <form action="HistoriekServlet" method="post">        
             <div style=" width: 150px;" align="center">
-                    <select name="naam">  
-                        <%
-                            PlayerService sor = new PlayerService();
-                            List<Player> result = sor.getAllPlayersName();
-                            Iterator<Player> iterator = result.iterator();
-                            while (iterator.hasNext()) {
-                                String naam = iterator.next().getNickname();
-                                out.write("<option value='" + naam + "'>");
-                                out.write("" + naam + "");
-                                out.write("</option>");
-                                out.write("<br>");
-                            }
+                <select name="naam">  
+                    <%
+                        PlayerService sor = new PlayerService();
+                        List<Player> result = sor.getAllPlayersName();
+                        Iterator<Player> iterator = result.iterator();
+                        while (iterator.hasNext()) {
+                            String naam = iterator.next().getNickname();
+                            out.write("<option value='" + naam + "'>");
+                            out.write("" + naam + "");
+                            out.write("</option>");
+                            out.write("<br>");
+                        }
 
-                        %>
-                    </select>
-                    <input type="submit" value="OK"/>
+                    %>
+                </select>
+                <input type="submit" value="OK"/>
             </div>
 
         </form>
         <br><br><br> 
-        
-        
+
+
         <TABLE align="center" BORDER="1" style="width: 30%; ">
             <TR>
                 <TH>GAME ID</TH>

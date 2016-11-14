@@ -10,6 +10,7 @@ package model;
  * @author PreachedMeat
  */
 public class Dealer {
+
     private Icon icon;
     private Hand hand;
     private int minStand;
@@ -25,6 +26,7 @@ public class Dealer {
     public Icon getIcon() {
         return icon;
     }
+
     public int getMinStand() {
         return minStand;
     }
@@ -32,7 +34,7 @@ public class Dealer {
     public int getMinDraw() {
         return minDraw;
     }
-    
+
     public Hand getHand() {
         return hand;
     }

@@ -20,7 +20,7 @@
                 color: silver; 
                 background-color:black;
                 font-family: "starwars";
-                    
+
             }
             #container{
                 width:1300px;
@@ -70,14 +70,14 @@
             </c:if>
             <form method="POST" action="GameInit">
                 <c:forEach begin="1" end="${requestScope.aantal}" >
-                    
+
                     <select name="spelers">
                         <c:forEach items="${sessionScope.allplayers}" var="player" varStatus="count">
                             <option value="${count.index.toString()}">${player.getNickname()}</option>
                         </c:forEach>
                     </select>
-                        
-                      
+
+
                 </c:forEach><br><br><br>
                 <input type="submit" value="start spel"/>
 
@@ -85,9 +85,9 @@
             <c:if test="${requestScope.nocreditplayers.size() > 0}">
                 <p style="color:red;">volgende spelers hebben geen credits meer</p>
                 <ul>
-                <c:forEach items="${requestScope.nocreditplayers}" var="player">
-                    <li>${player.getNickname()}</li>
-                </c:forEach>
+                    <c:forEach items="${requestScope.nocreditplayers}" var="player">
+                        <li>${player.getNickname()}</li>
+                        </c:forEach>
                 </ul>
             </c:if>  
         </div>

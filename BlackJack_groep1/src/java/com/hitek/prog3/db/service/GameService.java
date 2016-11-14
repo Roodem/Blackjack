@@ -13,16 +13,17 @@ import java.util.Date;
  * @author Stone
  */
 public class GameService {
-    public void gameToevoegen(Date datum, int aantalSpelers){
+
+    public void gameToevoegen(Date datum, int aantalSpelers) {
         GameDAO.datumEnAantalSpelersWijzigen("game", datum, aantalSpelers);
     }
-    
-    public void winstWegschrijven(int GamegameID, int balance, String playernickname){
+
+    public void winstWegschrijven(int GamegameID, int balance, String playernickname) {
         GameDAO.winstWegschrijven("player_game", GamegameID, balance, playernickname);
     }
-    
-    public int gameIdOphalen(){
-        return GameDAO.laatsteGameIdOphalen("game","gameID");
+
+    public int gameIdOphalen() {
+        return GameDAO.laatsteGameIdOphalen("game", "gameID");
     }
-    
+
 }

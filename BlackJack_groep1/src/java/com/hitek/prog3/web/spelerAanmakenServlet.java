@@ -20,43 +20,35 @@ public class spelerAanmakenServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-       
+
         String naam = request.getParameter("naam");
         String icoon = request.getParameter("icoon");
         //admin checkbox
         String checkAdmin = request.getParameter("adminAccount");
-        String b =null;
-        
-        
+        String b = null;
+
         PlayerService ps = new PlayerService();
         List<Player> lijstPlayersName = ps.getAllPlayersName();
-        
+
         Boolean bestaatNiet = false;
-            
-                
-        for(Player ps2 : lijstPlayersName ){
-            if(naam.equalsIgnoreCase(ps2.getNickname())){
+
+        for (Player ps2 : lijstPlayersName) {
+            if (naam.equalsIgnoreCase(ps2.getNickname())) {
                 bestaatNiet = false;
                 break;
-            }
-            else{
+            } else {
                 ps.persoonToevoegen(icoon, naam);
                 bestaatNiet = true;
             }
         }
-        if(bestaatNiet==true){
-             b="Gebruikers is toegevoegd";
+        if (bestaatNiet == true) {
+            b = "Gebruikers is toegevoegd";
+        } else {
+            b = "Naam is bezet, gelieve een ander speler naam te kiezen";
         }
-        
-        else
-        {
-            b="Naam is bezet, gelieve een ander speler naam te kiezen";
-        }
-        
-        if(checkAdmin != null)
-        {
-           ps.adminAccount(naam);
+
+        if (checkAdmin != null) {
+            ps.adminAccount(naam);
         }
         request.setAttribute("b", b);
         RequestDispatcher view = request.getRequestDispatcher("spelerAanmaken.jsp");

@@ -11,21 +11,21 @@ import model.Player;
  * @author MSI
  */
 public class PlayerNaamConversie {
-    
-    public static List<Player> rsToPlayerList(ResultSet rs){
-        
+
+    public static List<Player> rsToPlayerList(ResultSet rs) {
+
         List playerlist = new ArrayList();
-        try{
+        try {
             while (rs.next()) {
                 Player p = new Player();
                 p.setNickname(rs.getString("nickname"));
                 playerlist.add(p);
             }
-        }catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-        
+
         return playerlist;
     }
-    
+
 }

@@ -10,11 +10,10 @@ package model;
  * @author PreachedMeat
  */
 public class Card {
-    
+
     private Rank rank;
     private Suit suit;
     private Boolean visible;
-    
 
     public Card(Rank rank, Suit suit) {
         this.rank = rank;
@@ -25,7 +24,7 @@ public class Card {
     public Boolean getVisible() {
         return visible;
     }
-    
+
     public Card() {
     }
 
@@ -41,15 +40,11 @@ public class Card {
         this.visible = visible;
     }
 
-    
-    
- 
-    
     @Override
-    public String toString(){
+    public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(suit).append(rank);
         return sb.toString();
     }
-    
+
 }

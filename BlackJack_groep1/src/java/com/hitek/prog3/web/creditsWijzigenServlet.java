@@ -22,29 +22,26 @@ public class creditsWijzigenServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         String naam = request.getParameter("naam");
         int credit = Integer.parseInt(request.getParameter("credit"));
-        
-        
-        
+
         PlayerService persoon = new PlayerService();
-        if(credit == 10){
-        persoon.persoonCreditsWijzigen(credit, naam);
+        if (credit == 10) {
+            persoon.persoonCreditsWijzigen(credit, naam);
         }
-        if(credit == 50){
-        persoon.persoonCreditsWijzigen(credit, naam);
+        if (credit == 50) {
+            persoon.persoonCreditsWijzigen(credit, naam);
         }
-        if(credit == 100){
-        persoon.persoonCreditsWijzigen(credit, naam);
+        if (credit == 100) {
+            persoon.persoonCreditsWijzigen(credit, naam);
         }
-        if(credit == 500){
-        persoon.persoonCreditsWijzigen(credit, naam);
+        if (credit == 500) {
+            persoon.persoonCreditsWijzigen(credit, naam);
         }
-        
+
         RequestDispatcher view = request.getRequestDispatcher("/creditsWijzigen.jsp");
-                view.forward(request, response);
-        
-        
+        view.forward(request, response);
+
     }
 }

@@ -1,13 +1,13 @@
   
-            #container{
+#container{
 
 
-                float:left;
-            }
-            #help{
-                width:5%;
-                float:left;
-            }
-            #login{
-                float:right;
-            }
+    float:left;
+}
+#help{
+    width:5%;
+    float:left;
+}
+#login{
+    float:right;
+}

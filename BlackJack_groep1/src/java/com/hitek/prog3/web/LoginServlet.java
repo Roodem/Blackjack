@@ -51,7 +51,7 @@ public class LoginServlet extends HttpServlet {
 
         //vraag de huidige sessie op
         HttpSession session = request.getSession();
-        
+
         //valideer email met regex
         if (Admin.validate(email)) {
             if (check == 0)//er zijn geen records gevonden

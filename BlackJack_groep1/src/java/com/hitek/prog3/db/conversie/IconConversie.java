@@ -16,22 +16,22 @@ import model.Icon;
  * @author MSI
  */
 public class IconConversie {
-    
-    public static List<Icon> convertResultsetToList(ResultSet rs){
-        
+
+    public static List<Icon> convertResultsetToList(ResultSet rs) {
+
         List<Icon> icoonlijst = new ArrayList();
-        
-        try{
-            while(rs.next()){
+
+        try {
+            while (rs.next()) {
                 Icon icon = new Icon();
                 icon.setNaam(rs.getString("icoonnaam"));
                 icon.setUrl(rs.getString("icoonurl"));
                 icoonlijst.add(icon);
             }
-        }catch(SQLException ex){
-            
+        } catch (SQLException ex) {
+
         }
         return icoonlijst;
     }
-    
+
 }

@@ -34,27 +34,20 @@ public class PlayerAction extends HttpServlet {
 
         String action = request.getParameter("action");
         int playernr = Integer.parseInt(request.getParameter("playernr"));
-        
-        
 
         if (action.equals("STAND")) {
-           
-            
-            
+
             game.PlayerStand(game.getPlayers().get(playernr));
-              
+
         }
-        
-        if(action.equals("HIT")){
+
+        if (action.equals("HIT")) {
             game.PlayerHit(game.getPlayers().get(playernr));
         }
-        
-       
-        
-        
-             RequestDispatcher dispatcher = request.getRequestDispatcher("gameplayerround.jsp");
-            dispatcher.forward(request, response);
-       
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("gameplayerround.jsp");
+        dispatcher.forward(request, response);
+
     }
 
 }

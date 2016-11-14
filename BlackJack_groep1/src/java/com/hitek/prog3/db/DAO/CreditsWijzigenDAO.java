@@ -15,10 +15,9 @@ import java.sql.Statement;
  * @author MSI
  */
 public class CreditsWijzigenDAO {
-    
-    public static void CreditsWijzigen(String tabel, int balance, String nickname){
+
+    public static void CreditsWijzigen(String tabel, int balance, String nickname) {
         String query = "UPDATE " + tabel + " SET balance=('" + balance + "') WHERE nickname=('" + nickname + "') ";
-        
 
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
 
@@ -29,6 +28,6 @@ public class CreditsWijzigenDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        
+
     }
 }

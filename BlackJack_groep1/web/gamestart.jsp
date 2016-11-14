@@ -14,9 +14,9 @@
         <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
         <style type="text/css">
             body{
-                 font-family: 'Share Tech Mono', monospace;
-                  color: #ffd700;
-                   background-color: black;
+                font-family: 'Share Tech Mono', monospace;
+                color: #ffd700;
+                background-color: black;
             }
             #container{
                 background-image: url('images/background/starwarsbg.png');
@@ -25,7 +25,7 @@
                 border-radius: 25px;
                 width: 1200px; height:800px; margin-left: auto; margin-right: auto;
                 margin-top: 50px;
-                
+
                 background-repeat: no-repeat;
             }
             #dealer{
@@ -43,7 +43,7 @@
             #playerside{
                 width: 100%;
                 height: 400px;
-             
+
             }
             #player{
                 text-align: center;
@@ -63,7 +63,7 @@
             }
             #warning{
                 color:red;
-                
+
             }
 
         </style>
@@ -88,26 +88,26 @@
 
                 <img class="dealer_img" src="${game.getDealer().getIcon().getUrl()}" alt="dealer"/>
             </div>
-            
-        <form name="placebet" action="GameCardRound" method="POST">
-            <div id="playerside">
-                <c:forEach items="${game.getPlayers()}" var="player" varStatus="count">
-                    <div id="player">
-                        <img class="player_icon" src="${player.getIcon().getUrl()}" alt="${player.getNickname()}"/>
-                        <h4>${player.getNickname()}</h4>
-                        <p>balance: ${player.getBalance()}</p>
+
+            <form name="placebet" action="GameCardRound" method="POST">
+                <div id="playerside">
+                    <c:forEach items="${game.getPlayers()}" var="player" varStatus="count">
+                        <div id="player">
+                            <img class="player_icon" src="${player.getIcon().getUrl()}" alt="${player.getNickname()}"/>
+                            <h4>${player.getNickname()}</h4>
+                            <p>balance: ${player.getBalance()}</p>
 
 
-                        <label>Bet:</label><input type="number" value="1" min="1" max="${player.getBalance()}"  name="bet"/><br>
+                            <label>Bet:</label><input type="number" value="1" min="1" max="${player.getBalance()}"  name="bet"/><br>
 
 
-                    </div>
-                </c:forEach>
-            </div>
-            <div id="controls">
-            <input type="submit" name="dealcards" value="Deal Cards"/>
-            </div>
-        </form>
-    </div>
-</body>
+                        </div>
+                    </c:forEach>
+                </div>
+                <div id="controls">
+                    <input type="submit" name="dealcards" value="Deal Cards"/>
+                </div>
+            </form>
+        </div>
+    </body>
 </html>

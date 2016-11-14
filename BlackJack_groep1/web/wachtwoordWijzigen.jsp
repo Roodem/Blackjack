@@ -12,7 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Wachtwoord wijzigen</title>
         <style type="text/css">
-            
+
             form:nth-of-type(1)>input{
                 padding:10px;
                 color:white;    
@@ -26,7 +26,7 @@
                 border-radius: 20px;
                 cursor: auto;
                 background-color: black;
-                
+
             }
             form:nth-of-type(1)>input:nth-of-type(2):hover{
                 margin-left: 0px;
@@ -59,14 +59,13 @@
                 -webkit-transition-duration: 0.8s; /* Safari */
                 transition-duration: 0.3s;
             }
-          
+
         </style>
     </head>
 
     <body background="images/background/darth-vader.jpg"    >
         <%
-            if(session.getAttribute("email")==null)
-            {
+            if (session.getAttribute("email") == null) {
                 response.sendRedirect("login.jsp");
             }
         %>
@@ -81,14 +80,14 @@
             <button type="submit" class="pure-button pure-button-primary">OK</button>
         </form>
 
-            <aside>
-            <input type="button" value="Speler Aanmaken" onclick="location.href='spelerAanmaken.jsp';"><br><br>
-            <input type="button" value="Speler Verwijderen" onclick="location.href='spelerVerwijderen.jsp';"><br><br>
-            <input type="button" value="Credits Wijzigen" onclick="location.href='creditsWijzigen.jsp';"><br><br>
-            <input type="button" value="Wachtwoord Wijzigen" onclick="location.href='wachtwoordWijzigen.jsp';"><br><br>
-            <input type="button" value="Historiek" onclick="location.href='historiek.jsp';"><br><br>
-            <input type="button" value="Beheer Afsluiten" name="afsluiten" onclick="location.href='index.jsp';">
-           
+        <aside>
+            <input type="button" value="Speler Aanmaken" onclick="location.href = 'spelerAanmaken.jsp';"><br><br>
+            <input type="button" value="Speler Verwijderen" onclick="location.href = 'spelerVerwijderen.jsp';"><br><br>
+            <input type="button" value="Credits Wijzigen" onclick="location.href = 'creditsWijzigen.jsp';"><br><br>
+            <input type="button" value="Wachtwoord Wijzigen" onclick="location.href = 'wachtwoordWijzigen.jsp';"><br><br>
+            <input type="button" value="Historiek" onclick="location.href = 'historiek.jsp';"><br><br>
+            <input type="button" value="Beheer Afsluiten" name="afsluiten" onclick="location.href = 'index.jsp';">
+
         </aside>
     </body>
 </html>

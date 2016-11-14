@@ -74,7 +74,7 @@
 
 
             }
-             #controls{
+            #controls{
                 position: absolute;
                 top: 100px;
                 left: 100px ;
@@ -148,8 +148,8 @@
                         <input type="submit" name="dealerround" value="reveal dealer"/>
                     </form>
                 </div>
-                </c:if>
-            </div>
+            </c:if>
+        </div>
 
     </body>
 </html>

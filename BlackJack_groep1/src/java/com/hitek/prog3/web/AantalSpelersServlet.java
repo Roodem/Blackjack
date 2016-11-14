@@ -29,11 +29,10 @@ public class AantalSpelersServlet extends HttpServlet {
             throws ServletException, IOException {
         //control op profielen met 0 credits
         // lijst met alle speler objecten ophalen
-        
+
         PlayerService ps = new PlayerService();
         ArrayList<Player> allPlayers = new ArrayList<>();
         allPlayers = ps.getAllPlayers();
-       
 
         int aantal = Integer.parseInt(request.getParameter("aantalspelers"));
 
@@ -43,37 +42,33 @@ public class AantalSpelersServlet extends HttpServlet {
         }
 
         ArrayList<Player> playersNoCredits = new ArrayList<>();
-        
+
         //allplayers checken op genoeg credits
         for (ListIterator<Player> iterator = allPlayers.listIterator(); iterator.hasNext();) {
             Player next = iterator.next();
             if (next.getBalance() < 1) {
                 playersNoCredits.add(next);
-              
 
             }
 
         }
-        
+
         for (ListIterator<Player> iterator = playersNoCredits.listIterator(); iterator.hasNext();) {
             Player next = iterator.next();
             if (next.getBalance() < 1) {
                 allPlayers.remove(next);
-              
 
             }
 
         }
-      
-            request.setAttribute("nocreditplayers", playersNoCredits);
-           
-        
+
+        request.setAttribute("nocreditplayers", playersNoCredits);
 
         request.getSession().setAttribute("allplayers", allPlayers);
         request.setAttribute("aantal", aantal);
         RequestDispatcher view = request.getRequestDispatcher("profielkiezen.jsp");
         view.forward(request, response);
-        
+
     }
 
 }

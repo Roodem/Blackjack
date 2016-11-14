@@ -52,22 +52,22 @@ public class RegisterAdminServlet extends HttpServlet {
         admin.setName(name);
         admin.setEmail(email);
         admin.setPassword(password);
-        
+
         //instantie login
         LoginService login = new LoginService();
         //controleer hoeveel admin records er zijn
         int check = login.getAllAdmin();
-       //als er 0 records zijn dan is er nog geen admin account aan gemaakt.
+        //als er 0 records zijn dan is er nog geen admin account aan gemaakt.
         if (check == 0) {
-             //input controle
+            //input controle
             if (email != null && name != null) {
                 //valideer email
                 if (Admin.validate(email)) {
                     if (password != null) {
                         //valideer wachtwoord en bevestiging
                         if (password.equals(confirmPassword)) {
-                             RegisterAdminService RA = new RegisterAdminService();
-                             RA.registerAdmin(name, email, password);
+                            RegisterAdminService RA = new RegisterAdminService();
+                            RA.registerAdmin(name, email, password);
                             RequestDispatcher view = request.getRequestDispatcher("registersucces.html");
                             view.forward(request, response);
                         } else {
@@ -89,14 +89,13 @@ public class RegisterAdminServlet extends HttpServlet {
                 }
             }
 
-        }
-        else if(check >= 1)//als er 1 of meerdere records aanwezig zijn krijgt men een foutbericht
+        } else if (check >= 1)//als er 1 of meerdere records aanwezig zijn krijgt men een foutbericht
         {
-            
+
             String errorMaxAdmin = "Er mag slechts 1 hoofdgebruikersaccount per applicatie gemaakt worden.";
-            request.getServletContext().setAttribute("errorMaxAdmin",errorMaxAdmin);
+            request.getServletContext().setAttribute("errorMaxAdmin", errorMaxAdmin);
             RequestDispatcher view = request.getRequestDispatcher("registerAdmin.jsp");
-            view.forward(request,response);
+            view.forward(request, response);
         }
 
     }

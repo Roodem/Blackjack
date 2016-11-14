@@ -13,23 +13,22 @@
         <title>Beheerder</title>
 
     </head>
-      <body background="images/background/darth-vader.jpg">
+    <body background="images/background/darth-vader.jpg">
         <%
-            if(session.getAttribute("email")==null)
-            {
+            if (session.getAttribute("email") == null) {
                 response.sendRedirect("login.jsp");
             }
-            %>
+        %>
         <h3>Opties</h3><br><br><br><br><br><br>
         <aside>
-            <input type="button" value="Speler Aanmaken" onclick="location.href='spelerAanmaken.jsp';"><br><br>
-            <input type="button" value="Speler Verwijderen" onclick="location.href='spelerVerwijderen.jsp';"><br><br>
-            <input type="button" value="Credits Wijzigen" onclick="location.href='creditsWijzigen.jsp';"><br><br>
-            <input type="button" value="Wachtwoord Wijzigen" onclick="location.href='wachtwoordWijzigen.jsp';"><br><br>
-            <input type="button" value="Historiek" onclick="location.href='historiek.jsp';"><br><br>
-            <input type="button" value="Beheer Afsluiten" name="afsluiten" onclick="location.href='index.jsp';">
-           
+            <input type="button" value="Speler Aanmaken" onclick="location.href = 'spelerAanmaken.jsp';"><br><br>
+            <input type="button" value="Speler Verwijderen" onclick="location.href = 'spelerVerwijderen.jsp';"><br><br>
+            <input type="button" value="Credits Wijzigen" onclick="location.href = 'creditsWijzigen.jsp';"><br><br>
+            <input type="button" value="Wachtwoord Wijzigen" onclick="location.href = 'wachtwoordWijzigen.jsp';"><br><br>
+            <input type="button" value="Historiek" onclick="location.href = 'historiek.jsp';"><br><br>
+            <input type="button" value="Beheer Afsluiten" name="afsluiten" onclick="location.href = 'index.jsp';">
+
         </aside>
-        
+
     </body>
 </html>

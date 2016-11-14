@@ -10,6 +10,6 @@ package model;
  * @author PreachedMeat
  */
 public enum Suit {
-     SPADES, CLUBS, HEARTS, DIAMONDS; 
-    
+    SPADES, CLUBS, HEARTS, DIAMONDS;
+
 }

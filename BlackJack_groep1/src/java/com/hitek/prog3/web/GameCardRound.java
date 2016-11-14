@@ -25,9 +25,6 @@ import model.Player;
  */
 public class GameCardRound extends HttpServlet {
 
-   
-   
-
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -39,30 +36,25 @@ public class GameCardRound extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-          
-          Game game = (Game) request.getSession().getAttribute("game");
-         
-          //bets aanvaarden spelers
-           String[] test = request.getParameterValues("bet");
-           int[] bets = Arrays.stream(test).mapToInt(Integer::parseInt).toArray();
-          
-           
-           int i = 0;
-           for (Player player : game.getPlayers()) {
-               player.getHand().setBet(bets[i]);
-               i++;
-              
-            
+
+        Game game = (Game) request.getSession().getAttribute("game");
+
+        //bets aanvaarden spelers
+        String[] test = request.getParameterValues("bet");
+        int[] bets = Arrays.stream(test).mapToInt(Integer::parseInt).toArray();
+
+        int i = 0;
+        for (Player player : game.getPlayers()) {
+            player.getHand().setBet(bets[i]);
+            i++;
+
         }
-           
-          game.CardDistribution();
-          
-          
-           RequestDispatcher dispatcher = request.getRequestDispatcher("gameplayerround.jsp");
-           dispatcher.forward(request, response);
-          
+
+        game.CardDistribution();
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("gameplayerround.jsp");
+        dispatcher.forward(request, response);
+
     }
-    
-    
 
 }

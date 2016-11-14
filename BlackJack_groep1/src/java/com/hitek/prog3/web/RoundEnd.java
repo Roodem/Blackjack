@@ -32,9 +32,9 @@ public class RoundEnd extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         Game currentGame = (Game) request.getSession().getAttribute("game");
-        
+
         ArrayList<Player> currentPlayers = currentGame.getPlayers();
 
         String newround = request.getParameter("newround");
@@ -49,19 +49,19 @@ public class RoundEnd extends HttpServlet {
                 String name = player.getNickname();
                 int gameid = game.gameIdOphalen();
                 credit.persoonCreditsWijzigen(balance, name);
-                
+
                 game.winstWegschrijven(gameid, balance, name);
             }
-            
+
             int aantal = currentGame.getPlayers().size();
             Date datum = currentGame.getDate();
             GameService game2 = new GameService();
             game2.gameToevoegen(datum, aantal);
-            
+
             HttpSession session = request.getSession(false);
             if (session != null) {
                 session.invalidate();
-                  
+
                 response.sendRedirect("index.jsp");
                 return;
             }
@@ -72,65 +72,58 @@ public class RoundEnd extends HttpServlet {
             for (Player player : currentPlayers) {
                 int balance = player.getBalance();
                 String name = player.getNickname();
-                
-                
+
                 int gameid = game.gameIdOphalen();
-                
+
                 credit.persoonCreditsWijzigen(balance, name);
                 game.winstWegschrijven(gameid, balance, name);
             }
-            
+
             int aantal = currentGame.getPlayers().size();
             Date datum = currentGame.getDate();
             GameService game2 = new GameService();
             game2.gameToevoegen(datum, aantal);
-            
-            
-          //controle of er spelers zijn zonder credits
+
+            //controle of er spelers zijn zonder credits
             ArrayList<Player> playersNoCredits = new ArrayList<>();
             boolean nocredits = false;
             for (Player player : currentPlayers) {
                 if (player.getBalance() < 1) {
                     playersNoCredits.add(player);
                     nocredits = true;
-                   
+
                 }
             }
 
             if (nocredits) {
-              currentPlayers.removeAll(playersNoCredits);
-              request.setAttribute("playernocredits", playersNoCredits);
+                currentPlayers.removeAll(playersNoCredits);
+                request.setAttribute("playernocredits", playersNoCredits);
 
             }
-            
+
             //alle spelers hebben geen credits meer
-            if(currentPlayers.isEmpty()){
-            request.setAttribute("noplayernocredits", true);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
-            dispatcher.forward(request, response);
-            }
-            
-            
-            
-        }
-            
-            for (Player player : currentPlayers) {
-                player.setHand(new Hand());
-
+            if (currentPlayers.isEmpty()) {
+                request.setAttribute("noplayernocredits", true);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+                dispatcher.forward(request, response);
             }
 
-            //new game      
-            Game newGame = new Game(currentPlayers);
+        }
 
-            //request.getSession(false).invalidate();                    
-            request.getSession(true).setAttribute("game", newGame);
-
-            RequestDispatcher dispatcher = request.getRequestDispatcher("gamestart.jsp");
-            dispatcher.forward(request, response);
+        for (Player player : currentPlayers) {
+            player.setHand(new Hand());
 
         }
-    
 
- 
+        //new game      
+        Game newGame = new Game(currentPlayers);
+
+        //request.getSession(false).invalidate();                    
+        request.getSession(true).setAttribute("game", newGame);
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("gamestart.jsp");
+        dispatcher.forward(request, response);
+
+    }
 
 }

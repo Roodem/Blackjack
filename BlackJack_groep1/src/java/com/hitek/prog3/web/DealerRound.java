@@ -41,27 +41,22 @@ public class DealerRound extends HttpServlet {
 
         }
         request.setAttribute("playeraction", playeractionscomplete);
-        if(playeractionscomplete){
-                while(game.getDealer().getHand().getStatus() == HandStatus.OTHER){
-                        game.DealerHit(game.getDealer());
-                }
-                
-                
-                game.evaluateGame();
-                game.distributePayments();
-                
-                RequestDispatcher dispatcher = request.getRequestDispatcher("dealercardround.jsp");
-           dispatcher.forward(request, response);
-                
-                
+        if (playeractionscomplete) {
+            while (game.getDealer().getHand().getStatus() == HandStatus.OTHER) {
+                game.DealerHit(game.getDealer());
             }
-        
-        
-        else{
-            
+
+            game.evaluateGame();
+            game.distributePayments();
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("dealercardround.jsp");
+            dispatcher.forward(request, response);
+
+        } else {
+
             response.sendRedirect("gameplayerround.jsp");
         }
-        
+
     }
 
     /**

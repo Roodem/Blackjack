@@ -24,7 +24,6 @@ public class Deck {
         cards = new ArrayList<>();
         fillDeck();
         shuffle();
-        
 
     }
 
@@ -80,23 +79,23 @@ public class Deck {
         Collections.shuffle(cards);
     }
 
-    
     public void removeCardFromDeck(Card card) {
-        
+
         cards.remove(card);
-        
+
     }
-    
-    public void addCardToDeck(Card card){
-        
+
+    public void addCardToDeck(Card card) {
+
         cards.add(card);
     }
-    
+
     /**
      * neemt de eerst kaar uit het deck
+     *
      * @return de eerst genomen kaart van het deck
      */
-    public Card  drawCardFromDeck(){
+    public Card drawCardFromDeck() {
         //controle op kaarten aanwezig
         Card card = cards.get(0);
         removeCardFromDeck(cards.get(0));

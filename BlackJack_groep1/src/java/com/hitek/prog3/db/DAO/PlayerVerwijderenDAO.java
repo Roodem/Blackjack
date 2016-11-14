@@ -15,10 +15,9 @@ import java.sql.Statement;
  * @author MSI
  */
 public class PlayerVerwijderenDAO {
-    
-    public static void persoonVerwijderen(String tabel, String nickname){
+
+    public static void persoonVerwijderen(String tabel, String nickname) {
         String query = "DELETE FROM " + tabel + " WHERE nickname='" + nickname + "'";
-        
 
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
 
@@ -29,11 +28,11 @@ public class PlayerVerwijderenDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        
+
     }
-    public static void persoonVerwijderenUitHistoriek(String tabel, String nickname){
+
+    public static void persoonVerwijderenUitHistoriek(String tabel, String nickname) {
         String query = "DELETE FROM " + tabel + " WHERE Playernickname='" + nickname + "'";
-        
 
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
 
@@ -44,7 +43,7 @@ public class PlayerVerwijderenDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        
+
     }
-    
+
 }

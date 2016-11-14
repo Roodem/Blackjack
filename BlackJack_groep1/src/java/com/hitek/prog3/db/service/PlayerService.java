@@ -20,31 +20,30 @@ import model.Player;
  * @author Stone
  */
 public class PlayerService {
-    
-    public ArrayList<Player> getAllPlayers(){
+
+    public ArrayList<Player> getAllPlayers() {
         return PlayerConversie.rsToPlayerList(PlayerDAO.getAllPlayers());
     }
-    
-    public List<Player> getAllPlayersName(){
+
+    public List<Player> getAllPlayersName() {
         return PlayerNaamConversie.rsToPlayerList(PlayerDAO.getAllPlayers());
     }
-    
-    public void persoonToevoegen(String icoonid, String nickname){
+
+    public void persoonToevoegen(String icoonid, String nickname) {
         PlayerAanmakenDAO.persoonWegschrijven("player", nickname, icoonid, 500);
     }
-   
-    public void persoonVerwijderen(String nickname){
+
+    public void persoonVerwijderen(String nickname) {
         PlayerVerwijderenDAO.persoonVerwijderenUitHistoriek("player_game", nickname);
         PlayerVerwijderenDAO.persoonVerwijderen("player", nickname);
     }
-    
-    public void persoonCreditsWijzigen(int balance,String nickname){
+
+    public void persoonCreditsWijzigen(int balance, String nickname) {
         CreditsWijzigenDAO.CreditsWijzigen("player", balance, nickname);
     }
-    public void adminAccount(String nickname)
-    {
+
+    public void adminAccount(String nickname) {
         PlayerAanmakenDAO.adminSpeler(nickname);
     }
-    
-    
+
 }
