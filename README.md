@@ -1,4 +1,6 @@
 # Blackjack
+Onze leerkracht gaf ons de opdracht om een blackjack game te maken voor kinderen tussen de 7-12 jaar.
+
 Om onze versie van blackjack zo kindvriendelijk mogelijk te maken hebben we enkele aangepaste regels die we hieronder vermelden, alsook de manier hoe winst of verlies zal verdeelt worden alsook de puntentelling. Er werd van ons verwacht dat het spel niet te ingewikkeld was en gemakkelijk maar ook snel kon begrepen worden door uw kind.
 Doel
 
