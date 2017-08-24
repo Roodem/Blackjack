@@ -29,3 +29,6 @@ Elke gebruiker heeft een beginwaarde van credits die werd toegekend door de hoof
 Winst of verlies
 
 Bij winst zal de speler zijn verdiende credits terug krijgen, bij verlies zal de speler zijn inzet verliezen.
+
+
+In onze wiki zult u een uitgebreide analyse vinden met verdere mockups van het project: https://github.com/Roodem/Blackjack/wiki
